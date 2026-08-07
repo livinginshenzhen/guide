@@ -901,14 +901,14 @@
     line-height: 1.6;
 }
 #hkg-embed .hero {
-    background: linear-gradient(135deg, var(--ink) 0%, #134e4a 60%, var(--accent) 100%);
+    background: linear-gradient(135deg, #374151 0%, #4b5563 60%, #6b7280 100%);
     color: #fff;
     padding: 36px 48px 32px;
     position: relative;
     overflow: hidden;
   }
 #hkg-embed .hero::before { content:''; position:absolute; left:-120px; bottom:-120px; width:500px; height:500px; border-radius:50%; background:rgba(255,255,255,0.03); pointer-events:none; }
-#hkg-embed .hero::after { content:''; position:absolute; right:-80px; top:-80px; width:420px; height:420px; border-radius:50%; background:rgba(255,194,32,0.06); pointer-events:none; }
+#hkg-embed .hero::after { content:''; position:absolute; right:-80px; top:-80px; width:420px; height:420px; border-radius:50%; background:rgba(255,255,255,0.05); pointer-events:none; }
 #hkg-embed .hero-inner { position:relative; z-index:1; max-width:900px; margin:0 auto; }
 #hkg-embed .hero-tag { font-size:11px; letter-spacing:3px; text-transform:uppercase; color:var(--accent); font-weight:700; margin-bottom:8px; }
 #hkg-embed .accent-bar { width:40px; height:3px; background:var(--accent); border-radius:2px; margin-bottom:12px; }
@@ -928,12 +928,12 @@
     gap: 6px;
   }
 #hkg-embed .stats-strip {
-    background: var(--ink);
+    background: #374151;
     color: #fff;
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    border-bottom: 3px solid var(--accent);
+    border-bottom: 3px solid #6b7280;
   }
 #hkg-embed .stat-item { padding: 14px 32px; border-right: 1px solid rgba(255,255,255,0.1); text-align: center; }
 #hkg-embed .stat-item:last-child { border-right: none; }
@@ -986,13 +986,13 @@
     font-size: 20px;
     font-weight: 900;
     color: #fff;
-    background: var(--ink);
+    background: #6b7280;
     flex-shrink: 0;
   }
-#hkg-embed .step.blue  .step-num { background: var(--accent); }
-#hkg-embed .step.teal  .step-num { background: var(--teal); }
-#hkg-embed .step.green .step-num { background: var(--green); }
-#hkg-embed .step.accent .step-num { background: #7c2d12; }
+#hkg-embed .step.blue  .step-num { background: #6b7280; }
+#hkg-embed .step.teal  .step-num { background: #6b7280; }
+#hkg-embed .step.green .step-num { background: #6b7280; }
+#hkg-embed .step.accent .step-num { background: #6b7280; }
 #hkg-embed .step-body { padding: 16px 20px; flex: 1; }
 #hkg-embed .step-body h3 {
     font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 5px;
@@ -1022,13 +1022,13 @@
 #hkg-embed .backup {
     background: #fff;
     border-radius: 14px;
-    border: 2px solid #fca5a5;
+    border: 2px solid #d1d5db;
     overflow: hidden;
     margin-bottom: 36px;
-    box-shadow: 0 2px 8px rgba(234,17,0,0.08);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.08);
   }
 #hkg-embed .backup-header {
-    background: linear-gradient(90deg, var(--red), #c0392b);
+    background: linear-gradient(90deg, #4b5563, #374151);
     color: #fff;
     padding: 13px 20px;
     font-weight: 900;
@@ -1045,7 +1045,7 @@
   }
 #hkg-embed .backup-step .bs-num {
     width: 24px; height: 24px; border-radius: 50%;
-    background: var(--red); color: #fff;
+    background: #6b7280; color: #fff;
     font-size: 11px; font-weight: 800;
     display: flex; align-items: center; justify-content: center;
     flex-shrink: 0; margin-top: 1px;
@@ -1060,7 +1060,7 @@
     margin-bottom: 36px;
   }
 #hkg-embed .summary-header {
-    background: var(--ink);
+    background: #374151;
     color: #fff;
     padding: 12px 20px;
     font-weight: 800;
@@ -1098,6 +1098,7 @@
 </script>
 <style>
   body { font-family: 'quire-sans', 'Segoe UI', system-ui, sans-serif; }
+  body, #hkg-embed { font-variant-numeric: lining-nums; font-feature-settings: "lnum"; }
   .tab-btn { border-bottom: 3px solid transparent; transition: all .18s; }
   .tab-btn.active { border-bottom-color: #0f766e; color: #0f766e; font-weight: 700; }
   .tab-btn:hover:not(.active) { border-bottom-color: #d1d5db; color: #374151; }
@@ -1128,6 +1129,12 @@
   .app-card { transition: border-color .18s, background .18s; }
   .app-card:hover { border-color: #0f766e; background: #ccfbf1; }
   svg.icon { display: inline-block; vertical-align: middle; }
+  .bg-brand { background-color: #0f766e; }
+  .bg-brand-lt { background-color: #ccfbf1; }
+  .border-brand { border-color: #0f766e; }
+  .text-brand { color: #0f766e; }
+  .text-brand-dk { color: #115e59; }
+  .text-accent-dk { color: #7c2d12; }
   .fa-icon { width: 1em; height: 1em; vertical-align: -0.125em; }
   .vpn-pill { display: inline-block; background:#ccfbf1; color:#0f766e; border-radius:9999px; padding: 2px 12px; font-size:.8rem; font-weight:600; margin:2px; }
   /* Ample desktop margins, tight on mobile */
@@ -1356,13 +1363,13 @@
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-card"/></svg>
         Money &amp; Banking
       </h2>
-      <p class="text-gray-500 text-sm">Getting money into China takes planning &ndash; wires, ATMs, and WeChat all have quirks that are easier to avoid than fix after the fact.</p>
+      <p class="text-gray-500 text-sm">Getting money into China takes planning &ndash; wires, ATMs, and WeChat all have quirks that are easier to avoid than fix after the fact. Adding credit cards to use in WeChat is simple, but US banks often block charges from China. WeChat can often block charges from hitting the banks.</p>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
       <h3 class="font-bold text-lg flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-transfer"/></svg>
-        Wiring Money to China
+        Moving Money via Wire Transfer
       </h3>
       <p class="text-sm text-gray-500">Funds can be wired in USD or RMB &ndash; the currency you choose changes the process significantly.</p>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
@@ -1392,36 +1399,34 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
       <h3 class="font-bold text-lg flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-card"/></svg>
-        Payments &amp; Cross-Border Transfers
+        Other Methods to Move Money
       </h3>
       <div class="warn-box rounded-lg p-4">
-        <p class="font-semibold text-red-800">Notify Your Bank Before Moving!</p>
-        <p class="text-sm text-red-700 mt-1">Adding credit cards to use in WeChat is simple, but US banks often block charges from China. WeChat can often block charges from hitting the banks. Call customer service proactively to whitelist international payments. If you have authorized users on the same card, simultaneous payments may also trigger a block.</p>
+        <p class="font-semibold text-red-800">Don't forget to notify your bank.</p>
+        <p class="text-sm text-red-700 mt-1">Call customer service proactively to whitelist international payments. If you have authorized users on the same card, simultaneous payments may also trigger a block.</p>
       </div>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
         <div class="good-box rounded-xl p-4">
           <p class="font-bold text-green-800 mb-2 flex items-center gap-1.5">
             <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-transfer"/></svg>
-            Wise App &ndash; Recommended for large transfers
+            Wise App (Recommended)
           </p>
-          <p class="text-gray-700">Transfer from your US bank to your Chinese UnionPay ATM card:</p>
-          <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
-            <li>Up to <strong>30,000 RMB</strong> (~$4,400 USD) per transfer</li>
-            <li>~$100 USD in fees per transfer</li>
-          </ul>
-          <p class="text-xs text-gray-500 mt-2">Setup: US bank as source &rarr; UnionPay ATM card as recipient. Initial setup requires passport-image and face-scan verification &ndash; subsequent transfers are quicker.</p>
+          <p class="text-gray-700">Transfer funds from your US bank to a Chinese bank (via UnionPay ATM card) using Wise. You can transfer up to RMB&yen;30,000 (about USD$4,400) per transfer with about a USD$100 transfer fee. Initial setup requires passport-image and face-scan verification, but subsequent transfers are quicker.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold text-gray-500 mb-2 flex items-center gap-1.5">
             <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg>
-            ICBC ATM &ndash; The Painful Option
+            ATM Transfers
           </p>
-          <p class="text-gray-500">Max ~3,500 RMB per trip (~$500 USD). Your US bank may charge $20 per ATM visit. This may not be the best method financially.</p>
+          <p class="text-gray-500">Usually you can only withdraw RMB&yen;3,500 per trip (about USD$500), and there may be a fee on top of that.</p>
         </div>
       </div>
       <div class="info-box rounded-lg p-4 text-sm flex gap-3">
         <svg class="icon w-5 h-5 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
-        <p class="text-gray-700">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &ndash; stick to Wise or ICBC for now.</p>
+        <div>
+          <p class="font-bold text-brand">Transfers via WeChat from US Banks</p>
+          <p class="text-gray-700 mt-1">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &ndash; stick to Wise or ICBC for now.</p>
+        </div>
       </div>
     </div>
   </div><!-- /money -->
@@ -1440,16 +1445,14 @@
       <svg class="icon w-6 h-6 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
       <div>
         <p class="font-bold text-brand">Book Your Appointment</p>
-        <p class="text-sm text-gray-700 mt-1">Use the ACS scheduling portal for the Guangzhou Consulate. <strong>Aim for a morning slot</strong> &ndash; afternoons are more crowded.</p>
-        <a href="https://evisaforms.state.gov/acs/default.asp?postcode=GUZ" target="_blank" rel="noopener"
-           class="text-brand underline text-sm break-all">https://evisaforms.state.gov/acs/default.asp?postcode=GUZ</a>
+        <p class="text-sm text-gray-700 mt-1">Use the <a href="https://evisaforms.state.gov/acs/default.asp?postcode=GUZ" target="_blank" rel="noopener" class="underline">ACS scheduling portal for the Guangzhou Consulate</a>. <strong>Aim for a morning slot</strong> &ndash; afternoons are more crowded.</p>
       </div>
     </div>
 
     <div class="warn-box rounded-xl p-4 flex gap-3 items-start">
       <svg class="icon w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
       <div>
-        <p class="font-bold text-red-800">No Electronics Allowed Inside &ndash; Stay Nearby the Night Before</p>
+        <p class="font-bold text-red-800">Consulate Prohibits Electronic Devices</p>
         <p class="text-sm text-red-700 mt-1">No phones, smartwatches, or any electronics are allowed inside the consulate building. Staying within walking distance lets you leave devices in your hotel room. The consulate does offer free phone storage inside (they hand you a cubby token) &ndash; but smartwatches must stay behind entirely.</p>
       </div>
     </div>
@@ -1460,6 +1463,10 @@
         Before Renewal Appointment
       </h3>
       <div class="space-y-2">
+        <div class="flex gap-3 items-start p-2 hover:bg-gray-50 rounded-lg">
+          <input type="checkbox" id="cbook" class="mt-0.5 h-4 w-4 accent-brand flex-shrink-0">
+          <label for="cbook" class="text-sm cursor-pointer"><strong>Book Appointment</strong> at <a class="text-brand underline" href="https://evisaforms.state.gov/acs/default.asp?postcode=GUZ" target="_blank" rel="noopener">evisaforms.state.gov (Guangzhou / GUZ)</a></label>
+        </div>
         <div class="warn-box rounded-lg p-3 flex gap-3 items-start">
           <input type="checkbox" id="c0" class="mt-0.5 h-4 w-4 accent-brand flex-shrink-0">
           <label for="c0" class="text-sm cursor-pointer">
@@ -1480,41 +1487,41 @@
       <h3 class="font-bold text-lg mb-5">What To Expect at Renewal Appointment</h3>
       <div class="space-y-4">
         <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">1</div>
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
           <div class="text-sm pt-1"><p class="font-medium">Arrive based on your <em>appointment time</em>, not early.</p>
           <p class="text-gray-500 mt-0.5">Lines form early but entry is by slot. Arriving at 7:00 for an 8:45 appointment just means more standing around.</p></div>
         </div>
         <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">2</div>
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
           <div class="text-sm pt-1"><p class="font-medium">Ignore phone-storage vendors outside &ndash; the consulate stores them free.</p>
           <p class="text-gray-500 mt-0.5">They hand you a cubby token inside the building.</p></div>
         </div>
         <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">3</div>
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
           <div class="text-sm pt-1"><p class="font-medium">Use your US passport to skip the non-citizen queue.</p>
           <p class="text-gray-500 mt-0.5">After the outdoor checkpoint, head left to the Americans-only lane &ndash; bypasses the student-visa line entirely.</p></div>
         </div>
         <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">4</div>
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
           <div class="text-sm pt-1"><p class="font-medium">Passport services on <strong>Floor 2</strong>. Credit cards accepted (Visa / Mastercard).</p>
           <p class="text-gray-500 mt-0.5">Expect 4 separate desk visits:</p></div>
         </div>
       </div>
-      <div class="mt-4 ml-11 grid grid-cols-2 gap-3">
-        <div class="desk-card bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 1</p><p class="text-sm">Review DS-11 form + shipment label. Passport photos stapled here.</p></div>
-        <div class="desk-card bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 2</p><p class="text-sm">Fill in Chinese address (from police registration doc) + write tracking number on the green slip. Submit all photocopies.</p></div>
-        <div class="desk-card y bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 3</p><p class="text-sm">Payment (US credit cards are accepted)</p></div>
-        <div class="desk-card y bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 4</p><p class="text-sm">Brief interview with a US consulate staff member.</p></div>
+      <div class="mt-4 ml-11 space-y-3">
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 1</p><p class="text-sm">Review DS-11 form + shipment label. Passport photos stapled here.</p></div>
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 2</p><p class="text-sm">Fill in Chinese address (from police registration doc) + write tracking number on the green slip. Submit all photocopies.</p></div>
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 3</p><p class="text-sm">Payment (US credit cards are accepted)</p></div>
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 4</p><p class="text-sm">Brief interview with a US consulate staff member.</p></div>
       </div>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h3 class="font-bold text-lg mb-4">What To Do With Your Expired Passport</h3>
+      <h3 class="font-bold text-lg mb-4">What To Do With Your Expiring Passport</h3>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
-        <div class="good-box rounded-xl p-4">
-          <p class="font-bold text-green-800 mb-2">Option A &ndash; Keep It &amp; Mail Later</p>
-          <p class="text-gray-700">Take your expired passport home with you after the appointment. When your new passport is ready (4&ndash;8 weeks), mail the expired one to the consulate via EMS.</p>
-          <p class="text-xs text-green-700 mt-2 font-medium">Best if you have travel planned &ndash; you can keep using your old passport in the meantime.</p>
+        <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
+          <p class="font-bold text-gray-700 mb-2">Option A &ndash; Keep It &amp; Mail Later</p>
+          <p class="text-gray-500">Take your expired passport home with you after the appointment. When your new passport is ready (4&ndash;8 weeks), mail the expired one to the consulate via EMS.</p>
+          <p class="text-xs text-gray-400 mt-2">Best if you have travel planned &ndash; you can keep using your old passport in the meantime.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold text-gray-700 mb-2">Option B &ndash; Leave It There</p>
@@ -1561,6 +1568,17 @@
         Internet &amp; VPN
       </h2>
       <p class="text-gray-500 text-sm">China actively defends against foreign internet traffic. All traffic leaving or entering China is inspected &ndash; foreign services are blocked, VPNs are unreliable, and speeds to foreign servers are slow. Local apps like WeChat operate on infrastructure that bypasses this entirely.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-3">Questions To Answer Before You Move</h3>
+      <p class="text-sm text-gray-500 mb-3">A whole-house VPN router makes sense if you're home often and need consistent US access. If you mostly need occasional secure browsing, a VPN app on your phone may be enough &ndash; with the caveats below.</p>
+      <div class="space-y-2 text-sm text-gray-700">
+        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>Do you need live US content (sports, streaming) or are downloads acceptable?</p></div>
+        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How much of what you want to access is US-licensed only?</p></div>
+        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How often will someone be at home needing foreign internet access?</p></div>
+        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How concerned are you about device security and traffic monitoring?</p></div>
+      </div>
     </div>
 
     <div class="rec-box rounded-xl p-5 flex gap-3 items-start">
@@ -1616,7 +1634,7 @@
         </div>
         <div class="good-box rounded-xl p-4">
           <p class="font-bold text-green-800 mb-1">Private VPN (Most Reliable)</p>
-          <p class="text-gray-700">Coordinate a private VPN connection leveraging a service or hosting your own solution, which will be a project. While this solution may be the most reliable, it can be expensive or may require a lot of work to get working.</p>
+          <p class="text-gray-700">Coordinate a private VPN connection leveraging a service or hosting your own solution, which will be a project. While this solution may be the most reliable, it can be expensive or may require a lot of work to get working. Ask for advice from the community.</p>
         </div>
         <div class="info-box rounded-xl p-4">
           <p class="font-bold text-brand mb-1">International eSIM (Best Fallback)</p>
@@ -1629,11 +1647,11 @@
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
       <h3 class="font-bold text-lg flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-wifi"/></svg>
-        Home Internet at CM+ Taige
+        Internet Access in Apartment
       </h3>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
-          <p class="font-bold mb-1">CM+ Captive Hotel WiFi</p>
+          <p class="font-bold mb-1">Captive Hotel WiFi Network</p>
           <p class="text-gray-500">Included. Works for basic browsing but the built-in VPN is not refreshed often &ndash; use CM+ to bootstrap your own personal VPN, not as your primary solution.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
@@ -1641,14 +1659,14 @@
           <p class="text-gray-500">Negotiate reimbursement with the mobility team:</p>
           <div class="mt-2 bg-brand-lt rounded-lg p-2">
             <span class="font-bold text-brand">269 RMB / month</span>
-            <p class="text-gray-600 text-xs">1 Gbps + bonus SIM card. VPN not included; bring your own router.</p>
+            <p class="text-gray-600 text-xs">1 Gbps + bonus SIM card. VPN not included. You will need to provide your own wifi router.</p>
           </div>
         </div>
       </div>
       <div class="rec-box rounded-lg p-3 flex gap-3 text-sm">
         <svg class="icon w-5 h-5 text-accent-dk flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
         <div>
-          <p class="font-semibold text-accent-dk">CM+ Taige: Get a Mesh WiFi Router</p>
+          <p class="font-semibold text-accent-dk">You may need a Mesh WiFi Router.</p>
           <p class="text-gray-700 mt-0.5">The apartment walls are thick. A single router often isn't enough coverage &ndash; plan for a mesh network if you set up your own connection.</p>
         </div>
       </div>
@@ -1657,9 +1675,8 @@
     <div class="info-box rounded-xl p-5 flex gap-3 items-start">
       <svg class="icon w-6 h-6 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
       <div>
-        <p class="font-bold text-brand">WireGuard Protocol</p>
-        <p class="text-sm text-gray-700 mt-1">WireGuard is a type of protocol for commercial VPNs. This may or may not be turned off at any time; commonly, when a large political event is taking place, expect commercial VPN capabilities to be spotty.</p>
-        <p class="text-xs text-gray-500 mt-2"><strong>Historical note:</strong> From April 2026 through approximately July 2026, WireGuard was actively blocked by the GFW (Great Firewall of China). It has since resumed working, but this illustrates how quickly things can change.</p>
+        <p class="font-bold text-brand">VPN Availability</p>
+        <p class="text-sm text-gray-700 mt-1">Access is entirely unpredictable. For example, when a sensitive event is taking place, expect VPN capabilities to be spotty. After April 2026, WireGuard was actively blocked.</p>
       </div>
     </div>
 
@@ -1668,7 +1685,7 @@
         <svg class="icon w-5 h-5 text-red-500" aria-hidden="true"><use href="#ic-lock"/></svg>
         Blocked Even On Many VPNs
       </h3>
-      <p class="text-sm text-gray-500 mb-4">You may get lucky depending on which US city your VPN exits from, but don't count on it:</p>
+      <p class="text-sm text-gray-500 mb-4">You simply can't count on any one VPN option, but note that these services are known to block access based on location.</p>
       <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
         <div class="bg-red-50 border border-red-200 rounded-xl p-3 text-center"><svg class="icon w-5 h-5 text-red-400 mx-auto mb-1" aria-hidden="true"><use href="#ic-card"/></svg><p class="text-sm font-semibold text-red-800">Arvest Bank</p></div>
         <div class="bg-red-50 border border-red-200 rounded-xl p-3 text-center"><svg class="icon w-5 h-5 text-red-400 mx-auto mb-1" aria-hidden="true"><use href="#ic-wifi"/></svg><p class="text-sm font-semibold text-red-800">Cox Internet</p></div>
@@ -1681,16 +1698,6 @@
       </div>
     </div>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h3 class="font-bold text-lg mb-3">Questions To Answer Before You Move</h3>
-      <div class="space-y-2 text-sm text-gray-700">
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>Do you need live US content (sports, streaming) or are downloads acceptable?</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How much of what you want to access is US-licensed only?</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How often will someone be at home needing foreign internet access?</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How concerned are you about device security and traffic monitoring?</p></div>
-      </div>
-      <p class="text-xs text-gray-400 mt-3">A whole-house VPN router makes sense if you're home often and need consistent US access. If you mostly need occasional secure browsing, a VPN app on your phone may be enough &ndash; with the caveats above.</p>
-    </div>
   </div><!-- /internet -->
 
   <!-- ===== MOBILE ===== -->
@@ -1714,7 +1721,7 @@
       </div>
       <div class="grid sm:grid-cols-2 gap-3 text-sm">
         <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
-          <p class="font-medium">Physical SIM Card (Traditional)</p>
+          <p class="font-medium">Physical SIM Card</p>
           <p class="text-gray-500 mt-1">The standard for years. Works with any phone that has a SIM slot. Apply at any China Unicom or China Mobile store &ndash; bring your passport.</p>
         </div>
         <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
@@ -1757,7 +1764,7 @@
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
-      <h3 class="font-bold text-lg">iPhone Users</h3>
+      <h3 class="font-bold text-lg">iPhone Recommendations</h3>
       <div class="rec-box rounded-lg p-4 flex gap-3">
         <svg class="icon w-5 h-5 text-accent-dk flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-star"/></svg>
         <div>
@@ -1766,15 +1773,15 @@
         </div>
       </div>
       <div class="space-y-2 text-sm">
-        <div class="p-3 bg-red-50 rounded-lg border border-red-100"><strong>iPhone 14+ (US model)</strong> &ndash; eSIM only. Won't work directly with Chinese carriers.</div>
-        <div class="p-3 bg-green-50 rounded-lg border border-green-100"><strong>iPhone 13 and older</strong> &ndash; 1 physical SIM + eSIM. Works great in China.</div>
-        <div class="p-3 bg-yellow-50 rounded-lg border border-yellow-100"><strong>China-model iPhones</strong> &ndash; 2 physical SIM slots, but <strong>Apple Intelligence is unavailable</strong> even when you travel internationally.</div>
-        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100"><strong>Foreign iPhones (CA, JP, KR, UK)</strong> &ndash; Physical SIM + eSIM = ideal travel combo. Find them secondhand in China or on eBay.</div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200"><strong>iPhone 14+ (US model)</strong> &ndash; eSIM only. Won't work directly with Chinese carriers.</div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200"><strong>iPhone 13 and older</strong> &ndash; 1 physical SIM + eSIM. Works great in China.</div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200"><strong>China-model iPhones</strong> &ndash; 2 physical SIM slots, but <strong>Apple Intelligence is unavailable</strong> even when you travel internationally.</div>
+        <div class="p-3 bg-gray-50 rounded-lg border border-gray-200"><strong>Foreign iPhones (CA, JP, KR, UK)</strong> &ndash; Physical SIM + eSIM = ideal travel combo. Find them secondhand in China or on eBay.</div>
       </div>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
-      <h3 class="font-bold text-lg">Android Users</h3>
+      <h3 class="font-bold text-lg">Android Recommendations</h3>
       <div class="rec-box rounded-lg p-4 flex gap-3">
         <svg class="icon w-5 h-5 text-accent-dk flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-star"/></svg>
         <div>
@@ -1923,6 +1930,47 @@
     <div class="alert-body">
       <strong>Key Advantage – No Hong Kong Immigration Required</strong>
       <p>The HKIA SkyPier is located <em>airside</em> – inside the restricted transit zone. Transit passengers bypass Hong Kong immigration entirely, saving significant time. This is the primary reason to use this route.</p>
+    </div>
+  </div>
+
+  <!-- JOURNEY SUMMARY -->
+  <div class="section-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:5px;"><use href="#ic-check"/></svg>At a Glance</div>
+  <h2 class="section-h2">Full Journey Summary</h2>
+
+  <div class="summary-card">
+    <div class="summary-header"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-map"/></svg> <span>HKIA</span> &rarr; Shekou Ferry Terminal, Shenzhen</div>
+
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-passport"/></svg></div>
+      <div><strong>Before Departure</strong> <span style="display:block;">Fill out China's electronic entry card and keep the QR code</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-plane"/></svg></div>
+      <div><strong>Arrive at HKIA</strong> <span style="display:block;">Deplane and follow signs for Immigration / Mainland/Macao</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
+      <div><strong>Take Internal Train</strong> <span style="display:block;">APM shuttle to the immigration / ferry terminal zone</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-card"/></svg></div>
+      <div><strong>Ferry Ticket Counter</strong> <span style="display:block;">Buy ticket to Shekou (蛇口) &middot; Hand over baggage tags &middot; Credit cards accepted, no cash needed</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
+      <div><strong>Train to Airside Terminal</strong> <span style="display:block;">Show your ticket &middot; 7-Eleven near the ferry gates</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-ferry"/></svg></div>
+      <div><strong>Board Ferry</strong> <span style="display:block;">~60 min journey to Shekou Ferry Terminal, Shenzhen</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-bag"/></svg></div>
+      <div><strong>Collect Baggage</strong> <span style="display:block;">Immigration &middot; downstairs via escalator to the baggage belt</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#6b7280;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-check"/></svg></div>
+      <div><strong>Arrive Shekou</strong> <span style="display:block;">Customs &middot; elevator to the 西 West Ride Hailing Area &middot; order a Didi</span></div>
     </div>
   </div>
 
@@ -2106,46 +2154,6 @@
     </div>
   </div>
 
-  <!-- JOURNEY SUMMARY -->
-  <div class="section-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:5px;"><use href="#ic-check"/></svg>At a Glance</div>
-  <h2 class="section-h2">Full Journey Summary</h2>
-
-  <div class="summary-card">
-    <div class="summary-header"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-map"/></svg> <span>HKIA</span> &rarr; Shekou Ferry Terminal, Shenzhen</div>
-
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-passport"/></svg></div>
-      <div><strong>Before Departure</strong> <span style="display:block;">Fill out China's electronic entry card and keep the QR code</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-plane"/></svg></div>
-      <div><strong>Arrive at HKIA</strong> <span style="display:block;">Deplane and follow signs for Immigration / Mainland/Macao</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
-      <div><strong>Take Internal Train</strong> <span style="display:block;">APM shuttle to the immigration / ferry terminal zone</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--accent);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-card"/></svg></div>
-      <div><strong>Ferry Ticket Counter</strong> <span style="display:block;">Buy ticket to Shekou (蛇口) &middot; Hand over baggage tags &middot; Credit cards accepted, no cash needed</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:#7c2d12;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
-      <div><strong>Train to Airside Terminal</strong> <span style="display:block;">Show your ticket &middot; 7-Eleven near the ferry gates</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--accent);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-ferry"/></svg></div>
-      <div><strong>Board Ferry</strong> <span style="display:block;">~60 min journey to Shekou Ferry Terminal, Shenzhen</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--green);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-bag"/></svg></div>
-      <div><strong>Collect Baggage</strong> <span style="display:block;">Immigration &middot; downstairs via escalator to the baggage belt</span></div>
-    </div>
-    <div class="summary-row">
-      <div class="summary-dot" style="background:var(--green);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-check"/></svg></div>
-      <div><strong>Arrive Shekou</strong> <span style="display:block;">Customs &middot; elevator to the 西 West Ride Hailing Area &middot; order a Didi</span></div>
-    </div>
-  </div>
 
 </div><!-- /container -->
     </div>
@@ -2318,7 +2326,6 @@
 
 <script>
 const checks = [
-  'Book appointment at: <a class="text-brand underline" href="https://evisaforms.state.gov/acs/default.asp?postcode=GUZ" target="_blank">evisaforms.state.gov (Guangzhou / GUZ)</a>',
   'Bring a printed copy (color preferred) of expiring passport\'s data page',
   'Photocopy of Social Security card',
   'For minors, bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
