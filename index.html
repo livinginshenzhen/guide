@@ -1143,8 +1143,8 @@
   @media (min-width: 768px) { .max-w-4xl { padding-left: 2.5rem; padding-right: 2.5rem; } }
   @media (min-width: 1024px) { .max-w-4xl { padding-left: 4rem; padding-right: 4rem; } }
 
-  /* Desktop nav: wrap into rows instead of horizontal scroll */
-  @media (min-width: 768px) {
+  /* Nav: wrap into rows instead of horizontal scroll, except on narrow phones */
+  @media (min-width: 480px) {
     #tabNavList { flex-wrap: wrap; overflow-x: visible; row-gap: 2px; }
   }
 
@@ -1156,6 +1156,18 @@
     background-attachment: fixed;
     background-repeat: no-repeat;
   }
+
+  /* Icon size utilities missing from the compiled stylesheet */
+  .w-7 { width: 1.75rem; }
+  .h-7 { height: 1.75rem; }
+
+  /* Overview grid: 3 columns once there's room */
+  @media (min-width: 1200px) {
+    #overviewGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  }
+
+  /* main carries its own max-w-4xl padding; cancel it so tab-pane padding below is the only source */
+  main.max-w-4xl { padding-left: 0; padding-right: 0; }
 
   /* Tab content padding: triple on Overview, double on information pages */
   #tab-overview { padding-left: 3rem; padding-right: 3rem; }
@@ -1297,7 +1309,7 @@
 
   <!-- ===== OVERVIEW ===== -->
   <div id="tab-overview" class="tab-pane active space-y-5">
-    <div class="grid sm:grid-cols-2 gap-4">
+    <div id="overviewGrid" class="grid sm:grid-cols-2 gap-4">
       <button onclick="switchTab('shipping')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
         <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
         <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-box"/></svg>
