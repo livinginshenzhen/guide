@@ -1104,10 +1104,23 @@
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
   input[type=checkbox]:checked + label { text-decoration: line-through; opacity: .5; }
-  .rec-box  { border-left: 4px solid #c2410c; background: #ffedd5; }
-  .warn-box { border-left: 4px solid #ea1100; background: #fef2f2; }
-  .info-box { border-left: 4px solid #0f766e; background: #ccfbf1; }
-  .good-box { border-left: 4px solid #2a8703; background: #f0fdf4; }
+  .rec-box, .warn-box {
+    border-left: 4px solid #c2410c;
+    background: #ffedd5;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .info-box, .good-box {
+    border-left: 4px solid #2a8703;
+    background: #f0fdf4;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  .warn-box .text-red-800 { color: #7c2d12; }
+  .warn-box .text-red-700 { color: #9a3412; }
+  .warn-box .text-red-600 { color: #c2410c; }
+  .warn-box .text-red-500 { color: #ea580c; }
+  .info-box .text-brand { color: #166534; }
   .desk-card   { border-left: 4px solid #0f766e; }
   .desk-card.y { border-left-color: #c2410c; }
   .hero-chip { transition: all .2s; background: rgba(255,255,255,.15); border: none; }
@@ -1256,13 +1269,13 @@
         <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk bg-white rounded-full px-2 py-0.5">Before move</span>
         <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-box"/></svg>
         <p class="font-bold text-gray-800">Preparing for Move</p>
-        <p class="text-sm text-gray-600 mt-1">Air cargo shipping &mdash; what you can and can't send, and how much room you get.</p>
+        <p class="text-sm text-gray-600 mt-1">Air cargo shipping &ndash; what you can and can't send, and how much room you get.</p>
       </button>
       <button onclick="switchTab('internet')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
         <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk bg-white rounded-full px-2 py-0.5">Before move</span>
         <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-globe"/></svg>
         <p class="font-bold text-gray-800">Internet</p>
-        <p class="text-sm text-gray-600 mt-1">Plan your internet access before you arrive &mdash; it's difficult to do once you've landed.</p>
+        <p class="text-sm text-gray-600 mt-1">Plan your internet access before you arrive &ndash; it's difficult to do once you've landed.</p>
       </button>
       <button onclick="switchTab('money')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
         <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-card"/></svg>
@@ -1312,7 +1325,7 @@
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-box"/></svg>
         Air Cargo Shipping
       </h3>
-      <p class="text-sm text-gray-500">Usually the allotment is <strong>100 cubic feet (2.83 m&sup3;) per person</strong> &mdash; roughly 20 large moving boxes, though packaging material eats into that fast. The shipment usually doesn't leave the US until your residence permit is granted, so expect delay even after you've landed. It also isn't airtight, so sachets of activated charcoal in each box (especially ones with fabric) helps with the musty smell that sets in after weeks in a warehouse. We've seen it take 5 weeks from residency permit to delivery fairly consistently.</p>
+      <p class="text-sm text-gray-500">Usually the allotment is <strong>100 cubic feet (2.83 m&sup3;) per person</strong> &ndash; roughly 20 large moving boxes, though packaging material eats into that fast. The shipment usually doesn't leave the US until your residence permit is granted, so expect delay even after you've landed. It also isn't airtight, so sachets of activated charcoal in each box (especially ones with fabric) helps with the musty smell that sets in after weeks in a warehouse. We've seen it take 5 weeks from residency permit to delivery fairly consistently.</p>
 
       <div class="warn-box rounded-xl p-5">
         <h4 class="font-bold text-red-800 mb-3 flex items-center gap-2">
@@ -1320,18 +1333,18 @@
           What Cannot Ship
         </h4>
         <ul class="space-y-2 text-sm text-red-700">
-          <li><strong class="text-red-800">Valuables</strong> &mdash; cash, jewelry of any value, precious stones, high-value collectibles, silverware</li>
-          <li><strong class="text-red-800">Pressure-sensitive goods</strong> &mdash; food, beverages or alcohol, toiletries, cosmetics, aerosols/perfumes, cartridges (including printers with cartridges installed)</li>
-          <li><strong class="text-red-800">Books</strong> &mdash; capped at 50 regardless of family size, due to weight/density</li>
-          <li><strong class="text-red-800">Specific items</strong> &mdash; cameras, drones, weapons of any kind, refrigerators containing Freon, medicine, toxic/flammable/radioactive materials, religious content/items, any newly-purchased packaged items</li>
-          <li><strong class="text-red-800">Most magnets</strong> &mdash; if it would deflect a compass placed next to it, it's too magnetic to ship</li>
-          <li><strong class="text-red-800">Any batteries</strong> &mdash; items can ship with batteries removed, but the batteries themselves have to travel with you in cabin luggage</li>
+          <li><strong class="text-red-800">Valuables</strong> &ndash; cash, jewelry of any value, precious stones, high-value collectibles, silverware</li>
+          <li><strong class="text-red-800">Pressure-sensitive goods</strong> &ndash; food, beverages or alcohol, toiletries, cosmetics, aerosols/perfumes, cartridges (including printers with cartridges installed)</li>
+          <li><strong class="text-red-800">Books</strong> &ndash; capped at 50 regardless of family size, due to weight/density</li>
+          <li><strong class="text-red-800">Specific items</strong> &ndash; cameras, drones, weapons of any kind, refrigerators containing Freon, medicine, toxic/flammable/radioactive materials, religious content/items, any newly-purchased packaged items</li>
+          <li><strong class="text-red-800">Most magnets</strong> &ndash; if it would deflect a compass placed next to it, it's too magnetic to ship</li>
+          <li><strong class="text-red-800">Any batteries</strong> &ndash; items can ship with batteries removed, but the batteries themselves have to travel with you in cabin luggage</li>
         </ul>
       </div>
 
       <div class="info-box rounded-lg p-4 text-sm flex gap-3">
         <svg class="icon w-5 h-5 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
-        <p class="text-gray-700">Visualize the 100 cubic feet allotment against everyday items at <a href="https://upakweship.com/blog/what-is-100-cubic-feet" target="_blank" rel="noopener" class="text-brand underline">upakweship.com</a> before you start packing &mdash; it's easy to overestimate how much that actually is.</p>
+        <p class="text-gray-700">Visualize the 100 cubic feet allotment against everyday items at <a href="https://upakweship.com/blog/what-is-100-cubic-feet" target="_blank" rel="noopener" class="text-brand underline">upakweship.com</a> before you start packing &ndash; it's easy to overestimate how much that actually is.</p>
       </div>
     </div>
   </div><!-- /shipping -->
@@ -1343,7 +1356,7 @@
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-card"/></svg>
         Money &amp; Banking
       </h2>
-      <p class="text-gray-500 text-sm">Getting money into China takes planning &mdash; wires, ATMs, and WeChat all have quirks that are easier to avoid than fix after the fact.</p>
+      <p class="text-gray-500 text-sm">Getting money into China takes planning &ndash; wires, ATMs, and WeChat all have quirks that are easier to avoid than fix after the fact.</p>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
@@ -1351,7 +1364,7 @@
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-transfer"/></svg>
         Wiring Money to China
       </h3>
-      <p class="text-sm text-gray-500">Funds can be wired in USD or RMB &mdash; the currency you choose changes the process significantly.</p>
+      <p class="text-sm text-gray-500">Funds can be wired in USD or RMB &ndash; the currency you choose changes the process significantly.</p>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold text-gray-700 mb-2">Wiring USD</p>
@@ -1372,7 +1385,7 @@
       </div>
       <div class="warn-box rounded-lg p-4">
         <p class="font-semibold text-red-800">Account Holder Name Format Matters</p>
-        <p class="text-sm text-red-700 mt-1">Recall exactly how your name is formatted on your bank paperwork &mdash; "LastFirst" or with a space, and where the capital letters fall. WeChat requires an exact match to link your card or bank account.</p>
+        <p class="text-sm text-red-700 mt-1">Recall exactly how your name is formatted on your bank paperwork &ndash; "LastFirst" or with a space, and where the capital letters fall. WeChat requires an exact match to link your card or bank account.</p>
       </div>
     </div>
 
@@ -1389,26 +1402,26 @@
         <div class="good-box rounded-xl p-4">
           <p class="font-bold text-green-800 mb-2 flex items-center gap-1.5">
             <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-transfer"/></svg>
-            Wise App &mdash; Recommended for large transfers
+            Wise App &ndash; Recommended for large transfers
           </p>
           <p class="text-gray-700">Transfer from your US bank to your Chinese UnionPay ATM card:</p>
           <ul class="mt-2 space-y-1 text-gray-600 list-disc list-inside">
             <li>Up to <strong>30,000 RMB</strong> (~$4,400 USD) per transfer</li>
             <li>~$100 USD in fees per transfer</li>
           </ul>
-          <p class="text-xs text-gray-500 mt-2">Setup: US bank as source &rarr; UnionPay ATM card as recipient. Initial setup requires passport-image and face-scan verification &mdash; subsequent transfers are quicker.</p>
+          <p class="text-xs text-gray-500 mt-2">Setup: US bank as source &rarr; UnionPay ATM card as recipient. Initial setup requires passport-image and face-scan verification &ndash; subsequent transfers are quicker.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold text-gray-500 mb-2 flex items-center gap-1.5">
             <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg>
-            ICBC ATM &mdash; The Painful Option
+            ICBC ATM &ndash; The Painful Option
           </p>
           <p class="text-gray-500">Max ~3,500 RMB per trip (~$500 USD). Your US bank may charge $20 per ATM visit. This may not be the best method financially.</p>
         </div>
       </div>
       <div class="info-box rounded-lg p-4 text-sm flex gap-3">
         <svg class="icon w-5 h-5 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
-        <p class="text-gray-700">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &mdash; stick to Wise or ICBC for now.</p>
+        <p class="text-gray-700">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &ndash; stick to Wise or ICBC for now.</p>
       </div>
     </div>
   </div><!-- /money -->
@@ -1427,7 +1440,7 @@
       <svg class="icon w-6 h-6 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
       <div>
         <p class="font-bold text-brand">Book Your Appointment</p>
-        <p class="text-sm text-gray-700 mt-1">Use the ACS scheduling portal for the Guangzhou Consulate. <strong>Aim for a morning slot</strong> &mdash; afternoons are more crowded.</p>
+        <p class="text-sm text-gray-700 mt-1">Use the ACS scheduling portal for the Guangzhou Consulate. <strong>Aim for a morning slot</strong> &ndash; afternoons are more crowded.</p>
         <a href="https://evisaforms.state.gov/acs/default.asp?postcode=GUZ" target="_blank" rel="noopener"
            class="text-brand underline text-sm break-all">https://evisaforms.state.gov/acs/default.asp?postcode=GUZ</a>
       </div>
@@ -1436,8 +1449,8 @@
     <div class="warn-box rounded-xl p-4 flex gap-3 items-start">
       <svg class="icon w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
       <div>
-        <p class="font-bold text-red-800">No Electronics Allowed Inside &mdash; Stay Nearby the Night Before</p>
-        <p class="text-sm text-red-700 mt-1">No phones, smartwatches, or any electronics are allowed inside the consulate building. Staying within walking distance lets you leave devices in your hotel room. The consulate does offer free phone storage inside (they hand you a cubby token) &mdash; but smartwatches must stay behind entirely.</p>
+        <p class="font-bold text-red-800">No Electronics Allowed Inside &ndash; Stay Nearby the Night Before</p>
+        <p class="text-sm text-red-700 mt-1">No phones, smartwatches, or any electronics are allowed inside the consulate building. Staying within walking distance lets you leave devices in your hotel room. The consulate does offer free phone storage inside (they hand you a cubby token) &ndash; but smartwatches must stay behind entirely.</p>
       </div>
     </div>
 
@@ -1450,7 +1463,7 @@
         <div class="warn-box rounded-lg p-3 flex gap-3 items-start">
           <input type="checkbox" id="c0" class="mt-0.5 h-4 w-4 accent-brand flex-shrink-0">
           <label for="c0" class="text-sm cursor-pointer">
-            <strong class="text-red-700">CRITICAL:</strong> Print or make a PDF of the appointment confirmation page <em>immediately after booking</em> &mdash; you <strong>cannot</strong> access it again. English is fine.
+            <strong class="text-red-700">CRITICAL:</strong> Print or make a PDF of the appointment confirmation page <em>immediately after booking</em> &ndash; you <strong>cannot</strong> access it again. English is fine.
           </label>
         </div>
         <div class="warn-box rounded-lg p-3 flex gap-3 items-start">
@@ -1473,13 +1486,13 @@
         </div>
         <div class="flex gap-3">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">2</div>
-          <div class="text-sm pt-1"><p class="font-medium">Ignore phone-storage vendors outside &mdash; the consulate stores them free.</p>
+          <div class="text-sm pt-1"><p class="font-medium">Ignore phone-storage vendors outside &ndash; the consulate stores them free.</p>
           <p class="text-gray-500 mt-0.5">They hand you a cubby token inside the building.</p></div>
         </div>
         <div class="flex gap-3">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">3</div>
           <div class="text-sm pt-1"><p class="font-medium">Use your US passport to skip the non-citizen queue.</p>
-          <p class="text-gray-500 mt-0.5">After the outdoor checkpoint, head left to the Americans-only lane &mdash; bypasses the student-visa line entirely.</p></div>
+          <p class="text-gray-500 mt-0.5">After the outdoor checkpoint, head left to the Americans-only lane &ndash; bypasses the student-visa line entirely.</p></div>
         </div>
         <div class="flex gap-3">
           <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand text-white flex items-center justify-center font-bold text-sm">4</div>
@@ -1499,22 +1512,22 @@
       <h3 class="font-bold text-lg mb-4">What To Do With Your Expired Passport</h3>
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
         <div class="good-box rounded-xl p-4">
-          <p class="font-bold text-green-800 mb-2">Option A &mdash; Keep It &amp; Mail Later</p>
+          <p class="font-bold text-green-800 mb-2">Option A &ndash; Keep It &amp; Mail Later</p>
           <p class="text-gray-700">Take your expired passport home with you after the appointment. When your new passport is ready (4&ndash;8 weeks), mail the expired one to the consulate via EMS.</p>
-          <p class="text-xs text-green-700 mt-2 font-medium">Best if you have travel planned &mdash; you can keep using your old passport in the meantime.</p>
+          <p class="text-xs text-green-700 mt-2 font-medium">Best if you have travel planned &ndash; you can keep using your old passport in the meantime.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
-          <p class="font-bold text-gray-700 mb-2">Option B &mdash; Leave It There</p>
+          <p class="font-bold text-gray-700 mb-2">Option B &ndash; Leave It There</p>
           <p class="text-gray-500">Leave the expired passport at the consulate with your application. Simpler, but you won't have it for travel until the new one arrives.</p>
           <p class="text-xs text-gray-400 mt-2">Best if you have no travel planned before the new passport arrives.</p>
           <div class="warn-box rounded-lg p-2 mt-2 flex gap-2 items-start text-xs">
             <svg class="icon w-4 h-4 text-red-500 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
-            <p><strong>Note:</strong> High-speed train travel in China requires your passport for booking and boarding. If you leave your expired passport at the consulate, you won't have any passport on hand &mdash; which may make this option unworkable if any train travel is anticipated before the new one arrives.</p>
+            <p><strong>Note:</strong> High-speed train travel in China requires your passport for booking and boarding. If you leave your expired passport at the consulate, you won't have any passport on hand &ndash; which may make this option unworkable if any train travel is anticipated before the new one arrives.</p>
           </div>
         </div>
       </div>
       <div class="info-box rounded-lg p-3 mt-4 text-sm">
-        <strong class="text-brand">Either way:</strong> Both passports return to you via EMS, requiring payment on delivery &mdash; around <strong>¥22</strong>. You'll need to be home, or your building's front desk can receive and pay on your behalf.
+        <strong class="text-brand">Either way:</strong> Both passports return to you via EMS, requiring payment on delivery &ndash; around <strong>¥22</strong>. You'll need to be home, or your building's front desk can receive and pay on your behalf.
       </div>
     </div>
 
@@ -1547,7 +1560,7 @@
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-globe"/></svg>
         Internet &amp; VPN
       </h2>
-      <p class="text-gray-500 text-sm">China actively defends against foreign internet traffic. All traffic leaving or entering China is inspected &mdash; foreign services are blocked, VPNs are unreliable, and speeds to foreign servers are slow. Local apps like WeChat operate on infrastructure that bypasses this entirely.</p>
+      <p class="text-gray-500 text-sm">China actively defends against foreign internet traffic. All traffic leaving or entering China is inspected &ndash; foreign services are blocked, VPNs are unreliable, and speeds to foreign servers are slow. Local apps like WeChat operate on infrastructure that bypasses this entirely.</p>
     </div>
 
     <div class="rec-box rounded-xl p-5 flex gap-3 items-start">
@@ -1621,7 +1634,7 @@
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold mb-1">CM+ Captive Hotel WiFi</p>
-          <p class="text-gray-500">Included. Works for basic browsing but the built-in VPN is not refreshed often &mdash; use CM+ to bootstrap your own personal VPN, not as your primary solution.</p>
+          <p class="text-gray-500">Included. Works for basic browsing but the built-in VPN is not refreshed often &ndash; use CM+ to bootstrap your own personal VPN, not as your primary solution.</p>
         </div>
         <div class="bg-gray-50 rounded-xl border border-gray-200 p-4">
           <p class="font-bold mb-1">China Telecom Direct Fiber</p>
@@ -1636,7 +1649,7 @@
         <svg class="icon w-5 h-5 text-accent-dk flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
         <div>
           <p class="font-semibold text-accent-dk">CM+ Taige: Get a Mesh WiFi Router</p>
-          <p class="text-gray-700 mt-0.5">The apartment walls are thick. A single router often isn't enough coverage &mdash; plan for a mesh network if you set up your own connection.</p>
+          <p class="text-gray-700 mt-0.5">The apartment walls are thick. A single router often isn't enough coverage &ndash; plan for a mesh network if you set up your own connection.</p>
         </div>
       </div>
     </div>
@@ -1676,7 +1689,7 @@
         <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How often will someone be at home needing foreign internet access?</p></div>
         <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How concerned are you about device security and traffic monitoring?</p></div>
       </div>
-      <p class="text-xs text-gray-400 mt-3">A whole-house VPN router makes sense if you're home often and need consistent US access. If you mostly need occasional secure browsing, a VPN app on your phone may be enough &mdash; with the caveats above.</p>
+      <p class="text-xs text-gray-400 mt-3">A whole-house VPN router makes sense if you're home often and need consistent US access. If you mostly need occasional secure browsing, a VPN app on your phone may be enough &ndash; with the caveats above.</p>
     </div>
   </div><!-- /internet -->
 
@@ -1702,7 +1715,7 @@
       <div class="grid sm:grid-cols-2 gap-3 text-sm">
         <div class="p-3 bg-gray-50 rounded-lg border border-gray-200">
           <p class="font-medium">Physical SIM Card (Traditional)</p>
-          <p class="text-gray-500 mt-1">The standard for years. Works with any phone that has a SIM slot. Apply at any China Unicom or China Mobile store &mdash; bring your passport.</p>
+          <p class="text-gray-500 mt-1">The standard for years. Works with any phone that has a SIM slot. Apply at any China Unicom or China Mobile store &ndash; bring your passport.</p>
         </div>
         <div class="p-3 bg-blue-50 rounded-lg border border-blue-100">
           <p class="font-medium text-brand">eSIM (New as of Early 2026)</p>
@@ -1717,7 +1730,7 @@
         <svg class="icon w-5 h-5 text-green-700 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-shield"/></svg>
         <div>
           <p class="font-bold text-green-800">Bypasses the Great Firewall Entirely</p>
-          <p class="text-sm text-gray-700 mt-1">Cellular data from a <em>foreign</em> carrier eSIM routes through non-Chinese infrastructure, bypassing the GFW completely. It's not fast or cheap enough to be your main connection, but it's a reliable fallback when VPNs fail &mdash; including during ISP outages.</p>
+          <p class="text-sm text-gray-700 mt-1">Cellular data from a <em>foreign</em> carrier eSIM routes through non-Chinese infrastructure, bypassing the GFW completely. It's not fast or cheap enough to be your main connection, but it's a reliable fallback when VPNs fail &ndash; including during ISP outages.</p>
         </div>
       </div>
       <div class="info-box rounded-lg p-4 text-sm">
@@ -1734,7 +1747,7 @@
           </div>
           <div class="bg-white rounded-lg border border-blue-200 p-3">
             <p class="font-semibold text-gray-800 mb-1">BNEsim</p>
-            <p class="text-gray-600">Offers <strong>non-expiring eSIM plans</strong> &mdash; data can persist for as long as you have the eSIM, and you can add other countries to the same eSIM. Good choice if your usage is irregular.</p>
+            <p class="text-gray-600">Offers <strong>non-expiring eSIM plans</strong> &ndash; data can persist for as long as you have the eSIM, and you can add other countries to the same eSIM. Good choice if your usage is irregular.</p>
             <p class="text-xs text-gray-400 mt-2">Download from a non-China app store before you arrive.</p>
             <p class="text-xs text-gray-500 mt-1">You may also use your VPN to allow ordering eSIMs.</p>
           </div>
@@ -1753,10 +1766,10 @@
         </div>
       </div>
       <div class="space-y-2 text-sm">
-        <div class="p-3 bg-red-50 rounded-lg border border-red-100"><strong>iPhone 14+ (US model)</strong> &mdash; eSIM only. Won't work directly with Chinese carriers.</div>
-        <div class="p-3 bg-green-50 rounded-lg border border-green-100"><strong>iPhone 13 and older</strong> &mdash; 1 physical SIM + eSIM. Works great in China.</div>
-        <div class="p-3 bg-yellow-50 rounded-lg border border-yellow-100"><strong>China-model iPhones</strong> &mdash; 2 physical SIM slots, but <strong>Apple Intelligence is unavailable</strong> even when you travel internationally.</div>
-        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100"><strong>Foreign iPhones (CA, JP, KR, UK)</strong> &mdash; Physical SIM + eSIM = ideal travel combo. Find them secondhand in China or on eBay.</div>
+        <div class="p-3 bg-red-50 rounded-lg border border-red-100"><strong>iPhone 14+ (US model)</strong> &ndash; eSIM only. Won't work directly with Chinese carriers.</div>
+        <div class="p-3 bg-green-50 rounded-lg border border-green-100"><strong>iPhone 13 and older</strong> &ndash; 1 physical SIM + eSIM. Works great in China.</div>
+        <div class="p-3 bg-yellow-50 rounded-lg border border-yellow-100"><strong>China-model iPhones</strong> &ndash; 2 physical SIM slots, but <strong>Apple Intelligence is unavailable</strong> even when you travel internationally.</div>
+        <div class="p-3 bg-blue-50 rounded-lg border border-blue-100"><strong>Foreign iPhones (CA, JP, KR, UK)</strong> &ndash; Physical SIM + eSIM = ideal travel combo. Find them secondhand in China or on eBay.</div>
       </div>
     </div>
 
@@ -1766,12 +1779,12 @@
         <svg class="icon w-5 h-5 text-accent-dk flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-star"/></svg>
         <div>
           <p class="font-bold text-accent-dk">Recommendation</p>
-          <p class="text-sm text-gray-800 mt-1">Any Android with a physical SIM slot should work. Samsung phones auto-switch their store locale to Chinese when a Chinese SIM is installed &mdash; handy for finding local apps.</p>
+          <p class="text-sm text-gray-800 mt-1">Any Android with a physical SIM slot should work. Samsung phones auto-switch their store locale to Chinese when a Chinese SIM is installed &ndash; handy for finding local apps.</p>
         </div>
       </div>
       <div class="space-y-2 text-sm">
         <div class="p-3 bg-yellow-50 rounded-lg border border-yellow-100"><strong>Samsung US models</strong> may get delisted by Chinese carriers. Most Samsungs have 1 physical SIM + 1 eSIM, so you can survive on eSIM while you sort it out.</div>
-        <div class="p-3 bg-red-50 rounded-lg border border-red-100"><strong>Chinese Android phones</strong> &mdash; many are US-banned. If you buy one here, it likely won't work back home. Xiaomi is a rare exception (barely).</div>
+        <div class="p-3 bg-red-50 rounded-lg border border-red-100"><strong>Chinese Android phones</strong> &ndash; many are US-banned. If you buy one here, it likely won't work back home. Xiaomi is a rare exception (barely).</div>
       </div>
     </div>
 
@@ -1779,7 +1792,7 @@
       <svg class="icon w-6 h-6 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
       <div>
         <p class="font-bold text-brand">Hong Kong &amp; Macau Roaming</p>
-        <p class="text-sm text-gray-700 mt-1">HK and Macau don't support mainland Chinese carriers. Roaming is usually a nominal <strong>30 RMB / day</strong> &mdash; budget for it before you hop on that ferry.</p>
+        <p class="text-sm text-gray-700 mt-1">HK and Macau don't support mainland Chinese carriers. Roaming is usually a nominal <strong>30 RMB / day</strong> &ndash; budget for it before you hop on that ferry.</p>
       </div>
     </div>
   </div><!-- /mobile -->
@@ -1818,7 +1831,7 @@
       <div class="grid sm:grid-cols-2 gap-3 text-sm" id="apps-grid"></div>
       <div class="mt-6 pt-5 border-t border-gray-100 space-y-3">
         <h4 class="font-semibold flex items-center gap-2"><svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-info"/></svg>Notes on App Store Regions</h4>
-        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Apple App Store:</strong> Some apps (like Sam's Club for China) require switching your Apple ID's region to China. <a href="https://support.apple.com/en-us/118283" target="_blank" rel="noopener" class="text-brand underline">Apple's instructions.</a> Only switch back to the US region store once the app has fully downloaded &mdash; switching back too early can interrupt it.</div>
+        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Apple App Store:</strong> Some apps (like Sam's Club for China) require switching your Apple ID's region to China. <a href="https://support.apple.com/en-us/118283" target="_blank" rel="noopener" class="text-brand underline">Apple's instructions.</a> Only switch back to the US region store once the app has fully downloaded &ndash; switching back too early can interrupt it.</div>
         <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Google Play:</strong> Inaccessible inside China without a VPN.</div>
         <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Samsung Galaxy Store:</strong> Auto-switches to the Chinese store when a Chinese SIM is detected, and is only in Chinese characters.</div>
       </div>
@@ -1843,7 +1856,7 @@
           <div>
             <p class="text-xs font-bold uppercase tracking-widest" style="color:#c2410c;">Step-by-Step Guide</p>
             <p class="font-bold text-lg leading-tight">Hong Kong Airport &rarr; Shenzhen Shekou</p>
-            <p class="text-blue-200 text-xs mt-0.5">Ferry guide for your first arrival &mdash; no HK immigration required</p>
+            <p class="text-blue-200 text-xs mt-0.5">Ferry guide for your first arrival &ndash; no HK immigration required</p>
           </div>
           <svg id="hkg-chevron" class="icon w-6 h-6 ml-auto flex-shrink-0 text-blue-300" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform .25s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
         </div>
@@ -1868,7 +1881,7 @@
     <div class="hero-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:6px;"><use href="#ic-ferry"/></svg>Travel Guide</div>
     <div class="accent-bar"></div>
     <h1>Hong Kong Airport <span>&rarr; Shenzhen Shekou</span></h1>
-    <p class="hero-sub">Step-by-step ferry guide for transit passengers arriving at HKIA and continuing to Shenzhen via the SkyPier direct ferry — no Hong Kong immigration required.</p>
+    <p class="hero-sub">Step-by-step ferry guide for transit passengers arriving at HKIA and continuing to Shenzhen via the SkyPier direct ferry – no Hong Kong immigration required.</p>
     <div class="hero-pills">
       <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-plane"/></svg> HKIA SkyPier</span>
       <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-ferry"/></svg> Shekou Ferry Terminal</span>
@@ -1908,8 +1921,8 @@
   <div class="alert-box green" style="margin-top:8px;">
     <svg class="icon fa-icon" aria-hidden="true" style="color:var(--green);"><use href="#ic-check"/></svg>
     <div class="alert-body">
-      <strong>Key Advantage — No Hong Kong Immigration Required</strong>
-      <p>The HKIA SkyPier is located <em>airside</em> — inside the restricted transit zone. Transit passengers bypass Hong Kong immigration entirely, saving significant time. This is the primary reason to use this route.</p>
+      <strong>Key Advantage – No Hong Kong Immigration Required</strong>
+      <p>The HKIA SkyPier is located <em>airside</em> – inside the restricted transit zone. Transit passengers bypass Hong Kong immigration entirely, saving significant time. This is the primary reason to use this route.</p>
     </div>
   </div>
 
@@ -1923,7 +1936,7 @@
       <div class="step-num">1</div>
       <div class="step-body">
         <h3><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-passport"/></svg> Before Departure: Fill Out China's Electronic Entry Card</h3>
-        <p>Before you leave, complete China's <strong>electronic entry card</strong> online and save the QR code it generates. You'll use it during immigration on arrival in Shekou — even though your passport will usually pull up your info automatically, it's good to have as a backup.</p>
+        <p>Before you leave, complete China's <strong>electronic entry card</strong> online and save the QR code it generates. You'll use it during immigration on arrival in Shekou – even though your passport will usually pull up your info automatically, it's good to have as a backup.</p>
       </div>
     </div>
 
@@ -1931,11 +1944,11 @@
       <div class="step-num">2</div>
       <div class="step-body">
         <h3><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-map"/></svg> Deplane &rarr; Follow Signs to "Immigration"</h3>
-        <p>Upon exiting the aircraft, follow overhead signs towards <strong>Immigration / 入境檢查</strong>. Look for signs also showing <strong>Mainland/Macao (內地/澳門)</strong> — this is the direction you want.</p>
+        <p>Upon exiting the aircraft, follow overhead signs towards <strong>Immigration / 入境檢查</strong>. Look for signs also showing <strong>Mainland/Macao (內地/澳門)</strong> – this is the direction you want.</p>
         <p>You will see blue directional signs overhead. The key indicators are: <em>Immigration</em>, <em>Transfer Desks E1, E2</em>, and <em>Mainland/Macao</em>.</p>
         <figure class="step-photo">
           <img src="assets/hkia-signage-immigration.jpg" alt="HKIA overhead signage showing Immigration and Mainland/Macao directions" loading="lazy">
-          <figcaption>What you will see overhead after deplaning — follow the Mainland/Macao arrow.</figcaption>
+          <figcaption>What you will see overhead after deplaning – follow the Mainland/Macao arrow.</figcaption>
         </figure>
       </div>
     </div>
@@ -1948,7 +1961,7 @@
         <p>Once off the train, continue following signs for <strong>Mainland/Macao (內地/澳門)</strong>. You'll look for Transfer Desk E2 on the left.</p>
         <figure class="step-photo">
           <img src="assets/hkia-signage-mainland-macao-after-train.jpg" alt="HKIA sign - Mainland/Macao direction after the train" loading="lazy">
-          <figcaption>After the train — follow the right arrow for Mainland/Macao. Transfer Desks E2 is to the left.</figcaption>
+          <figcaption>After the train – follow the right arrow for Mainland/Macao. Transfer Desks E2 is to the left.</figcaption>
         </figure>
       </div>
     </div>
@@ -1961,7 +1974,7 @@
         <p>Go to the counter designated for <strong>Shekou / 蛇口</strong> (Shenzhen). Do not join the Macau queue by mistake.</p>
         <figure class="step-photo">
           <img src="assets/hkia-skypier-ferry-ticket-counters.jpg" alt="CKS SkyPier ferry ticket counters at HKIA" loading="lazy">
-          <figcaption>The CKS SkyPier ferry counters — multiple desks showing routes and departure times. Find the Shekou / Shenzhen desk.</figcaption>
+          <figcaption>The CKS SkyPier ferry counters – multiple desks showing routes and departure times. Find the Shekou / Shenzhen desk.</figcaption>
         </figure>
       </div>
     </div>
@@ -1971,7 +1984,7 @@
       <div class="step-body">
         <h3><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-chat"/></svg> Purchase Your Ticket to "Shekou" &amp; Inform the Agent</h3>
         <p>Ask for the <strong>next available ferry to Shekou (蛇口)</strong>. At the counter, you will hand over your <strong>checked baggage tags</strong> (if you did not have the bags originally checked through to ZYK). The ferry service will collect and load your bags directly onto the ferry. <em>You will NOT collect your bags in Hong Kong.</em> You pick up your checked luggage only after arriving at Shekou.</p>
-        <p><strong>The SkyPier ferry accepts credit cards</strong> — you do not need to exchange cash before boarding.</p>
+        <p><strong>The SkyPier ferry accepts credit cards</strong> – you do not need to exchange cash before boarding.</p>
       </div>
     </div>
 
@@ -2027,7 +2040,7 @@
       <svg class="icon fa-icon" aria-hidden="true" style="color:var(--accent);"><use href="#ic-bag"/></svg>
       <div class="alert-body">
         <strong>Through-Checked Baggage Is a Major Convenience</strong>
-        <p>The SkyPier service allows your checked luggage to be transferred directly from your incoming flight to the ferry — you never handle your bags at HKIA. Just hand over your baggage tags at the ticket counter and collect at Shekou. Confirm this service is active when you purchase your ticket.</p>
+        <p>The SkyPier service allows your checked luggage to be transferred directly from your incoming flight to the ferry – you never handle your bags at HKIA. Just hand over your baggage tags at the ticket counter and collect at Shekou. Confirm this service is active when you purchase your ticket.</p>
       </div>
     </div>
 
@@ -2037,7 +2050,7 @@
   <div class="backup">
     <div class="backup-header">
       <svg class="icon fa-icon" aria-hidden="true"><use href="#ic-warn"/></svg>
-      Backup Plan — If You Miss the Ferry or Accidentally Clear HK Immigration
+      Backup Plan – If You Miss the Ferry or Accidentally Clear HK Immigration
     </div>
     <div class="backup-body">
 
@@ -2045,12 +2058,12 @@
         <svg class="icon fa-icon" aria-hidden="true" style="color:var(--red);"><use href="#ic-warn"/></svg>
         <div class="alert-body">
           <strong>Critical: Once You Clear Hong Kong Immigration, You Cannot Return to the SkyPier Ferry</strong>
-          <p>The ferry terminal is airside. Clearing HK immigration means you have exited the restricted zone — there is no re-entry to take the ferry. You must use an alternative route.</p>
+          <p>The ferry terminal is airside. Clearing HK immigration means you have exited the restricted zone – there is no re-entry to take the ferry. You must use an alternative route.</p>
         </div>
       </div>
 
       <p style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Alternative Route via Shenzhen Bay Checkpoint</p>
-      <h4 style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:12px;">CTG Bus (中旅巴士) — Mainland/Macao Transport Area</h4>
+      <h4 style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:12px;">CTG Bus (中旅巴士) – Mainland/Macao Transport Area</h4>
 
       <div class="photo-row">
         <figure>
@@ -2059,7 +2072,7 @@
         </figure>
         <figure>
           <img src="assets/hkia-ctg-bus-counter.jpg" alt="CTG Bus counter showing Shenzhen destinations" loading="lazy">
-          <figcaption>CTG Bus (中旅巴士) — tell them Shenzhen Shekou via Shenzhen Bay checkpoint.</figcaption>
+          <figcaption>CTG Bus (中旅巴士) – tell them Shenzhen Shekou via Shenzhen Bay checkpoint.</figcaption>
         </figure>
       </div>
 
@@ -2074,20 +2087,20 @@
         </div>
         <div class="backup-step">
           <div class="bs-num">3</div>
-          <div class="bs-text">Follow signs to <strong>"Mainland/Macao Transport" (往內地/澳門交通)</strong> — located in the ground transportation area, signposted from the Arrivals Hall.</div>
+          <div class="bs-text">Follow signs to <strong>"Mainland/Macao Transport" (往內地/澳門交通)</strong> – located in the ground transportation area, signposted from the Arrivals Hall.</div>
         </div>
         <div class="backup-step">
           <div class="bs-num">4</div>
           <div class="bs-text">Find the <strong>CTG Bus (中旅巴士)</strong> ticket counter. Purchase a ticket specifying your destination: <strong>Shenzhen, Shekou</strong>, crossing via the <strong>Shenzhen Bay (深圳灣) checkpoint</strong>. The agent will direct you to the correct bus bay (Bay 32–34 area for limos/coaches).
             <figure class="step-photo" style="margin-top:10px;">
               <img src="assets/hkia-ctg-bus-bays.jpg" alt="Bus and limo pickup bays 31-34 at HKIA" loading="lazy">
-              <figcaption>Bays 31–34 — where CTG limos and coaches depart for Shenzhen Bay border crossing.</figcaption>
+              <figcaption>Bays 31–34 – where CTG limos and coaches depart for Shenzhen Bay border crossing.</figcaption>
             </figure>
           </div>
         </div>
         <div class="backup-step">
           <div class="bs-num">5</div>
-          <div class="bs-text">The bus/limo will cross the Shenzhen Bay Bridge border crossing. Expect the total journey to take approximately <strong>1.5 – 2.5 hours</strong> depending on border wait times — significantly longer than the ferry.</div>
+          <div class="bs-text">The bus/limo will cross the Shenzhen Bay Bridge border crossing. Expect the total journey to take approximately <strong>1.5 – 2.5 hours</strong> depending on border wait times – significantly longer than the ferry.</div>
         </div>
       </div>
     </div>
@@ -2142,13 +2155,13 @@
       <div class="rounded-xl overflow-hidden border border-gray-200">
         <div class="bg-brand-lt px-4 py-3 flex gap-2 items-center">
           <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-ferry"/></svg>
-          <h4 class="font-bold text-brand">Shekou Port &mdash; Ferry to Hong Kong &amp; Macau</h4>
+          <h4 class="font-bold text-brand">Shekou Port &ndash; Ferry to Hong Kong &amp; Macau</h4>
         </div>
         <div class="p-4 text-sm text-gray-700 space-y-3">
           <p>Buy tickets via the <strong>GBA Ferries (&#31841;&#28207;&#24555;&#33337;)</strong> WeChat mini-app.</p>
           <div class="good-box rounded-lg p-3">
-            <p class="font-semibold text-green-800">Pro Tip &mdash; Flying out of Hong Kong?</p>
-            <p class="text-green-700 mt-1">Check your bags at the <strong>Shekou ferry terminal</strong>. They travel with the ferry and meet you at your final flight destination &mdash; no re-claiming bags at HK airport!</p>
+            <p class="font-semibold text-green-800">Pro Tip &ndash; Flying out of Hong Kong?</p>
+            <p class="text-green-700 mt-1">Check your bags at the <strong>Shekou ferry terminal</strong>. They travel with the ferry and meet you at your final flight destination &ndash; no re-claiming bags at HK airport!</p>
           </div>
         </div>
       </div>
@@ -2166,8 +2179,8 @@
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-passport"/></svg>
       </div>
       <div>
-        <h3 class="font-bold text-lg">Hong Kong e-Channel &mdash; Fast-Track Immigration</h3>
-        <p class="text-sm text-gray-600 mt-2">Frequent HK airport travelers should apply for the <strong>e-Channel pass</strong> &mdash; skip the immigration line and save your passport pages from extra stamps.</p>
+        <h3 class="font-bold text-lg">Hong Kong e-Channel &ndash; Fast-Track Immigration</h3>
+        <p class="text-sm text-gray-600 mt-2">Frequent HK airport travelers should apply for the <strong>e-Channel pass</strong> &ndash; skip the immigration line and save your passport pages from extra stamps.</p>
         <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-sm text-yellow-800">
           <svg class="icon w-4 h-4 inline mr-1 text-yellow-600" aria-hidden="true"><use href="#ic-warn"/></svg>
           Applicants must be <strong>12 years or older</strong>.
@@ -2200,7 +2213,7 @@
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-map"/></svg>
         Your Address
       </h3>
-      <p class="text-sm text-gray-500">You'll need this for police registration, passport applications, deliveries, and many apps. Addresses in China are written from broad to specific &mdash; the opposite of the US.</p>
+      <p class="text-sm text-gray-500">Notice that addresses are written from broader to detailed &ndash; the opposite of the US. You usually won't need the postal code.</p>
 
       <div class="info-box rounded-xl p-4">
         <p class="text-xs font-bold text-brand uppercase tracking-wide mb-2">Copy This</p>
@@ -2224,9 +2237,9 @@
           <tr class="bg-gray-50"><td class="p-2 border border-gray-200 text-gray-500">Sub-district</td><td class="p-2 border border-gray-200 font-medium">&#34503;&#21475;</td><td class="p-2 border border-gray-200 text-gray-600">Sh&#233;k&#466;u</td></tr>
           <tr><td class="p-2 border border-gray-200 text-gray-500">Street</td><td class="p-2 border border-gray-200 font-medium">&#21335;&#28023;&#22823;&#36947; 1033&#21495;</td><td class="p-2 border border-gray-200 text-gray-600">N&#225;nh&#462;i D&#224;d&#224;o 1033 H&#224;o</td></tr>
           <tr class="bg-gray-50"><td class="p-2 border border-gray-200 text-gray-500">Complex</td><td class="p-2 border border-gray-200 font-medium">&#27888;&#26684;&#22777;&#26848;&#26381;&#21153;&#20844;&#23507;</td><td class="p-2 border border-gray-200 text-gray-600">T&#224;ig&#233; Y&#299; T&#225;ng F&#250;w&#249; G&#333;ngy&#249;</td></tr>
-          <tr><td class="p-2 border border-gray-200 text-gray-500">Building</td><td class="p-2 border border-gray-200 font-medium">G &#26635;</td><td class="p-2 border border-gray-200 text-gray-600">G D&#242;ng</td></tr>
-          <tr class="bg-gray-50"><td class="p-2 border border-gray-200 text-gray-500">Room</td><td class="p-2 border border-gray-200 font-medium">XXXX &#25151;</td><td class="p-2 border border-gray-200 text-gray-600">Replace XXXX with your unit number</td></tr>
-          <tr><td class="p-2 border border-gray-200 text-gray-500">Postal Code</td><td class="p-2 border border-gray-200 font-medium">518067</td><td class="p-2 border border-gray-200 text-gray-600">&mdash;</td></tr>
+          <tr><td class="p-2 border border-gray-200 text-gray-500">Building</td><td class="p-2 border border-gray-200 font-medium">[&nbsp;&nbsp;&nbsp;building&nbsp;&nbsp;&nbsp;]&#26635;</td><td class="p-2 border border-gray-200 text-gray-600">[&nbsp;&nbsp;&nbsp;building&nbsp;&nbsp;&nbsp;] D&#242;ng</td></tr>
+          <tr class="bg-gray-50"><td class="p-2 border border-gray-200 text-gray-500">Room</td><td class="p-2 border border-gray-200 font-medium">[&nbsp;&nbsp;&nbsp;apartment&nbsp;&nbsp;&nbsp;]&#25151;</td><td class="p-2 border border-gray-200 text-gray-600">[&nbsp;&nbsp;&nbsp;apartment&nbsp;&nbsp;&nbsp;] F&#225;ng</td></tr>
+          <tr><td class="p-2 border border-gray-200 text-gray-500">Postal Code</td><td class="p-2 border border-gray-200 font-medium" colspan="2">518067</td></tr>
         </tbody>
       </table>
 
@@ -2241,7 +2254,7 @@
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-bolt"/></svg>
         Outlets &amp; Electrical Plugs
       </h3>
-      <p class="text-sm text-gray-500">These apartments are well-known for having very few outlets &mdash; consider bringing a power strip. Here are the plug types you'll find:</p>
+      <p class="text-sm text-gray-500">The apartments have too few outlets. Here are the plug types you'll find:</p>
 
       <div class="grid sm:grid-cols-3 gap-4 text-sm">
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center">
@@ -2257,7 +2270,7 @@
         <div class="bg-gray-50 border border-gray-200 rounded-xl p-4 text-center">
           <img src="assets/outlet-type-a-c-i.svg" alt="Type A, Type C, and Type I outlet illustration" class="mx-auto mb-2 w-20 h-20" loading="lazy">
           <p class="font-bold text-gray-700">Universal</p>
-          <p class="text-gray-600 mt-1">Accepts Type A, Type C, and Type I &mdash; the most forgiving outlet if you're not sure what you're plugging in. Common in CM+ Taige.</p>
+          <p class="text-gray-600 mt-1">Accepts Type A, Type C, and Type I &ndash; the most forgiving outlet if you're not sure what you're plugging in. Common in CM+ Taige.</p>
         </div>
       </div>
 
@@ -2266,7 +2279,7 @@
           <svg class="icon w-5 h-5 text-red-600" aria-hidden="true"><use href="#ic-warn"/></svg>
           Voltage Mismatch
         </h4>
-        <p class="text-red-600 text-sm">The US uses 110V / 60Hz and China uses 220V / 50Hz. The difference is significant enough to destroy non-compatible devices (e.g. small appliances), while most modern consumer electronics will be dual-voltage. If you bring a US-only appliance and plug it into an outlet, it <em>will</em> be damaged or destroyed.</p>
+        <p class="text-red-600 text-sm">The US uses 110V / 60Hz and China uses 220V / 50Hz. The difference is significant enough to destroy non-compatible devices (e.g., small appliances), but most modern consumer electronics will be dual-voltage. If you bring a US-only appliance and plug it into an outlet, it <em>will</em> be damaged or destroyed.</p>
       </div>
 
       <div class="grid sm:grid-cols-2 gap-4 text-sm">
@@ -2282,20 +2295,14 @@
         </div>
         <div class="warn-box rounded-xl p-4">
           <p class="font-bold text-red-800 mb-2">Do NOT Plug In (Single-Voltage)</p>
-          <p class="text-gray-700 mb-2">These will fry, underperform, or be a fire hazard:</p>
+          <p class="text-gray-700 mb-2">These items underperform or be a fire hazard. Check the label.</p>
           <ul class="space-y-1 text-red-700 list-disc list-inside">
             <li>Cheap hair dryers</li>
-            <li>Some curling irons</li>
+            <li>Some hair straighteners and curling irons</li>
             <li>Older kitchen appliances</li>
             <li>Anything with a fixed-speed motor</li>
           </ul>
-          <p class="text-xs text-red-600 mt-2">When in doubt, check the label. If it only says "110V", leave it at home.</p>
         </div>
-      </div>
-
-      <div class="info-box rounded-lg p-4 text-sm flex gap-3">
-        <svg class="icon w-5 h-5 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
-        <p class="text-gray-700"><strong>Bring a multi-outlet power strip from the US.</strong> CM+ Taige apartments are notoriously short on outlets, and a US-style strip with dual-voltage devices will work fine via any Type A socket. For appliances that need 220V-safe options, shop locally in China after arrival.</p>
       </div>
     </div>
   </div><!-- /practical -->
