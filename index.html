@@ -986,13 +986,13 @@
     font-size: 20px;
     font-weight: 900;
     color: #fff;
-    background: #6b7280;
+    background: var(--ink);
     flex-shrink: 0;
   }
-#hkg-embed .step.blue  .step-num { background: #6b7280; }
-#hkg-embed .step.teal  .step-num { background: #6b7280; }
-#hkg-embed .step.green .step-num { background: #6b7280; }
-#hkg-embed .step.accent .step-num { background: #6b7280; }
+#hkg-embed .step.blue  .step-num { background: var(--accent); }
+#hkg-embed .step.teal  .step-num { background: var(--teal); }
+#hkg-embed .step.green .step-num { background: var(--green); }
+#hkg-embed .step.accent .step-num { background: #7c2d12; }
 #hkg-embed .step-body { padding: 16px 20px; flex: 1; }
 #hkg-embed .step-body h3 {
     font-size: 14px; font-weight: 800; color: var(--ink); margin-bottom: 5px;
@@ -1092,16 +1092,16 @@
 </style>
 <script>
   tailwind.config = { theme: { extend: { colors: {
-    brand: '#0f766e', 'brand-dk': '#115e59', 'brand-lt': '#ccfbf1',
+    brand: '#0f766e', 'brand-dk': '#115e59', 'brand-lt': '#f0fdf4',
     accent: '#c2410c', 'accent-lt': '#ffedd5', 'accent-dk': '#7c2d12'
   }}}};
 </script>
 <style>
   body { font-family: 'quire-sans', 'Segoe UI', system-ui, sans-serif; }
   body, #hkg-embed { font-variant-numeric: lining-nums; font-feature-settings: "lnum"; }
-  .tab-btn { border-bottom: 3px solid transparent; transition: all .18s; }
-  .tab-btn.active { border-bottom-color: #0f766e; color: #0f766e; font-weight: 700; }
-  .tab-btn:hover:not(.active) { border-bottom-color: #d1d5db; color: #374151; }
+  .tab-btn { transition: all .18s; }
+  .tab-btn.active { color: #0f766e; font-weight: 700; }
+  .tab-btn:hover:not(.active) { color: #374151; }
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
   input[type=checkbox]:checked + label { text-decoration: line-through; opacity: .5; }
@@ -1127,24 +1127,54 @@
   .hero-chip { transition: all .2s; background: rgba(255,255,255,.15); border: none; }
   .hero-chip:hover { background: rgba(255,255,255,.28); transform: translateY(-2px); cursor: pointer; }
   .app-card { transition: border-color .18s, background .18s; }
-  .app-card:hover { border-color: #0f766e; background: #ccfbf1; }
+  .app-card:hover { border-color: #0f766e; background: #f0fdf4; }
   svg.icon { display: inline-block; vertical-align: middle; }
   .bg-brand { background-color: #0f766e; }
-  .bg-brand-lt { background-color: #ccfbf1; }
+  .bg-brand-lt { background-color: #f0fdf4; }
   .border-brand { border-color: #0f766e; }
   .text-brand { color: #0f766e; }
   .text-brand-dk { color: #115e59; }
   .text-accent-dk { color: #7c2d12; }
   .fa-icon { width: 1em; height: 1em; vertical-align: -0.125em; }
-  .vpn-pill { display: inline-block; background:#ccfbf1; color:#0f766e; border-radius:9999px; padding: 2px 12px; font-size:.8rem; font-weight:600; margin:2px; }
+  .vpn-pill { display: inline-block; background:#f0fdf4; color:#0f766e; border-radius:9999px; padding: 2px 12px; font-size:.8rem; font-weight:600; margin:2px; }
   /* Ample desktop margins, tight on mobile */
   .max-w-4xl { padding-left: 1rem; padding-right: 1rem; }
   @media (min-width: 640px) { .max-w-4xl { padding-left: 1.5rem; padding-right: 1.5rem; } }
   @media (min-width: 768px) { .max-w-4xl { padding-left: 2.5rem; padding-right: 2.5rem; } }
   @media (min-width: 1024px) { .max-w-4xl { padding-left: 4rem; padding-right: 4rem; } }
+
+  /* Desktop nav: wrap into rows instead of horizontal scroll */
+  @media (min-width: 768px) {
+    #tabNavList { flex-wrap: wrap; overflow-x: visible; row-gap: 2px; }
+  }
+
+  /* Overview: static full-bleed background photo, tiles flow over it */
+  body.bg-overview {
+    background-image: url('assets/skyline.jpg');
+    background-size: cover;
+    background-position: center top;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+  }
+
+  /* Tab content padding: triple on Overview, double on information pages */
+  #tab-overview { padding-left: 3rem; padding-right: 3rem; }
+  .tab-pane:not(#tab-overview) { padding-left: 2rem; padding-right: 2rem; }
+  @media (min-width: 640px) {
+    #tab-overview { padding-left: 4.5rem; padding-right: 4.5rem; }
+    .tab-pane:not(#tab-overview) { padding-left: 3rem; padding-right: 3rem; }
+  }
+  @media (min-width: 768px) {
+    #tab-overview { padding-left: 7.5rem; padding-right: 7.5rem; }
+    .tab-pane:not(#tab-overview) { padding-left: 5rem; padding-right: 5rem; }
+  }
+  @media (min-width: 1024px) {
+    #tab-overview { padding-left: 12rem; padding-right: 12rem; }
+    .tab-pane:not(#tab-overview) { padding-left: 8rem; padding-right: 8rem; }
+  }
 </style>
 </head>
-<body class="text-gray-800 min-h-screen" style="background-color:#faf7f0;">
+<body class="text-gray-800 min-h-screen bg-overview" style="background-color:#faf7f0;">
 
 <!-- SVG SPRITE -->
 <svg xmlns="http://www.w3.org/2000/svg" style="display:none">
@@ -1231,7 +1261,7 @@
 
 <!-- TAB NAV -->
 <nav class="bg-white shadow-sm sticky top-0 z-20 border-b border-gray-100">
-  <div class="max-w-4xl mx-auto px-4 flex overflow-x-auto gap-1">
+  <div id="tabNavList" class="max-w-4xl mx-auto px-4 flex overflow-x-auto gap-1">
     <button class="tab-btn active px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="overview">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview
     </button>
@@ -1263,36 +1293,33 @@
 </nav>
 
 <!-- MAIN -->
-<main class="max-w-4xl mx-auto px-4 py-8 space-y-6">
+<main class="max-w-4xl mx-auto py-8 space-y-6">
 
   <!-- ===== OVERVIEW ===== -->
   <div id="tab-overview" class="tab-pane active space-y-5">
-    <div class="rounded-2xl overflow-hidden shadow-sm">
-      <img src="assets/skyline.jpg" alt="Shenzhen skyline" class="w-full h-56 sm:h-72 object-cover">
-    </div>
-
     <div class="grid sm:grid-cols-2 gap-4">
       <button onclick="switchTab('shipping')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
-        <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk bg-white rounded-full px-2 py-0.5">Before move</span>
+        <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
         <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-box"/></svg>
         <p class="font-bold text-gray-800">Preparing for Move</p>
         <p class="text-sm text-gray-600 mt-1">Air cargo shipping &ndash; what you can and can't send, and how much room you get.</p>
       </button>
       <button onclick="switchTab('internet')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
-        <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk bg-white rounded-full px-2 py-0.5">Before move</span>
+        <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
         <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-globe"/></svg>
         <p class="font-bold text-gray-800">Internet</p>
         <p class="text-sm text-gray-600 mt-1">Plan your internet access before you arrive &ndash; it's difficult to do once you've landed.</p>
       </button>
-      <button onclick="switchTab('money')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-card"/></svg>
+      <button onclick="switchTab('money')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
+        <span class="absolute top-3 right-3 text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
+        <svg class="icon w-7 h-7 text-brand-dk mb-2" aria-hidden="true"><use href="#ic-card"/></svg>
         <p class="font-bold text-gray-800">Money</p>
         <p class="text-sm text-gray-600 mt-1">Wiring funds, WeChat payments, and cross-border transfers.</p>
       </button>
       <button onclick="switchTab('passport')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
         <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-passport"/></svg>
         <p class="font-bold text-gray-800">Passport Renewal</p>
-        <p class="text-sm text-gray-600 mt-1">How you can renew while living in-country.</p>
+        <p class="text-sm text-gray-600 mt-1">How you can renew while abroad.</p>
       </button>
       <button onclick="switchTab('mobile')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
         <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-phone"/></svg>
@@ -1421,11 +1448,11 @@
           <p class="text-gray-500">Usually you can only withdraw RMB&yen;3,500 per trip (about USD$500), and there may be a fee on top of that.</p>
         </div>
       </div>
-      <div class="info-box rounded-lg p-4 text-sm flex gap-3">
-        <svg class="icon w-5 h-5 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
+      <div class="bg-gray-50 rounded-lg border border-gray-200 p-4 text-sm flex gap-3">
+        <svg class="icon w-5 h-5 text-gray-500 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-info"/></svg>
         <div>
-          <p class="font-bold text-brand">Transfers via WeChat from US Banks</p>
-          <p class="text-gray-700 mt-1">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &ndash; stick to Wise or ICBC for now.</p>
+          <p class="font-bold text-gray-500">Transfers via WeChat from US Banks</p>
+          <p class="text-gray-500 mt-1">WeChat's own transfer feature claims to accept direct transfers from a US account, but it hasn't worked well in practice &ndash; stick to Wise or ICBC for now.</p>
         </div>
       </div>
     </div>
@@ -1818,7 +1845,7 @@
       <svg class="icon w-5 h-5 text-brand flex-shrink-0" aria-hidden="true"><use href="#ic-card"/></svg>
       <span>
         <span class="font-bold text-gray-800 block">Payments &amp; Cross-Border Money Transfers</span>
-        <span class="text-sm text-gray-500">Wiring funds, WeChat card linking, and Wise/ICBC transfer options moved to the <strong>Money</strong> tab &rarr;</span>
+        <span class="text-sm text-gray-500">See the <strong>Money</strong> tab for information on wiring funds, WeChat card linking, and Wise/ICBC transfer options.</span>
       </span>
     </button>
 
@@ -1873,7 +1900,7 @@
           <div><p class="font-bold text-gray-800">45 min early</p><p class="text-xs text-gray-400 uppercase tracking-wide">Check-in Cutoff</p></div>
           <div><p class="font-bold" style="color:#2a8703;">ZYK</p><p class="text-xs text-gray-400 uppercase tracking-wide">IATA Code</p></div>
         </div>
-        <div class="px-5 py-2 flex items-center gap-2 text-sm font-semibold" style="background:#ccfbf1;color:#0f766e;">
+        <div class="px-5 py-2 flex items-center gap-2 text-sm font-semibold" style="background:#f0fdf4;color:#0f766e;">
           <svg class="icon w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
           <span id="hkg-btn-label">Show full step-by-step guide</span>
         </div>
@@ -1885,13 +1912,9 @@
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
-    <div class="hero-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:6px;"><use href="#ic-ferry"/></svg>Travel Guide</div>
-    <div class="accent-bar"></div>
-    <h1>Hong Kong Airport <span>&rarr; Shenzhen Shekou</span></h1>
+    <h1 style="color:var(--accent);">Hong Kong Airport <span>&rarr; Shenzhen Shekou</span></h1>
     <p class="hero-sub">Step-by-step ferry guide for transit passengers arriving at HKIA and continuing to Shenzhen via the SkyPier direct ferry – no Hong Kong immigration required.</p>
     <div class="hero-pills">
-      <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-plane"/></svg> HKIA SkyPier</span>
-      <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-ferry"/></svg> Shekou Ferry Terminal</span>
       <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-bag"/></svg> Through-Checked Baggage</span>
       <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-card"/></svg> Credit Cards Accepted</span>
     </div>
@@ -1909,16 +1932,12 @@
     <div class="stat-lbl">Ticket Price</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">~500 RMB</div>
-    <div class="stat-lbl">Recommended Emergency Cash</div>
-  </div>
-  <div class="stat-item">
     <div class="stat-num">45 min early</div>
     <div class="stat-lbl">Check-in Before Departure</div>
   </div>
   <div class="stat-item">
-    <div class="stat-num">7am – 11:30pm</div>
-    <div class="stat-lbl">Daily Ferry Window</div>
+    <div class="stat-num">7:00 a.m. to 11:30 p.m.</div>
+    <div class="stat-lbl">Schedule</div>
   </div>
 </div>
 
@@ -1928,13 +1947,12 @@
   <div class="alert-box green" style="margin-top:8px;">
     <svg class="icon fa-icon" aria-hidden="true" style="color:var(--green);"><use href="#ic-check"/></svg>
     <div class="alert-body">
-      <strong>Key Advantage – No Hong Kong Immigration Required</strong>
+      <strong>No Hong Kong Immigration Required</strong>
       <p>The HKIA SkyPier is located <em>airside</em> – inside the restricted transit zone. Transit passengers bypass Hong Kong immigration entirely, saving significant time. This is the primary reason to use this route.</p>
     </div>
   </div>
 
   <!-- JOURNEY SUMMARY -->
-  <div class="section-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:5px;"><use href="#ic-check"/></svg>At a Glance</div>
   <h2 class="section-h2">Full Journey Summary</h2>
 
   <div class="summary-card">
@@ -1975,7 +1993,6 @@
   </div>
 
   <!-- STEPS -->
-  <div class="section-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:5px;"><use href="#ic-map"/></svg>Main Route</div>
   <h2 class="section-h2">Step-by-Step Instructions</h2>
 
   <div class="steps">
@@ -2071,7 +2088,6 @@
   </div><!-- /steps -->
 
   <!-- REMINDERS -->
-  <div class="section-tag"><svg class="icon fa-icon" aria-hidden="true" style="margin-right:5px;"><use href="#ic-warn"/></svg>Before You Go</div>
   <h2 class="section-h2">Important Reminders</h2>
 
   <div class="reminders">
@@ -2084,8 +2100,8 @@
       </div>
     </div>
 
-    <div class="alert-box info">
-      <svg class="icon fa-icon" aria-hidden="true" style="color:var(--accent);"><use href="#ic-bag"/></svg>
+    <div class="alert-box green">
+      <svg class="icon fa-icon" aria-hidden="true" style="color:var(--green);"><use href="#ic-bag"/></svg>
       <div class="alert-body">
         <strong>Through-Checked Baggage Is a Major Convenience</strong>
         <p>The SkyPier service allows your checked luggage to be transferred directly from your incoming flight to the ferry – you never handle your bags at HKIA. Just hand over your baggage tags at the ticket counter and collect at Shekou. Confirm this service is active when you purchase your ticket.</p>
@@ -2176,7 +2192,7 @@
       <div class="rounded-xl overflow-hidden border border-gray-200">
         <div class="bg-brand-lt px-4 py-3 flex gap-2 items-center">
           <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-plane"/></svg>
-          <h4 class="font-bold text-brand">Shenzhen Bao'an Airport</h4>
+          <h4 class="font-bold text-brand">Shenzhen Bao'an Airport (SZX)</h4>
         </div>
         <div class="p-4 text-sm text-gray-600">Your primary airport for domestic China travel and international flights. Easy access from Shekou.</div>
       </div>
@@ -2400,6 +2416,7 @@ function switchTab(id) {
   document.getElementById('tab-' + id).classList.add('active');
   const btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
   if (btn) btn.classList.add('active');
+  document.body.classList.toggle('bg-overview', id === 'overview');
   window.scrollTo({ top: 0, behavior: 'smooth' });
 }
 document.querySelectorAll('.tab-btn').forEach(b =>
