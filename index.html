@@ -1155,7 +1155,13 @@
   #overviewBgLayer {
     display: none;
     position: fixed;
-    inset: 0;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    width: 100vw;
+    height: 100vh;
+    height: 100dvh;
     z-index: -1;
     background-image: url('assets/skyline.jpg');
     background-size: cover;
@@ -1174,10 +1180,6 @@
   main { flex: 1 0 auto; }
   footer { flex-shrink: 0; }
 
-  /* Overview grid: 3 columns once there's room */
-  @media (min-width: 1200px) {
-    #overviewGrid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
-  }
 
   /* main carries its own max-w-4xl padding; cancel it so tab-pane padding below is the only source */
   main.max-w-4xl { padding-left: 0; padding-right: 0; }
@@ -1292,7 +1294,7 @@
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="shipping">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-box"/></svg> Preparing for Move
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-box"/></svg> Packing
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="money">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg> Money
@@ -1322,58 +1324,60 @@
 <main class="max-w-4xl mx-auto py-8 space-y-6">
 
   <!-- ===== OVERVIEW ===== -->
-  <div id="tab-overview" class="tab-pane active space-y-5">
-    <div id="overviewGrid" class="grid sm:grid-cols-2 gap-4">
-      <button onclick="switchTab('shipping')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
-          <svg class="icon w-7 h-7 text-brand-dk" aria-hidden="true"><use href="#ic-box"/></svg>
-        </div>
-        <p class="font-bold text-gray-800">Preparing for Move</p>
+  <div id="tab-overview" class="tab-pane active space-y-3">
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#0f766e;">Before Moving</div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-2">
+      <button onclick="switchTab('shipping')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-box"/></svg>
+        <p class="font-bold text-gray-800">Packing</p>
         <p class="text-sm text-gray-600 mt-1">Air cargo shipping &ndash; what you can and can't send, and how much room you get.</p>
       </button>
-      <button onclick="switchTab('internet')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
-          <svg class="icon w-7 h-7 text-brand-dk" aria-hidden="true"><use href="#ic-globe"/></svg>
-        </div>
+      <button onclick="switchTab('internet')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-globe"/></svg>
         <p class="font-bold text-gray-800">Internet</p>
         <p class="text-sm text-gray-600 mt-1">Plan your internet access before you arrive &ndash; it's difficult to do once you've landed.</p>
       </button>
-      <button onclick="switchTab('money')" class="text-left rounded-xl p-5 border-2 border-brand bg-brand-lt hover:brightness-95 transition relative">
-        <div class="flex items-center justify-between mb-2">
-          <span class="text-xs font-bold uppercase tracking-wide text-brand-dk">Before move</span>
-          <svg class="icon w-7 h-7 text-brand-dk" aria-hidden="true"><use href="#ic-card"/></svg>
-        </div>
+      <button onclick="switchTab('money')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-card"/></svg>
         <p class="font-bold text-gray-800">Money</p>
         <p class="text-sm text-gray-600 mt-1">Wiring funds, WeChat payments, and cross-border transfers.</p>
       </button>
-      <button onclick="switchTab('passport')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-passport"/></svg>
-        <p class="font-bold text-gray-800">Passport Renewal</p>
-        <p class="text-sm text-gray-600 mt-1">How you can renew while abroad.</p>
-      </button>
-      <button onclick="switchTab('mobile')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-phone"/></svg>
+    </div>
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#2563eb;">Living in Shenzhen</div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-2">
+      <button onclick="switchTab('mobile')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-phone"/></svg>
         <p class="font-bold text-gray-800">Mobile Phones</p>
         <p class="text-sm text-gray-600 mt-1">SIM cards, eSIMs, and getting a local number.</p>
       </button>
-      <button onclick="switchTab('wechat')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-chat"/></svg>
+      <button onclick="switchTab('wechat')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-chat"/></svg>
         <p class="font-bold text-gray-800">Apps</p>
         <p class="text-sm text-gray-600 mt-1">The important app, WeChat, and the apps you'll use day to day.</p>
       </button>
-      <button onclick="switchTab('travel')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-plane"/></svg>
-        <p class="font-bold text-gray-800">Travel</p>
-        <p class="text-sm text-gray-600 mt-1">Airports, the ferry, and getting around.</p>
-      </button>
-      <button onclick="switchTab('practical')" class="text-left rounded-xl p-5 border border-gray-200 bg-white hover:bg-gray-50 transition">
-        <svg class="icon w-7 h-7 text-brand mb-2" aria-hidden="true"><use href="#ic-map"/></svg>
+      <button onclick="switchTab('practical')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-map"/></svg>
         <p class="font-bold text-gray-800">Apartment</p>
         <p class="text-sm text-gray-600 mt-1">Outlets, voltage, and your address.</p>
       </button>
     </div>
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#c2410c;">Traveling from Shenzhen</div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <button onclick="switchTab('travel')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#c2410c;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#c2410c;" aria-hidden="true"><use href="#ic-plane"/></svg>
+        <p class="font-bold text-gray-800">Travel</p>
+        <p class="text-sm text-gray-600 mt-1">Airports, the ferry, and getting around.</p>
+      </button>
+      <button onclick="switchTab('passport')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#c2410c;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#c2410c;" aria-hidden="true"><use href="#ic-passport"/></svg>
+        <p class="font-bold text-gray-800">Passport Renewal</p>
+        <p class="text-sm text-gray-600 mt-1">How you can renew while abroad.</p>
+      </button>
+    </div>
+
   </div><!-- /overview -->
 
   <!-- ===== PREPARING FOR MOVE ===== -->
@@ -1381,7 +1385,7 @@
     <div>
       <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-box"/></svg>
-        Preparing to Move
+        Packing
       </h2>
       <p class="text-gray-500 text-sm">This is what and how much you can ship.</p>
     </div>
