@@ -1146,7 +1146,8 @@
 
   /* Nav: wrap into rows instead of horizontal scroll, except on narrow phones */
   @media (min-width: 480px) {
-    #tabNavList { flex-wrap: wrap; overflow-x: visible; row-gap: 2px; }
+    #tabNavList { flex-wrap: wrap; overflow-x: visible; row-gap: 0; }
+    #tabNavList .tab-btn { padding-top: 0.5rem; padding-bottom: 0.5rem; }
   }
 
   /* Overview: static full-bleed background photo, tiles flow over it.
