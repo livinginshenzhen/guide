@@ -885,6 +885,7 @@
 <style>
 /* ── HKG ferry guide styles (scoped to #hkg-embed) ── */
 #hkg-embed, #hkg-embed *::before, #hkg-embed *::after { box-sizing: border-box; margin: 0; padding: 0; }
+#hkg-embed { margin-bottom: 1.25rem; }
 #hkg-embed {
     --accent: #0f766e;
     --ink:    #1e293b;
@@ -1952,7 +1953,7 @@
     </div>
 
     <!-- ═══ ELECTRONIC ARRIVAL CARD EMBED ═══ -->
-    <div id="arrival-embed" style="display:none; margin-top:16px; border-radius:16px; overflow:hidden; border:2px solid #e0e5ec;">
+    <div id="arrival-embed" style="display:none; border-radius:0 0 16px 16px; overflow:hidden; border:2px solid #e0e5ec; border-top:none;">
       <div class="bg-white p-6">
         <p class="text-gray-500 text-sm mb-5">On the day of your arrival and before you enter, find the WeChat mini program and submit this (for every member in your party). It replaces the paper arrival card and speeds up immigration.</p>
         <div class="space-y-2 mb-5">
@@ -1964,7 +1965,7 @@
           <div class="flex gap-3">
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
             <div class="text-sm pt-1 flex-1">
-              <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 (Yí Mín Jú) 12367</strong> (National Immigration Administration).</p>
+              <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 12367</strong> (Yí Mín Jú; National Immigration Administration).</p>
               <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
             </div>
           </div>
@@ -1986,7 +1987,6 @@
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
             <div class="text-sm pt-1 flex-1">
               <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
-              <p class="text-gray-500 mt-0.5">Choose &ldquo;Entry Declaration for Border Area Residents&rdquo; only if that applies to you &ndash; most people want the standard Entry Declaration.</p>
               <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
             </div>
           </div>
@@ -2020,7 +2020,7 @@
     </div>
 
     <!-- ═══ HKG FERRY GUIDE EMBED ═══ -->
-    <div id="hkg-embed" style="display:none; margin-top:16px; border-radius:16px; overflow:hidden; border:2px solid #e0e5ec;">
+    <div id="hkg-embed" style="display:none; border-radius:0 0 16px 16px; overflow:hidden; border:2px solid #e0e5ec; border-top:none;">
 <!-- HERO -->
 <div class="hero">
   <div class="hero-inner">
@@ -2522,6 +2522,7 @@ function toggleHkgGuide() {
   chv.style.transform = open ? 'rotate(180deg)' : '';
   card.style.borderBottomLeftRadius  = open ? '0' : '';
   card.style.borderBottomRightRadius = open ? '0' : '';
+  card.style.marginBottom = open ? '0' : '';
   if (open) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
@@ -2536,6 +2537,7 @@ function toggleArrivalCard() {
   chv.style.transform = open ? 'rotate(180deg)' : '';
   card.style.borderBottomLeftRadius  = open ? '0' : '';
   card.style.borderBottomRightRadius = open ? '0' : '';
+  card.style.marginBottom = open ? '0' : '';
   if (open) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
