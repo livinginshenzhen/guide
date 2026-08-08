@@ -1888,7 +1888,7 @@
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
       <h3 class="font-bold text-lg flex items-center gap-2">
-        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-chat"/></svg>
+        <img src="assets/icons/wechat.jpg" alt="" class="w-6 h-6 rounded-md object-cover">
         WeChat
       </h3>
       <p class="text-sm text-gray-700">Install this first. Everything in China runs on it, in it, and through it.</p>
@@ -1907,10 +1907,11 @@
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+      <h3 class="font-bold text-lg mb-1 flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-phone"/></svg>
         Essential Apps
       </h3>
+      <p class="text-sm text-gray-500 mb-4">As with mini programs, note that apps regularly change their icon artwork &ndash; which does everything for eyeballs and nothing for recognition.</p>
       <div class="grid sm:grid-cols-2 gap-3 text-sm" id="apps-grid"></div>
       <div class="mt-6 pt-5 border-t border-gray-100 space-y-3">
         <h4 class="font-semibold flex items-center gap-2"><svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-info"/></svg>Notes on App Store Regions</h4>
@@ -2279,12 +2280,12 @@
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-map"/></svg>
         Your Address
       </h3>
-      <p class="text-sm text-gray-500">Notice that addresses are written from broader to detailed &ndash; the opposite of the US. You usually won't need the postal code.</p>
+      <p class="text-sm text-gray-500">Notice that addresses are written from broader to detailed &ndash; the opposite of the US. Most services just ask you to paste your whole address into their particular interface and it'll take it from there. You don't necessarily need to know the parts and usually won't be asked for the postal code.</p>
 
       <div class="info-box rounded-xl p-4">
         <p class="text-xs font-bold text-brand uppercase tracking-wide mb-2">Copy This</p>
         <p class="font-bold text-gray-800 text-base leading-relaxed select-all">
-          &#24191;&#19996;&#30465;&#28145;&#22323;&#24066;&#21335;&#23665;&#21306;&#34503;&#21475;&#21335;&#28023;&#22823;&#36947;1033&#21495;&#27888;&#26684;&#22777;&#26848;&#26381;&#21153;&#20844;&#23507;[&#8202;&#8202;&#8202;&#8202;]&#26635;[&#8202;&#8202;&#8202;&#8202;]&#25151;
+          &#24191;&#19996;&#30465;&#28145;&#22323;&#24066;&#21335;&#23665;&#21306;&#34503;&#21475;&#21335;&#28023;&#22823;&#36947;1033&#21495;&#27888;&#26684;&#22777;&#26848;&#26381;&#21153;&#20844;&#23507;[&#8202;&#8202;&#8202;bldg&#8202;&#8202;&#8202;&#8202;]&#26635;[&#8202;&#8202;&#8202;&#8202;apt&#8202;&#8202;&#8202;&#8202;]&#25151;
         </p>
       </div>
 
@@ -2402,41 +2403,47 @@ checks.forEach((text, i) => {
 });
 
 const miniApps = [
-  { name: 'Meituan', desc: 'Food & grocery delivery to your door' },
-  { name: 'GBA Ferries \u7ca4\u6e2f\u5feb\u8239', desc: 'Ferry tickets to Hong Kong or Macau' },
+  { name: 'Meituan', desc: 'Food & grocery delivery to your door', icon: 'assets/icons/meituan.jpg' },
+  { name: 'GBA Ferries \u7ca4\u6e2f\u5feb\u8239', desc: 'Ferry tickets to Hong Kong or Macau', icon: 'assets/icons/gbaferries.jpg' },
   { name: 'SIS Connect', desc: 'For families with kids at Shekou International School' },
   { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School' },
   { name: '\u4e58\u8f66\u7801 (Ch\u00e9ng Ch\u0113 M\u01ce)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)' },
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole' },
-  { name: '\u4eac\u4e1c JD (Shopping; J\u012bng D\u014dng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat." },
+  { name: '\u4eac\u4e1c JD (Shopping; J\u012bng D\u014dng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat.", icon: 'assets/icons/jd.jpg' },
 ];
 const mag = document.getElementById('mini-apps-grid');
 miniApps.forEach(a => {
   const d = document.createElement('div');
   d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
-  d.innerHTML = `<div class="flex-shrink-0 w-8 h-8 bg-brand-lt rounded-lg flex items-center justify-center">
-      <svg class="icon w-4 h-4 text-brand" aria-hidden="true"><use href="#ic-app"/></svg></div>
+  const iconHtml = a.icon
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover">`
+    : `<div class="flex-shrink-0 w-8 h-8 bg-brand-lt rounded-lg flex items-center justify-center">
+      <svg class="icon w-4 h-4 text-brand" aria-hidden="true"><use href="#ic-app"/></svg></div>`;
+  d.innerHTML = `${iconHtml}
     <div><p class="font-medium">${a.name}</p><p class="text-xs text-gray-500 mt-0.5">${a.desc}</p></div>`;
   mag.appendChild(d);
 });
 
 const apps = [
-  { name: "Sam's Club for China", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.' },
-  { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.' },
-  { name: 'Didi (Ride Sharing)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider." },
-  { name: 'GlobalSolutions', desc: 'Health insurance management.' },
-  { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.' },
-  { name: '深圳地铁 (Subway Tickets; Shēn Zhèn Dì Tiě)', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.' },
-  { name: 'Trip.com', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.' },
-  { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.' },
+  { name: "Sam's Club for China", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg' },
+  { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.', icon: 'assets/icons/amap.jpg' },
+  { name: 'Didi (Ride Sharing)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider.", icon: 'assets/icons/didi.jpg' },
+  { name: 'GlobalSolutions', desc: 'Health insurance management.', icon: 'assets/icons/globalsolutions.jpg' },
+  { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.', icon: 'assets/icons/railway12306.jpg' },
+  { name: '深圳地铁 (Subway Tickets; Shēn Zhèn Dì Tiě)', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.', icon: 'assets/icons/shenzhenmetro.jpg' },
+  { name: 'Trip.com', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/tripcom.jpg' },
+  { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/bnesim.jpg' },
 ];
 const ag = document.getElementById('apps-grid');
 apps.forEach(a => {
   const d = document.createElement('div');
   d.className = 'app-card flex gap-3 p-3 border border-gray-100 bg-gray-50 rounded-lg items-start';
   const badge = a.badge ? `<span style="font-size:10px;font-weight:700;background:#c2410c;color:#1e293b;border-radius:9999px;padding:1px 8px;margin-left:6px;vertical-align:middle;">${a.badge}</span>` : '';
-  d.innerHTML = `<div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center">
-      <svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-phone"/></svg></div>
+  const iconHtml = a.icon
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover">`
+    : `<div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center">
+      <svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-phone"/></svg></div>`;
+  d.innerHTML = `${iconHtml}
     <div><p class="font-medium">${a.name}${badge}</p><p class="text-xs text-gray-500 mt-0.5">${a.desc}</p></div>`;
   ag.appendChild(d);
 });
