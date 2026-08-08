@@ -1914,7 +1914,7 @@
       <div class="grid sm:grid-cols-2 gap-3 text-sm" id="apps-grid"></div>
       <div class="mt-6 pt-5 border-t border-gray-100 space-y-3">
         <h4 class="font-semibold flex items-center gap-2"><svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-info"/></svg>Notes on App Store Regions</h4>
-        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Apple App Store:</strong> Some apps (like Sam's Club for China) require switching your Apple ID's region to China. <a href="https://support.apple.com/en-us/118283" target="_blank" rel="noopener" class="text-brand underline">Apple's instructions.</a> Only switch back to the US region store once the app has fully downloaded &ndash; switching back too early can interrupt it.</div>
+        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Apple App Store:</strong> Some apps (like Sam's Club (China)) require switching your Apple ID's region to China. <a href="https://support.apple.com/en-us/118283" target="_blank" rel="noopener" class="text-brand underline">Apple's instructions.</a> Only switch back to the US region store once the app has fully downloaded &ndash; switching back too early can interrupt it.</div>
         <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Google Play:</strong> Inaccessible inside China without a VPN.</div>
         <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Samsung Galaxy Store:</strong> Auto-switches to the Chinese store when a Chinese SIM is detected, and is only in Chinese characters.</div>
       </div>
@@ -2465,20 +2465,21 @@ miniApps.forEach(a => {
 });
 
 const apps = [
-  { name: "Sam's Club for China", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg' },
-  { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.', icon: 'assets/icons/amap.jpg' },
-  { name: 'Didi (Ride Sharing)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider.", icon: 'assets/icons/didi.jpg' },
-  { name: 'GlobalSolutions', desc: 'Health insurance management.', icon: 'assets/icons/globalsolutions.jpg' },
-  { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.', icon: 'assets/icons/railway12306.jpg' },
-  { name: '深圳地铁 (Subway Tickets; Shēn Zhèn Dì Tiě)', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.', icon: 'assets/icons/shenzhenmetro.jpg' },
-  { name: 'Trip.com', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/tripcom.jpg' },
-  { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/bnesim.jpg' },
-  { name: 'QWeather', desc: 'The interface includes radar and an approximate timeline for rain.', icon: 'assets/icons/qweather.jpg' },
+  { name: "Sam's Club (China)", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg', url: 'https://apps.apple.com/us/app/id818237113' },
+  { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.', icon: 'assets/icons/amap.jpg', url: 'https://apps.apple.com/us/app/id461703208' },
+  { name: 'Didi (Ride Sharing)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider.", icon: 'assets/icons/didi.jpg', url: 'https://apps.apple.com/us/app/id554499054' },
+  { name: 'GlobalSolutions', desc: 'Health insurance management.', icon: 'assets/icons/globalsolutions.jpg', url: 'https://apps.apple.com/us/app/id500753535' },
+  { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.', icon: 'assets/icons/railway12306.jpg', url: 'https://apps.apple.com/us/app/id564818797' },
+  { name: '深圳地铁 (Subway Tickets; Shēn Zhèn Dì Tiě)', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.', icon: 'assets/icons/shenzhenmetro.jpg', url: 'https://apps.apple.com/us/app/id848926994' },
+  { name: 'Trip.com (Travel Booking, eSIM)', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/tripcom.jpg', url: 'https://apps.apple.com/us/app/id681752345' },
+  { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/bnesim.jpg', url: 'https://apps.apple.com/us/app/id1598924185' },
+  { name: 'QWeather', desc: 'The interface includes radar and an approximate timeline for rain.', icon: 'assets/icons/qweather.jpg', url: 'https://apps.apple.com/us/app/id1461458147' },
 ];
 const ag = document.getElementById('apps-grid');
 apps.forEach(a => {
-  const d = document.createElement('div');
-  d.className = 'app-card flex gap-3 p-3 border border-gray-100 bg-gray-50 rounded-lg items-start';
+  const d = document.createElement(a.url ? 'a' : 'div');
+  d.className = 'app-card flex gap-3 p-3 border border-gray-100 bg-gray-50 rounded-lg items-start' + (a.url ? ' hover:bg-gray-100 transition' : '');
+  if (a.url) { d.href = a.url; d.target = '_blank'; d.rel = 'noopener'; }
   const badge = a.badge ? `<span style="font-size:10px;font-weight:700;background:#c2410c;color:#1e293b;border-radius:9999px;padding:1px 8px;margin-left:6px;vertical-align:middle;">${a.badge}</span>` : '';
   const iconHtml = a.icon
     ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="lazy">`
