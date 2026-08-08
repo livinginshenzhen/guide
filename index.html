@@ -1887,7 +1887,7 @@
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
       <h3 class="font-bold text-lg flex items-center gap-2">
-        <img src="assets/icons/wechat.jpg" alt="" class="w-6 h-6 rounded-md object-cover">
+        <img src="assets/icons/wechat.jpg" alt="" class="w-6 h-6 rounded-md object-cover" loading="lazy">
         WeChat
       </h3>
       <p class="text-sm text-gray-700">Install this first. Everything in China runs on it, in it, and through it.</p>
@@ -1964,28 +1964,28 @@
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
             <div class="text-sm pt-1 flex-1">
               <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 12367</strong> (Yí Mín Jú; National Immigration Administration).</p>
-              <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+              <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
             </div>
           </div>
           <div class="flex gap-3">
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
             <div class="text-sm pt-1 flex-1">
               <p class="font-medium">Open the mini-program and tap <strong>Foreigner Service</strong>.</p>
-              <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+              <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
             </div>
           </div>
           <div class="flex gap-3">
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
             <div class="text-sm pt-1 flex-1">
               <p class="font-medium">Tap <strong>Arrival Card</strong>.</p>
-              <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+              <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
             </div>
           </div>
           <div class="flex gap-3">
             <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
             <div class="text-sm pt-1 flex-1">
               <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
-              <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+              <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
             </div>
           </div>
         </div>
@@ -2456,7 +2456,7 @@ miniApps.forEach(a => {
   const d = document.createElement('div');
   d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
   const iconHtml = a.icon
-    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200">`
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="lazy">`
     : `<div class="flex-shrink-0 w-8 h-8 bg-brand-lt rounded-lg flex items-center justify-center">
       <svg class="icon w-4 h-4 text-brand" aria-hidden="true"><use href="#ic-app"/></svg></div>`;
   d.innerHTML = `${iconHtml}
@@ -2480,7 +2480,7 @@ apps.forEach(a => {
   d.className = 'app-card flex gap-3 p-3 border border-gray-100 bg-gray-50 rounded-lg items-start';
   const badge = a.badge ? `<span style="font-size:10px;font-weight:700;background:#c2410c;color:#1e293b;border-radius:9999px;padding:1px 8px;margin-left:6px;vertical-align:middle;">${a.badge}</span>` : '';
   const iconHtml = a.icon
-    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200">`
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="lazy">`
     : `<div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center">
       <svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-phone"/></svg></div>`;
   d.innerHTML = `${iconHtml}
@@ -2522,7 +2522,9 @@ function toggleArrivalCard() {
 function switchTab(id) {
   document.querySelectorAll('.tab-pane').forEach(p => p.classList.remove('active'));
   document.querySelectorAll('.tab-btn').forEach(b => b.classList.remove('active'));
-  document.getElementById('tab-' + id).classList.add('active');
+  const pane = document.getElementById('tab-' + id);
+  pane.classList.add('active');
+  pane.querySelectorAll('img[loading="lazy"]').forEach(img => { img.loading = 'eager'; });
   const btn = document.querySelector('.tab-btn[data-tab="' + id + '"]');
   if (btn) btn.classList.add('active');
   document.body.classList.toggle('bg-overview', id === 'overview');
