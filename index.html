@@ -1328,7 +1328,7 @@
   <div id="tab-overview" class="tab-pane active space-y-3">
 
     <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#0f766e;">Before Moving</div>
-    <div class="grid sm:grid-cols-2 gap-4 mb-2">
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
       <button onclick="switchTab('shipping')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
         <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-box"/></svg>
         <p class="font-bold text-gray-800">Packing</p>
@@ -1347,7 +1347,7 @@
     </div>
 
     <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#2563eb;">Living in Shenzhen</div>
-    <div class="grid sm:grid-cols-2 gap-4 mb-2">
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
       <button onclick="switchTab('mobile')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
         <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-phone"/></svg>
         <p class="font-bold text-gray-800">Mobile Phones</p>
@@ -1639,7 +1639,7 @@
       <p class="text-sm text-gray-500 mb-3">A whole-house VPN router makes sense if you're home often and need consistent US access. If you mostly need occasional secure browsing, a VPN app on your phone may be enough &ndash; with the caveats below.</p>
       <div class="space-y-2 text-sm text-gray-700">
         <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>Do you need live US content (sports, streaming) or are downloads acceptable?</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How much of what you want to access is US-licensed only?</p></div>
+        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How much of the content you want to access is US-licensed only?</p></div>
         <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How often will someone be at home needing foreign internet access?</p></div>
         <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p>How concerned are you about device security and traffic monitoring?</p></div>
       </div>
@@ -1933,7 +1933,7 @@
     </div>
 
     <!-- HKG -> Shekou toggle card -->
-    <div class="rounded-2xl overflow-hidden border-2 border-brand shadow-md" style="border-color:#0f766e;">
+    <div id="hkg-toggle-card" class="rounded-2xl overflow-hidden border-2 border-brand shadow-md" style="border-color:#0f766e;">
       <button onclick="toggleHkgGuide()" class="block w-full text-left" style="background:none;border:none;padding:0;cursor:pointer;">
         <div class="flex items-center gap-3 px-5 py-3 text-white" style="background:#4b5563;">
           <svg class="icon w-6 h-6 flex-shrink-0" aria-hidden="true"><use href="#ic-ferry"/></svg>
@@ -1955,6 +1955,46 @@
           <span id="hkg-btn-label">Show full step-by-step guide</span>
         </div>
       </button>
+    </div>
+
+    <!-- Electronic Arrival Card -->
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1 flex items-center gap-2">
+        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-passport"/></svg>
+        Electronic Arrival Card
+      </h3>
+      <p class="text-gray-500 text-sm mb-5">Submit this in WeChat before you land &ndash; it replaces the paper arrival card and speeds up immigration.</p>
+      <div class="space-y-5">
+        <div class="flex gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
+          <div class="text-sm pt-1 flex-1">
+            <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 12367</strong> (National Immigration Administration).</p>
+            <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
+          <div class="text-sm pt-1 flex-1">
+            <p class="font-medium">Open the mini-program and tap <strong>Foreigner Service</strong>.</p>
+            <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
+          <div class="text-sm pt-1 flex-1">
+            <p class="font-medium">Tap <strong>Arrival Card</strong>.</p>
+            <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+          </div>
+        </div>
+        <div class="flex gap-3">
+          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
+          <div class="text-sm pt-1 flex-1">
+            <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
+            <p class="text-gray-500 mt-0.5">Choose &ldquo;Entry Declaration for Border Area Residents&rdquo; only if that applies to you &ndash; most people want the standard Entry Declaration.</p>
+            <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+          </div>
+        </div>
+      </div>
     </div>
 
     <!-- ═══ HKG FERRY GUIDE EMBED ═══ -->
@@ -2162,7 +2202,7 @@
   <div class="backup">
     <div class="backup-header">
       <svg class="icon fa-icon" aria-hidden="true"><use href="#ic-warn"/></svg>
-      Backup Plan – If You Miss the Ferry or Accidentally Clear HK Immigration
+      Backup Plan – If You Miss the Ferry or Accidentally Clear Immigration in Hong Kong
     </div>
     <div class="backup-body">
 
@@ -2231,8 +2271,8 @@
         <div class="p-4 text-sm text-gray-700 space-y-3">
           <p>Buy tickets via the <strong>GBA Ferries (&#31841;&#28207;&#24555;&#33337;)</strong> WeChat mini-app.</p>
           <div class="good-box rounded-lg p-3">
-            <p class="font-semibold text-green-800">Pro Tip &ndash; Flying out of Hong Kong?</p>
-            <p class="text-green-700 mt-1">Check your bags at the <strong>Shekou ferry terminal</strong>. They travel with the ferry and meet you at your final flight destination &ndash; no re-claiming bags at HK airport!</p>
+            <p class="font-semibold text-green-800">Headed to Hong Kong Int'l Airport?</p>
+            <p class="text-green-700 mt-1">Check your bags at the <strong>Shekou Ferry Terminal</strong>. They travel with the ferry and meet you at your final flight destination &ndash; no re-claiming bags at HK airport!</p>
           </div>
         </div>
       </div>
@@ -2285,7 +2325,7 @@
       <div class="info-box rounded-xl p-4">
         <p class="text-xs font-bold text-brand uppercase tracking-wide mb-2">Copy This</p>
         <p class="font-bold text-gray-800 text-base leading-relaxed select-all">
-          &#24191;&#19996;&#30465;&#28145;&#22323;&#24066;&#21335;&#23665;&#21306;&#34503;&#21475;&#21335;&#28023;&#22823;&#36947;1033&#21495;&#27888;&#26684;&#22777;&#26848;&#26381;&#21153;&#20844;&#23507;[&#8202;&#8202;&#8202;bldg&#8202;&#8202;&#8202;&#8202;]&#26635;[&#8202;&#8202;&#8202;&#8202;apt&#8202;&#8202;&#8202;&#8202;]&#25151;
+          &#24191;&#19996;&#30465;&#28145;&#22323;&#24066;&#21335;&#23665;&#21306;&#34503;&#21475;&#21335;&#28023;&#22823;&#36947;1033&#21495;&#27888;&#26684;&#22777;&#26848;&#26381;&#21153;&#20844;&#23507;[&#8202;&#8202;&#8202;<span style="font-variant:small-caps;font-weight:400;">bldg</span>&#8202;&#8202;&#8202;&#8202;]&#26635;[&#8202;&#8202;&#8202;&#8202;<span style="font-variant:small-caps;font-weight:400;">apt</span>&#8202;&#8202;&#8202;&#8202;]&#25151;
         </p>
       </div>
 
@@ -2450,13 +2490,16 @@ apps.forEach(a => {
 
 
 function toggleHkgGuide() {
-  const el  = document.getElementById('hkg-embed');
-  const lbl = document.getElementById('hkg-btn-label');
-  const chv = document.getElementById('hkg-chevron');
+  const el    = document.getElementById('hkg-embed');
+  const lbl   = document.getElementById('hkg-btn-label');
+  const chv   = document.getElementById('hkg-chevron');
+  const card  = document.getElementById('hkg-toggle-card');
   const open = el.style.display === 'none' || el.style.display === '';
   el.style.display  = open ? 'block' : 'none';
   lbl.textContent   = open ? 'Hide full guide' : 'Show full step-by-step guide';
   chv.style.transform = open ? 'rotate(180deg)' : '';
+  card.style.borderBottomLeftRadius  = open ? '0' : '';
+  card.style.borderBottomRightRadius = open ? '0' : '';
   if (open) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
