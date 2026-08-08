@@ -1893,7 +1893,7 @@
       </h3>
       <p class="text-sm text-gray-700">Install this first. Everything in China runs on it, in it, and through it.</p>
       <div class="rounded-lg p-4" style="background:#fef2f2; border-left:4px solid #ea1100;">
-        <p class="text-sm text-red-700">WeChat is not end-to-end encrypted (Source: The Citizen Lab, University of Toronto). Messages should not be treated as private.</p>
+        <p class="text-sm text-red-700"><strong>Be aware:</strong> WeChat is not end-to-end encrypted (Source: The Citizen Lab, University of Toronto). Messages should not be treated as private.</p>
       </div>
     </div>
 
@@ -2405,10 +2405,10 @@ checks.forEach((text, i) => {
 const miniApps = [
   { name: 'Meituan', desc: 'Food & grocery delivery to your door', icon: 'assets/icons/meituan.jpg' },
   { name: 'GBA Ferries \u7ca4\u6e2f\u5feb\u8239', desc: 'Ferry tickets to Hong Kong or Macau', icon: 'assets/icons/gbaferries.jpg' },
-  { name: 'SIS Connect', desc: 'For families with kids at Shekou International School' },
-  { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School' },
-  { name: '\u4e58\u8f66\u7801 (Ch\u00e9ng Ch\u0113 M\u01ce)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)' },
-  { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole' },
+  { name: 'SIS Connect', desc: 'For families with kids at Shekou International School', icon: 'assets/icons/sisconnect.jpg' },
+  { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School', icon: 'assets/icons/chaotao.jpg' },
+  { name: '\u4e58\u8f66\u7801 (Ch\u00e9ng Ch\u0113 M\u01ce)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)', icon: 'assets/icons/chengchema.jpg' },
+  { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole', icon: 'assets/icons/silverpalate.jpg' },
   { name: '\u4eac\u4e1c JD (Shopping; J\u012bng D\u014dng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat.", icon: 'assets/icons/jd.jpg' },
 ];
 const mag = document.getElementById('mini-apps-grid');
@@ -2416,7 +2416,7 @@ miniApps.forEach(a => {
   const d = document.createElement('div');
   d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
   const iconHtml = a.icon
-    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover">`
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200">`
     : `<div class="flex-shrink-0 w-8 h-8 bg-brand-lt rounded-lg flex items-center justify-center">
       <svg class="icon w-4 h-4 text-brand" aria-hidden="true"><use href="#ic-app"/></svg></div>`;
   d.innerHTML = `${iconHtml}
@@ -2440,7 +2440,7 @@ apps.forEach(a => {
   d.className = 'app-card flex gap-3 p-3 border border-gray-100 bg-gray-50 rounded-lg items-start';
   const badge = a.badge ? `<span style="font-size:10px;font-weight:700;background:#c2410c;color:#1e293b;border-radius:9999px;padding:1px 8px;margin-left:6px;vertical-align:middle;">${a.badge}</span>` : '';
   const iconHtml = a.icon
-    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover">`
+    ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200">`
     : `<div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center">
       <svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-phone"/></svg></div>`;
   d.innerHTML = `${iconHtml}
