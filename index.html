@@ -1386,7 +1386,7 @@
     <div>
       <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-box"/></svg>
-        Packing
+        Packing to Move
       </h2>
       <p class="text-gray-500 text-sm">This is what and how much you can ship.</p>
     </div>
@@ -1873,9 +1873,9 @@
     <div>
       <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
         <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-chat"/></svg>
-        WeChat &amp; Apps
+        Apps You'll Need
       </h2>
-      <p class="text-gray-500 text-sm">WeChat isn't optional. It's your wallet, delivery service, transit pass, and social hub. Here's how to hit the ground running.</p>
+      <p class="text-gray-500 text-sm">WeChat isn't optional. It's your wallet, delivery service, transit pass, and social hub. Here's how to hit the ground running with that app &ndash; and all the others that will be important.</p>
     </div>
 
     <button onclick="switchTab('money')" class="w-full text-left bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center gap-3 hover:bg-gray-50 transition">
@@ -1886,18 +1886,30 @@
       </span>
     </button>
 
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
+      <h3 class="font-bold text-lg flex items-center gap-2">
+        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-chat"/></svg>
+        WeChat
+      </h3>
+      <p class="text-sm text-gray-700">Install this first. Everything in China runs on it, in it, and through it.</p>
+      <div class="rounded-lg p-4" style="background:#fef2f2; border-left:4px solid #ea1100;">
+        <p class="text-sm text-red-700">WeChat is not end-to-end encrypted (Source: The Citizen Lab, University of Toronto). Messages should not be treated as private.</p>
+      </div>
+    </div>
+
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-app"/></svg>
-        Must-Have Mini Programs in WeChat
+        Useful WeChat Mini Programs
       </h3>
+      <p class="text-sm text-gray-500 mb-4">Think of mini programs as apps but apps inside of WeChat. To find them, swipe down from the top in WeChat. They are useful because mini programs can auto translate. You'll find the translate button under the secondary button (looks like three dots or sometimes a location symbol).</p>
       <div class="grid sm:grid-cols-2 gap-3 text-sm" id="mini-apps-grid"></div>
     </div>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-phone"/></svg>
-        Essential Apps to Install
+        Essential Apps
       </h3>
       <div class="grid sm:grid-cols-2 gap-3 text-sm" id="apps-grid"></div>
       <div class="mt-6 pt-5 border-t border-gray-100 space-y-3">
@@ -2393,9 +2405,10 @@ const miniApps = [
   { name: 'Meituan', desc: 'Food & grocery delivery to your door' },
   { name: 'GBA Ferries \u7ca4\u6e2f\u5feb\u8239', desc: 'Ferry tickets to Hong Kong or Macau' },
   { name: 'SIS Connect', desc: 'For families with kids at Shekou International School' },
-  { name: 'CHAOTAO SHOP', desc: 'Uniform shop for Shekou International School' },
-  { name: '\u4e58\u8f66\u7801', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)' },
+  { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School' },
+  { name: '\u4e58\u8f66\u7801 Ch\u00e9ng Ch\u0113 M\u01ce', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)' },
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole' },
+  { name: 'JD (Jing Dong)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat." },
 ];
 const mag = document.getElementById('mini-apps-grid');
 miniApps.forEach(a => {
@@ -2408,13 +2421,12 @@ miniApps.forEach(a => {
 });
 
 const apps = [
-  { name: 'WeChat', desc: 'Install this first. Everything in China runs on it, in it, and through it.' },
-  { name: 'JD (Jing Dong)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat." },
   { name: "Sam's Club for China", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.' },
   { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.' },
   { name: 'Didi (Ride Sharing App)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider." },
   { name: 'GlobalSolutions', desc: 'Health insurance management.' },
   { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.' },
+  { name: '深圳地铁 Shēn Zhèn Dì Tiě', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.' },
   { name: 'Trip.com', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.' },
   { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.' },
 ];
