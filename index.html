@@ -1513,14 +1513,6 @@
       </div>
     </div>
 
-    <div class="warn-box rounded-xl p-4 flex gap-3 items-start">
-      <svg class="icon w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
-      <div>
-        <p class="font-bold text-red-800">Consulate Prohibits Electronic Devices</p>
-        <p class="text-sm text-red-700 mt-1">No phones, smartwatches, or any electronics are allowed inside the consulate building. Staying within walking distance lets you leave devices in your hotel room. The consulate does offer free phone storage inside (they hand you a cubby token) &ndash; but smartwatches must stay behind entirely.</p>
-      </div>
-    </div>
-
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
         <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-bag"/></svg>
@@ -1544,6 +1536,14 @@
           </label>
         </div>
         <div id="checklist" class="space-y-1"></div>
+      </div>
+    </div>
+
+    <div class="warn-box rounded-xl p-4 flex gap-3 items-start">
+      <svg class="icon w-6 h-6 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
+      <div>
+        <p class="font-bold text-red-800">Consulate Prohibits Electronic Devices</p>
+        <p class="text-sm text-red-700 mt-1">No phones, smartwatches, or any electronics are allowed inside the consulate building. Staying within walking distance lets you leave devices in your hotel room. The consulate does offer free phone storage inside (they hand you a cubby token) &ndash; but smartwatches must stay behind entirely.</p>
       </div>
     </div>
 
@@ -1574,8 +1574,8 @@
       <div class="mt-4 space-y-3">
         <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 1</p><p class="text-sm">Review DS-11 form + shipment label. Passport photos stapled here.</p></div>
         <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 2</p><p class="text-sm">Fill in Chinese address (from police registration doc) + write tracking number on the green slip. Submit all photocopies.</p></div>
-        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 3</p><p class="text-sm">Payment (US credit cards are accepted)</p></div>
-        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-accent-dk uppercase tracking-wide mb-1">Desk 4</p><p class="text-sm">Brief interview with a US consulate staff member.</p></div>
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 3</p><p class="text-sm">Payment (US credit cards are accepted)</p></div>
+        <div class="bg-gray-50 rounded-lg p-3"><p class="text-xs font-bold text-brand uppercase tracking-wide mb-1">Desk 4</p><p class="text-sm">Brief interview with a US consulate staff member.</p></div>
       </div>
     </div>
 
@@ -1932,15 +1932,77 @@
       <p class="text-gray-500 text-sm">Living in Shekou makes domestic and international travel much easier.</p>
     </div>
 
+    <!-- Electronic Arrival Card toggle card -->
+    <div id="arrival-toggle-card" class="rounded-2xl overflow-hidden shadow-md">
+      <button onclick="toggleArrivalCard()" class="block w-full text-left" style="background:none;border:none;padding:0;cursor:pointer;">
+        <div class="flex items-center gap-3 px-5 py-3 text-white" style="background:#4b5563;">
+          <svg class="icon w-6 h-6 flex-shrink-0" aria-hidden="true"><use href="#ic-passport"/></svg>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest" style="color:#fb923c;">Step-by-Step Guide</p>
+            <p class="font-bold text-lg leading-tight">Electronic Arrival Card</p>
+            <p class="text-blue-200 text-xs mt-0.5">Submit this in WeChat before you enter &ndash; required for every member of your party</p>
+          </div>
+          <svg id="arrival-chevron" class="icon w-6 h-6 ml-auto flex-shrink-0 text-blue-300" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform .25s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="px-5 py-2 flex items-center gap-2 text-sm font-semibold" style="background:#f0fdf4;color:#0f766e;">
+          <svg class="icon w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          <span id="arrival-btn-label">Show step-by-step guide</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- ═══ ELECTRONIC ARRIVAL CARD EMBED ═══ -->
+    <div id="arrival-embed" style="display:none; margin-top:16px; border-radius:16px; overflow:hidden; border:2px solid #e0e5ec;">
+      <div class="bg-white p-6">
+        <p class="text-gray-500 text-sm mb-5">On the day of your arrival and before you enter, find the WeChat mini program and submit this (for every member in your party). It replaces the paper arrival card and speeds up immigration.</p>
+        <div class="space-y-2 mb-5">
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your vessel or flight number.</p></div>
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Have photos of your passport(s) data page(s) already stored in your phone.</p></div>
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your visa or resident permit's number.</p></div>
+        </div>
+        <div class="space-y-5">
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 (Yí Mín Jú) 12367</strong> (National Immigration Administration).</p>
+              <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Open the mini-program and tap <strong>Foreigner Service</strong>.</p>
+              <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Tap <strong>Arrival Card</strong>.</p>
+              <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
+              <p class="text-gray-500 mt-0.5">Choose &ldquo;Entry Declaration for Border Area Residents&rdquo; only if that applies to you &ndash; most people want the standard Entry Declaration.</p>
+              <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <!-- HKG -> Shekou toggle card -->
-    <div id="hkg-toggle-card" class="rounded-2xl overflow-hidden border-2 border-brand shadow-md" style="border-color:#0f766e;">
+    <div id="hkg-toggle-card" class="rounded-2xl overflow-hidden shadow-md" style="margin-top:16px;">
       <button onclick="toggleHkgGuide()" class="block w-full text-left" style="background:none;border:none;padding:0;cursor:pointer;">
         <div class="flex items-center gap-3 px-5 py-3 text-white" style="background:#4b5563;">
           <svg class="icon w-6 h-6 flex-shrink-0" aria-hidden="true"><use href="#ic-ferry"/></svg>
           <div>
             <p class="text-xs font-bold uppercase tracking-widest" style="color:#fb923c;">Step-by-Step Guide</p>
-            <p class="font-bold text-lg leading-tight">Hong Kong Airport &rarr; Shenzhen Shekou</p>
-            <p class="text-blue-200 text-xs mt-0.5">Ferry guide for your first arrival &ndash; no HK immigration required</p>
+            <p class="font-bold text-lg leading-tight">Ferry from Hong Kong Airport &rarr; Shenzhen Shekou</p>
+            <p class="text-blue-200 text-xs mt-0.5">How to use the ferry to get from the HKG airport to Shenzhen &ndash; without needing to clear Hong Kong immigration</p>
           </div>
           <svg id="hkg-chevron" class="icon w-6 h-6 ml-auto flex-shrink-0 text-blue-300" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform .25s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
         </div>
@@ -1955,51 +2017,6 @@
           <span id="hkg-btn-label">Show full step-by-step guide</span>
         </div>
       </button>
-    </div>
-
-    <!-- Electronic Arrival Card -->
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h3 class="font-bold text-lg mb-1 flex items-center gap-2">
-        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-passport"/></svg>
-        Electronic Arrival Card
-      </h3>
-      <p class="text-gray-500 text-sm mb-5">On the day of your arrival and before you enter, find the WeChat mini program and submit this (for every member in your party). It replaces the paper arrival card and speeds up immigration.</p>
-      <div class="space-y-2 mb-5">
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your vessel or flight number.</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Have photos of your passport(s) data page(s) already stored in your phone.</p></div>
-        <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your visa or resident permit's number.</p></div>
-      </div>
-      <div class="space-y-5">
-        <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
-          <div class="text-sm pt-1 flex-1">
-            <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 (Yí Mín Jú) 12367</strong> (National Immigration Administration).</p>
-            <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
-          <div class="text-sm pt-1 flex-1">
-            <p class="font-medium">Open the mini-program and tap <strong>Foreigner Service</strong>.</p>
-            <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
-          <div class="text-sm pt-1 flex-1">
-            <p class="font-medium">Tap <strong>Arrival Card</strong>.</p>
-            <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
-          </div>
-        </div>
-        <div class="flex gap-3">
-          <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
-          <div class="text-sm pt-1 flex-1">
-            <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
-            <p class="text-gray-500 mt-0.5">Choose &ldquo;Entry Declaration for Border Area Residents&rdquo; only if that applies to you &ndash; most people want the standard Entry Declaration.</p>
-            <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;">
-          </div>
-        </div>
-      </div>
     </div>
 
     <!-- ═══ HKG FERRY GUIDE EMBED ═══ -->
@@ -2502,6 +2519,20 @@ function toggleHkgGuide() {
   const open = el.style.display === 'none' || el.style.display === '';
   el.style.display  = open ? 'block' : 'none';
   lbl.textContent   = open ? 'Hide full guide' : 'Show full step-by-step guide';
+  chv.style.transform = open ? 'rotate(180deg)' : '';
+  card.style.borderBottomLeftRadius  = open ? '0' : '';
+  card.style.borderBottomRightRadius = open ? '0' : '';
+  if (open) el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+}
+
+function toggleArrivalCard() {
+  const el    = document.getElementById('arrival-embed');
+  const lbl   = document.getElementById('arrival-btn-label');
+  const chv   = document.getElementById('arrival-chevron');
+  const card  = document.getElementById('arrival-toggle-card');
+  const open = el.style.display === 'none' || el.style.display === '';
+  el.style.display  = open ? 'block' : 'none';
+  lbl.textContent   = open ? 'Hide step-by-step guide' : 'Show step-by-step guide';
   chv.style.transform = open ? 'rotate(180deg)' : '';
   card.style.borderBottomLeftRadius  = open ? '0' : '';
   card.style.borderBottomRightRadius = open ? '0' : '';
