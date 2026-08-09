@@ -2748,16 +2748,22 @@
     <div class="grid grid-cols-3 gap-2">
       <div>
         <p class="text-xs text-gray-500 leading-tight">Current<br>Temperature</p>
-        <p id="wx-temp" class="text-gray-800" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; line-height:1; font-size:clamp(2rem,10vw,3.5rem); -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">&ndash;</p>
+        <div class="text-gray-800" style="display:flex; align-items:flex-start; gap:2px; font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">
+          <span id="wx-temp" style="font-size:clamp(2.25rem,20vw,8rem); line-height:0.8;">&ndash;</span>
+          <span id="wx-temp-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); margin-top:0.5em;"></span>
+        </div>
       </div>
       <div>
         <p class="text-xs text-gray-500 leading-tight">Current<br>Relative Humidity</p>
-        <p id="wx-humidity" class="text-gray-800" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; line-height:1; font-size:clamp(2rem,10vw,3.5rem); -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">&ndash;</p>
+        <div class="text-gray-800" style="display:flex; align-items:flex-start; gap:2px; font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">
+          <span id="wx-humidity" style="font-size:clamp(2.25rem,20vw,8rem); line-height:0.8;">&ndash;</span>
+          <span id="wx-humidity-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); margin-top:0.5em;"></span>
+        </div>
       </div>
       <div>
         <p class="text-xs text-gray-500 leading-tight">Current<br>Comfort Level by Dew Point</p>
-        <p id="wx-comfort" class="text-gray-800" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2rem,10vw,3.5rem) * 0.33); margin-top:0.4rem;">&ndash;</p>
-        <p id="wx-dewpoint" class="text-gray-500" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2rem,10vw,3.5rem) * 0.33);"></p>
+        <p id="wx-comfort" class="text-gray-800" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2.25rem,20vw,8rem) * 0.33); margin-top:0.4rem;">&ndash;</p>
+        <p id="wx-dewpoint" class="text-gray-500" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2.25rem,20vw,8rem) * 0.33);"></p>
       </div>
     </div>
     <p id="wx-updated" class="text-xs text-gray-400"></p>
@@ -2780,7 +2786,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 2.40. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 2.45. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
@@ -2899,7 +2905,9 @@ document.querySelectorAll('.tab-btn').forEach(b =>
 
 (function () {
   const tempEl = document.getElementById('wx-temp');
+  const tempUnitEl = document.getElementById('wx-temp-unit');
   const humEl = document.getElementById('wx-humidity');
+  const humUnitEl = document.getElementById('wx-humidity-unit');
   const comfortEl = document.getElementById('wx-comfort');
   const dewEl = document.getElementById('wx-dewpoint');
   const updatedEl = document.getElementById('wx-updated');
@@ -2918,8 +2926,10 @@ document.querySelectorAll('.tab-btn').forEach(b =>
     .then(r => r.json())
     .then(data => {
       const c = data.current;
-      tempEl.innerHTML = Math.round(c.temperature_2m) + '<sup style="font-size:0.4em;">&deg;C</sup>';
-      humEl.innerHTML = Math.round(c.relative_humidity_2m) + '<sup style="font-size:0.4em;">%</sup>';
+      tempEl.textContent = Math.round(c.temperature_2m);
+      tempUnitEl.textContent = '°C';
+      humEl.textContent = Math.round(c.relative_humidity_2m);
+      humUnitEl.textContent = '%';
       comfortEl.textContent = comfortLevel(c.dew_point_2m);
       dewEl.textContent = Math.round(c.dew_point_2m) + '°C';
       const time = new Date(c.time);
