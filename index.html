@@ -1235,6 +1235,11 @@
     <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 21.75h15"/>
     <path stroke-linecap="round" stroke-linejoin="round" d="M6 21.75V10.5M18 21.75V10.5M9 21.75v-9M15 21.75v-9"/>
   </symbol>
+  <symbol id="ic-weather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <circle cx="7.5" cy="7.5" r="3"/>
+    <path stroke-linecap="round" d="M7.5 2.25v1.1M7.5 10.65v1.1M2.25 7.5h1.1M11.65 7.5h1.1M4.03 4.03l.78.78M9.19 9.19l.78.78M10.97 4.03l-.78.78M5.59 9.75l-.78.78"/>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M9.5 20.25h7.75a3.5 3.5 0 0 0 .5-6.96 4.75 4.75 0 0 0-9.1-1.57A3.75 3.75 0 0 0 9.5 20.25Z"/>
+  </symbol>
   <symbol id="ic-star" viewBox="0 0 24 24" fill="currentColor">
     <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/>
   </symbol>
@@ -1331,6 +1336,9 @@
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="landmarks">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-landmark"/></svg> Landmarks
     </button>
+    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="weather">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-weather"/></svg> Weather
+    </button>
   </div>
 </nav>
 
@@ -1380,6 +1388,11 @@
         <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-landmark"/></svg>
         <p class="font-bold text-gray-800">Landmarks</p>
         <p class="text-sm text-gray-600 mt-1">Notable architecture and sights around the city.</p>
+      </button>
+      <button onclick="switchTab('weather')" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-weather"/></svg>
+        <p class="font-bold text-gray-800">Weather</p>
+        <p class="text-sm text-gray-600 mt-1">Humidity and temperature patterns throughout the year.</p>
       </button>
     </div>
 
@@ -2703,12 +2716,35 @@
     </div>
   </div><!-- /landmarks -->
 
+  <!-- ===== WEATHER ===== -->
+  <div id="tab-weather" class="tab-pane space-y-5">
+    <div>
+      <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
+        <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-weather"/></svg>
+        Weather
+      </h2>
+      <p class="text-gray-500 text-sm">Shenzhen has a humid subtropical climate &ndash; hot, muggy summers and mild, dry winters.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1">Average Hourly Temperature</h3>
+      <p class="text-sm text-gray-500 mb-4">Typical temperature by hour of day, across the year.</p>
+      <img src="assets/weather-hourly-temperature.svg" alt="Average hourly temperature in Shenzhen throughout the year" class="w-full rounded-lg border border-gray-200" loading="lazy">
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1">Humidity Comfort Levels</h3>
+      <p class="text-sm text-gray-500 mb-4">Percentage of time at each humidity comfort level (categorized by dew point), across the year.</p>
+      <img src="assets/weather-humidity-comfort.svg" alt="Humidity comfort levels in Shenzhen by month, categorized by dew point" class="w-full rounded-lg border border-gray-200" loading="lazy">
+    </div>
+  </div><!-- /weather -->
+
 </main>
 
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 2.00. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 2.10. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
