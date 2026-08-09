@@ -1135,6 +1135,7 @@
   .text-brand { color: #0f766e; }
   .text-brand-dk { color: #115e59; }
   .text-accent-dk { color: #7c2d12; }
+  .object-cover { object-fit: cover; }
   .fa-icon { width: 1em; height: 1em; vertical-align: -0.125em; }
   .vpn-pill { display: inline-block; background:#f0fdf4; color:#0f766e; border-radius:9999px; padding: 2px 12px; font-size:.8rem; font-weight:600; margin:2px; }
   /* Ample desktop margins, tight on mobile */
@@ -2744,6 +2745,23 @@
       <p class="text-gray-500 text-sm">Shenzhen has a humid subtropical climate &ndash; hot, muggy summers and more milder, less humid &ldquo;winters.&rdquo;</p>
     </div>
 
+    <div class="grid grid-cols-3 gap-2">
+      <div>
+        <p class="text-xs text-gray-500 leading-tight">Current<br>Temperature</p>
+        <p id="wx-temp" class="text-gray-800" style="font-family:'quire-sans',sans-serif; font-weight:100; line-height:1; font-size:clamp(2rem,10vw,3.5rem); -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">&ndash;</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 leading-tight">Current<br>Relative Humidity</p>
+        <p id="wx-humidity" class="text-gray-800" style="font-family:'quire-sans',sans-serif; font-weight:100; line-height:1; font-size:clamp(2rem,10vw,3.5rem); -webkit-text-stroke:0.3px currentColor; white-space:nowrap;">&ndash;</p>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 leading-tight">Current<br>Comfort Level by Dew Point</p>
+        <p id="wx-comfort" class="text-gray-800" style="font-family:'quire-sans',sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2rem,10vw,3.5rem) * 0.33); margin-top:0.4rem;">&ndash;</p>
+        <p id="wx-dewpoint" class="text-gray-500" style="font-family:'quire-sans',sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2rem,10vw,3.5rem) * 0.33);"></p>
+      </div>
+    </div>
+    <p id="wx-updated" class="text-xs text-gray-400"></p>
+
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
       <h3 class="font-bold text-lg mb-1">Average Hourly Temperature</h3>
       <p class="text-sm text-gray-500 mb-4">Typical temperature by hour of day, across the year.</p>
@@ -2762,7 +2780,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 2.25. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 2.30. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
@@ -2878,6 +2896,42 @@ function switchTab(id) {
 document.querySelectorAll('.tab-btn').forEach(b =>
   b.addEventListener('click', () => switchTab(b.dataset.tab))
 );
+
+(function () {
+  const tempEl = document.getElementById('wx-temp');
+  const humEl = document.getElementById('wx-humidity');
+  const comfortEl = document.getElementById('wx-comfort');
+  const dewEl = document.getElementById('wx-dewpoint');
+  const updatedEl = document.getElementById('wx-updated');
+  if (!tempEl) return;
+
+  function comfortLevel(dewC) {
+    if (dewC < 12.8) return 'Dry';
+    if (dewC < 15.6) return 'Comfortable';
+    if (dewC < 18.3) return 'Humid';
+    if (dewC < 21.1) return 'Muggy';
+    if (dewC < 23.9) return 'Oppressive';
+    return 'Miserable';
+  }
+
+  fetch('https://api.open-meteo.com/v1/forecast?latitude=22.4808&longitude=113.9077&current=temperature_2m,relative_humidity_2m,dew_point_2m&timezone=Asia%2FShanghai')
+    .then(r => r.json())
+    .then(data => {
+      const c = data.current;
+      tempEl.innerHTML = Math.round(c.temperature_2m) + '<sup style="font-size:0.4em;">&deg;C</sup>';
+      humEl.innerHTML = Math.round(c.relative_humidity_2m) + '<sup style="font-size:0.4em;">%</sup>';
+      comfortEl.textContent = comfortLevel(c.dew_point_2m);
+      dewEl.textContent = Math.round(c.dew_point_2m) + '°C';
+      const time = new Date(c.time);
+      updatedEl.textContent = 'Live conditions for Shekou, Nanshan, Shenzhen, PRC – updated ' + time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) + '.';
+    })
+    .catch(() => {
+      tempEl.textContent = '–';
+      humEl.textContent = '–';
+      comfortEl.textContent = 'Unavailable';
+      updatedEl.textContent = 'Could not load live weather data.';
+    });
+})();
 </script>
 </body>
 </html>
