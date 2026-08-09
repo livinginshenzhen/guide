@@ -1224,6 +1224,12 @@
   <symbol id="ic-bolt" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
     <path stroke-linecap="round" stroke-linejoin="round" d="m3.75 13.5 10.5-11.25L12 10.5h8.25L9.75 21.75 12 13.5H3.75Z"/>
   </symbol>
+  <symbol id="ic-appliance" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
+    <rect x="3.75" y="3" width="16.5" height="18" rx="2"/>
+    <circle cx="12" cy="14.25" r="5.25"/>
+    <circle cx="7.4" cy="6.75" r="0.75" fill="currentColor" stroke="none"/>
+    <circle cx="10.4" cy="6.75" r="0.75" fill="currentColor" stroke="none"/>
+  </symbol>
   <symbol id="ic-star" viewBox="0 0 24 24" fill="currentColor">
     <path fill-rule="evenodd" d="M10.788 3.21c.448-1.077 1.976-1.077 2.424 0l2.082 5.006 5.404.434c1.164.093 1.636 1.545.749 2.305l-4.117 3.527 1.257 5.273c.271 1.136-.964 2.033-1.96 1.425L12 18.354 7.373 21.18c-.996.608-2.231-.29-1.96-1.425l1.257-5.273-4.117-3.527c-.887-.76-.415-2.212.749-2.305l5.404-.434 2.082-5.005Z" clip-rule="evenodd"/>
   </symbol>
@@ -1816,7 +1822,7 @@
             <p class="text-xs text-gray-500 mt-1">You may also use your VPN to allow ordering eSIMs.</p>
           </div>
           <div class="bg-white rounded-lg border border-blue-200 p-3">
-            <p class="font-semibold text-gray-800 mb-1">BNEsim</p>
+            <p class="font-semibold text-gray-800 mb-1">BNESIM</p>
             <p class="text-gray-600">Offers <strong>non-expiring eSIM plans</strong> &ndash; data can persist for as long as you have the eSIM, and you can add other countries to the same eSIM. Good choice if your usage is irregular.</p>
             <p class="text-xs text-gray-400 mt-2">Download from a non-China app store before you arrive.</p>
             <p class="text-xs text-gray-500 mt-1">You may also use your VPN to allow ordering eSIMs.</p>
@@ -2412,6 +2418,81 @@
         </div>
       </div>
     </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-5">
+      <h3 class="font-bold text-lg flex items-center gap-2">
+        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-appliance"/></svg>
+        Appliances
+      </h3>
+      <p class="text-sm text-gray-500">Quick-reference charts for the AEG appliances in the apartment &ndash; tap the link at the bottom of a tile for the full manual.</p>
+
+      <div class="grid sm:grid-cols-2 gap-4">
+        <div class="border border-gray-200 rounded-xl p-4">
+          <p class="font-bold text-gray-800 mb-1">AEG Washer</p>
+          <p class="text-xs text-gray-400 mb-3">L7FEE1612N &ndash; washing &amp; steam programmes</p>
+          <div class="grid grid-cols-2 gap-x-3 gap-y-2">
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_cotton.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Cotton</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_synthetic.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Synthetic</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_delicate.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Delicates</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_wool.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Wool / Hand Wash</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_steam.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Steam</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_antiallergy.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Anti-Allergy</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_quickwash.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Quick Wash</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_outdoor.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Outdoor</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_duvet.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Duvet</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_denim.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Denim</span></div>
+          </div>
+          <a href="assets/appliances/manuals/AEG-Washer-L7FEE1612N.pdf" target="_blank" rel="noopener" class="text-brand underline text-xs mt-3 inline-block">View full manual (PDF)</a>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-4">
+          <p class="font-bold text-gray-800 mb-1">AEG Dryer</p>
+          <p class="text-xs text-gray-400 mb-3">T7DEE834N &ndash; laundry dryness level</p>
+          <div class="grid grid-cols-2 gap-x-3 gap-y-2">
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_dryer_irondry.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Iron Dry</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_dryer_cupboarddry.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Cupboard Dry</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_dryer_cupboarddryplus.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Cupboard Dry+</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_dryer_extradry.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Extra Dry</span></div>
+          </div>
+          <a href="assets/appliances/manuals/AEG-Dryer-T7DEE834N.pdf" target="_blank" rel="noopener" class="text-brand underline text-xs mt-3 inline-block">View full manual (PDF)</a>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-4">
+          <p class="font-bold text-gray-800 mb-1">AEG Oven</p>
+          <p class="text-xs text-gray-400 mb-3">BEK431111M &ndash; heating functions</p>
+          <div class="grid grid-cols-2 gap-x-3 gap-y-2">
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_off.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Off</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_light.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Light</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_truefan.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">True Fan Cooking</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_moistfan.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Moist Fan Baking</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_bottomheat.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Bottom Heat</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_grilling.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Grilling</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_fastgrilling.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Fast Grilling</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_turbogrilling.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Turbo Grilling</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_pizza.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Pizza Setting</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_oven_conventional.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Conventional / Aqua Clean</span></div>
+          </div>
+          <a href="assets/appliances/manuals/AEG-Oven-BEK431111M.pdf" target="_blank" rel="noopener" class="text-brand underline text-xs mt-3 inline-block">View full manual (PDF)</a>
+        </div>
+
+        <div class="border border-gray-200 rounded-xl p-4">
+          <p class="font-bold text-gray-800 mb-1">AEG Range</p>
+          <p class="text-xs text-gray-400 mb-3">IKE84471FB &ndash; control panel buttons 1&ndash;4</p>
+          <div class="grid grid-cols-2 gap-x-3 gap-y-2">
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_range_onoff.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">ON / OFF</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_range_lock.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">Lock / Child Safety</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_range_powerslide.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">PowerSlide</span></div>
+            <div class="flex items-center gap-2"><img src="assets/appliances/icons/icon_range_flexibridge.png" alt="" class="w-7 h-7 flex-shrink-0 rounded border border-gray-200" loading="lazy"><span class="text-xs text-gray-700">FlexiBridge</span></div>
+          </div>
+          <a href="assets/appliances/manuals/AEG-Range-IKE84471FB.pdf" target="_blank" rel="noopener" class="text-brand underline text-xs mt-3 inline-block">View full manual (PDF)</a>
+        </div>
+      </div>
+
+      <div class="warn-box rounded-lg p-3 flex gap-3 items-start">
+        <svg class="icon w-4 h-4 text-red-600 flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-warn"/></svg>
+        <p class="text-xs text-red-700"><strong>To do:</strong> chart the microwave.</p>
+      </div>
+    </div>
   </div><!-- /practical -->
 
 </main>
@@ -2472,7 +2553,7 @@ const apps = [
   { name: 'Railway 12306 (Train Tickets)', desc: 'Book high-speed train travel across China.', icon: 'assets/icons/railway12306.jpg', url: 'https://apps.apple.com/us/app/id564818797' },
   { name: '深圳地铁 (Subway Tickets; Shēn Zhèn Dì Tiě)', desc: 'Install and setup this app for the QR code the Shenzhen Metro will need for entry and exit.', icon: 'assets/icons/shenzhenmetro.jpg', url: 'https://apps.apple.com/us/app/id848926994' },
   { name: 'Trip.com (Travel Booking, eSIM)', desc: 'International eSIM plans (auto-renewing) bypass the Great Firewall. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/tripcom.jpg', url: 'https://apps.apple.com/us/app/id681752345' },
-  { name: 'BNEsim', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/bnesim.jpg', url: 'https://apps.apple.com/us/app/id1598924185' },
+  { name: 'BNESIM', desc: 'International eSIM plans with data that lasts as long as you have the eSIM, and you can add other countries to the same eSIM. Download before you arrive. You may also use a VPN to purchase eSIMs.', icon: 'assets/icons/bnesim.jpg', url: 'https://apps.apple.com/us/app/id1598924185' },
   { name: 'QWeather', desc: 'The interface includes radar and an approximate timeline for rain.', icon: 'assets/icons/qweather.jpg', url: 'https://apps.apple.com/us/app/id1461458147' },
 ];
 const ag = document.getElementById('apps-grid');
