@@ -1231,9 +1231,10 @@
     <circle cx="10.4" cy="6.75" r="0.75" fill="currentColor" stroke="none"/>
   </symbol>
   <symbol id="ic-landmark" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
-    <path stroke-linecap="round" stroke-linejoin="round" d="M12 2.25 15 8.25H9L12 2.25Z"/>
-    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 21.75h15"/>
-    <path stroke-linecap="round" stroke-linejoin="round" d="M6 21.75V10.5M18 21.75V10.5M9 21.75v-9M15 21.75v-9"/>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 21.75V9.75l3-2.25 3 2.25v12"/>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M10.5 21.75V4.5l3-2.25 3 2.25v17.25"/>
+    <path stroke-linecap="round" stroke-linejoin="round" d="M2.25 21.75h19.5"/>
+    <path stroke-linecap="round" d="M12.75 8.25h3M12.75 11.25h3M12.75 14.25h3M12.75 17.25h3"/>
   </symbol>
   <symbol id="ic-weather" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6">
     <circle cx="7.5" cy="7.5" r="3"/>
@@ -1312,23 +1313,17 @@
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="shipping">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-box"/></svg> Packing
     </button>
-    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="money">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg> Money
-    </button>
-    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="passport">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-passport"/></svg> Passport Renewal
-    </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="internet">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-globe"/></svg> Internet
+    </button>
+    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="money">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg> Money
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="mobile">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-phone"/></svg> Mobile Phones
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="wechat">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-chat"/></svg> Apps
-    </button>
-    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="travel">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-plane"/></svg> Travel
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="practical">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-map"/></svg> Apartment
@@ -1338,6 +1333,12 @@
     </button>
     <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="weather">
       <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-weather"/></svg> Weather
+    </button>
+    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="travel">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-plane"/></svg> Travel
+    </button>
+    <button class="tab-btn px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5" data-tab="passport">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-passport"/></svg> Passport Renewal
     </button>
   </div>
 </nav>
@@ -2536,7 +2537,7 @@
           <p class="font-bold text-gray-800 mb-1">Panasonic Thermostat</p>
           <p class="text-xs text-gray-400 mb-3">CZ-RD503DX2</p>
           <p class="text-xs font-bold text-gray-600 mb-2">Translated Control Panel</p>
-          <img src="assets/appliances/thermostat-control-panel.svg" alt="Panasonic thermostat control panel with English translations for every button" class="mx-auto block" style="max-width:150px;" loading="lazy">
+          <img src="assets/appliances/thermostat-control-panel.svg" alt="Panasonic thermostat control panel with English translations for every button" class="w-full block" loading="lazy">
           <p class="text-xs font-bold text-gray-600 mt-3 mb-1">Complete Manual</p>
           <p class="text-xs text-gray-400 inline-block">No Manual Found</p>
         </div>
@@ -2761,7 +2762,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 2.20. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 2.25. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
