@@ -2757,7 +2757,7 @@
         <p class="text-xs text-gray-500 leading-tight" style="min-height:75px;">Current<br>Relative Humidity</p>
         <div class="text-gray-800" style="display:flex; align-items:flex-start; gap:2px; font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; -webkit-text-stroke:0.6px currentColor; white-space:nowrap;">
           <span id="wx-humidity" style="font-size:clamp(2.25rem,20vw,8rem); line-height:0.8;">&ndash;</span>
-          <span id="wx-humidity-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); font-weight:200;"></span>
+          <span id="wx-humidity-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); font-weight:200; margin-top:-0.18em;"></span>
         </div>
       </div>
       <div>
@@ -2769,7 +2769,7 @@
     <p id="wx-updated" class="text-xs text-gray-400"></p>
 
     <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
-      <h3 class="font-bold text-lg mb-1">Average Hourly Temperature</h3>
+      <h3 class="font-bold text-lg mb-1">Average Temperatures</h3>
       <p class="text-sm text-gray-500 mb-4">Typical temperature by hour of day, across the year.</p>
       <img src="assets/weather-hourly-temperature.svg" alt="Average hourly temperature in Shenzhen throughout the year" class="w-full rounded-lg" loading="lazy">
     </div>
@@ -2786,7 +2786,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 2.48. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 2.49. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
@@ -2931,7 +2931,7 @@ document.querySelectorAll('.tab-btn').forEach(b =>
       humEl.textContent = Math.round(c.relative_humidity_2m);
       humUnitEl.textContent = '%';
       comfortEl.textContent = comfortLevel(c.dew_point_2m);
-      dewEl.innerHTML = Math.round(c.dew_point_2m) + '°<sup style="font-size:0.6em; vertical-align:super;">C</sup>';
+      dewEl.innerHTML = Math.round(c.dew_point_2m) + '°<sup style="font-size:0.6em;">C</sup>';
       const time = new Date(c.time);
       updatedEl.textContent = 'Live conditions for Shekou, Nanshan, Shenzhen, PRC – updated ' + time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) + '.';
     })
