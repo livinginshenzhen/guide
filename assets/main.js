@@ -45,7 +45,7 @@ if (mag) {
 
 const apps = [
   { name: "Sam's Club (China)", desc: 'The company will provide a free membership to Sam\'s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg', url: 'https://apps.apple.com/us/app/id818237113' },
-  { name: 'Alipay', desc: 'Your backup payment method alongside WeChat. Link at least two credit/debit cards so you have a working fallback if one gets blocked.', url: 'https://apps.apple.com/us/app/alipay/id333206289' },
+  { name: 'Alipay', desc: 'Your backup payment method alongside WeChat. Link at least two credit/debit cards so you have a working fallback if one gets blocked.', icon: 'assets/icons/alipay.jpg', url: 'https://apps.apple.com/us/app/alipay/id333206289' },
   { name: 'AMap (Maps)', desc: 'Think Google Maps. Apple Maps works, but your location is purposely not accurate.', icon: 'assets/icons/amap.jpg', url: 'https://apps.apple.com/us/app/id461703208' },
   { name: 'Didi (Ride Sharing)', desc: "Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the last 4 digits of your phone number to confirm you're their rider.", icon: 'assets/icons/didi.jpg', url: 'https://apps.apple.com/us/app/id554499054' },
   { name: 'GlobalSolutions', desc: 'Health insurance management.', icon: 'assets/icons/globalsolutions.jpg', url: 'https://apps.apple.com/us/app/id500753535' },
