@@ -1086,6 +1086,7 @@
   .tab-pane { display: none; }
   .tab-pane.active { display: block; }
   input[type=checkbox]:checked + label { text-decoration: line-through; opacity: .5; }
+  input[type=checkbox]:checked + label.no-strike { text-decoration: none; opacity: 1; }
   .rec-box, .warn-box {
     border-left: 4px solid #c2410c;
     background: #ffedd5;
