@@ -1,0 +1,47 @@
+---
+layout: default
+tab: weather
+title: "Weather – Living in Shenzhen"
+---
+    <div>
+      <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
+        <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-weather"/></svg>
+        Weather
+      </h2>
+      <p class="text-gray-500 text-sm">Shenzhen has a humid subtropical climate &ndash; hot, muggy summers and more milder, less humid &ldquo;winters.&rdquo;</p>
+    </div>
+
+    <div class="grid grid-cols-3 gap-2">
+      <div>
+        <p class="text-xs text-gray-500 leading-tight" style="min-height:45px;">Current<br>Temperature</p>
+        <div class="text-gray-800" style="display:flex; align-items:flex-start; gap:2px; font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; -webkit-text-stroke:0.6px currentColor; white-space:nowrap;">
+          <span id="wx-temp" style="font-size:clamp(2.25rem,20vw,8rem); line-height:0.8;">&ndash;</span>
+          <span id="wx-temp-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); font-weight:200; -webkit-text-stroke:0.6px currentColor;"></span>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 leading-tight" style="min-height:45px;">Current<br>Relative Humidity</p>
+        <div class="text-gray-800" style="display:flex; align-items:flex-start; gap:2px; font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:100; -webkit-text-stroke:0.6px currentColor; white-space:nowrap;">
+          <span id="wx-humidity" style="font-size:clamp(2.25rem,20vw,8rem); line-height:0.8;">&ndash;</span>
+          <span id="wx-humidity-unit" style="font-size:calc(clamp(2.25rem,20vw,8rem) * 0.225); font-weight:200; margin-top:-0.18em;"></span>
+        </div>
+      </div>
+      <div>
+        <p class="text-xs text-gray-500 leading-tight" style="min-height:45px;">Current<br>Dew Point</p>
+        <p id="wx-comfort" class="text-gray-800" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:0.9; font-size:calc(clamp(2.25rem,20vw,8rem) * 0.33);">&ndash;</p>
+        <p id="wx-dewpoint" class="text-gray-700" style="font-family:'quire-sans',-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif; font-weight:200; line-height:1.2; font-size:calc(clamp(2.25rem,20vw,8rem) * 0.33);"></p>
+      </div>
+    </div>
+    <p id="wx-updated" class="text-xs text-gray-400"></p>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1">Average Temperatures</h3>
+      <p class="text-sm text-gray-500 mb-4">Typical temperature by hour of day, across the year.</p>
+      <img src="assets/weather-hourly-temperature.svg" alt="Average hourly temperature in Shenzhen throughout the year" class="w-full rounded-lg" loading="lazy">
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1">Humidity &amp; Comfort</h3>
+      <p class="text-sm text-gray-500 mb-4">Percentage of time at each humidity comfort level (categorized by dew point), across the year.</p>
+      <img src="assets/weather-humidity-comfort.svg" alt="Humidity comfort levels in Shenzhen by month, categorized by dew point" class="w-full rounded-lg" loading="lazy">
+    </div>

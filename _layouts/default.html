@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ page.title | default: "Living in Shenzhen" }}</title>
+<link rel="preload" as="image" href="{{ '/assets/skyline.jpg' | relative_url }}" fetchpriority="high">
+<link rel="stylesheet" href="https://use.typekit.net/plp6kra.css">
+<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+<script>
+  tailwind.config = { theme: { extend: { colors: {
+    brand: '#0f766e', 'brand-dk': '#115e59', 'brand-lt': '#f0fdf4',
+    accent: '#c2410c', 'accent-lt': '#ffedd5', 'accent-dk': '#7c2d12'
+  }}}};
+</script>
+</head>
+<body class="text-gray-800 min-h-screen{% if page.tab == 'overview' %} bg-overview{% endif %}" style="background-color:#faf7f0;">
+<div id="overviewBgLayer"></div>
+
+<!-- SVG SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  {% include icons.html %}
+</svg>
+
+<!-- HERO -->
+<header class="bg-brand text-white" style="background-color:#1e293b;">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div>
+      <h1 class="text-3xl font-bold leading-tight">Living in Shenzhen</h1>
+      <p class="text-blue-200 text-sm mt-1">Real field notes from fellow expats.</p>
+    </div>
+  </div>
+</header>
+
+<!-- TAB NAV -->
+<nav class="bg-white shadow-sm sticky top-0 z-20 border-b border-gray-100">
+  <div id="tabNavList" class="max-w-4xl mx-auto px-4 flex overflow-x-auto gap-1">
+    <a href="{{ '/' | relative_url }}" class="tab-btn{% if page.tab == 'overview' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview
+    </a>
+    <a href="{{ '/packing.html' | relative_url }}" class="tab-btn{% if page.tab == 'shipping' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-box"/></svg> Packing
+    </a>
+    <a href="{{ '/internet.html' | relative_url }}" class="tab-btn{% if page.tab == 'internet' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-globe"/></svg> Internet
+    </a>
+    <a href="{{ '/money.html' | relative_url }}" class="tab-btn{% if page.tab == 'money' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg> Money
+    </a>
+    <a href="{{ '/mobile-phones.html' | relative_url }}" class="tab-btn{% if page.tab == 'mobile' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-phone"/></svg> Mobile Phones
+    </a>
+    <a href="{{ '/apps.html' | relative_url }}" class="tab-btn{% if page.tab == 'wechat' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-chat"/></svg> Apps
+    </a>
+    <a href="{{ '/apartment.html' | relative_url }}" class="tab-btn{% if page.tab == 'practical' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-map"/></svg> Apartment
+    </a>
+    <a href="{{ '/landmarks.html' | relative_url }}" class="tab-btn{% if page.tab == 'landmarks' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-landmark"/></svg> Landmarks
+    </a>
+    <a href="{{ '/weather.html' | relative_url }}" class="tab-btn{% if page.tab == 'weather' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-weather"/></svg> Weather
+    </a>
+    <a href="{{ '/travel.html' | relative_url }}" class="tab-btn{% if page.tab == 'travel' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-plane"/></svg> Travel
+    </a>
+    <a href="{{ '/passport-renewal.html' | relative_url }}" class="tab-btn{% if page.tab == 'passport' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
+      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-passport"/></svg> Passport Renewal
+    </a>
+  </div>
+</nav>
+
+<main class="max-w-4xl mx-auto py-8 space-y-6">
+  <div id="tab-{{ page.tab }}" class="tab-pane active{% if page.tab == 'overview' %} space-y-3{% else %} space-y-5{% endif %}">
+    {{ content }}
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
+  <div class="max-w-4xl mx-auto px-4 text-center">
+    <p class="text-blue-300 text-xs">Version 3.0. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+  </div>
+</footer>
+
+<script src="{{ '/assets/main.js' | relative_url }}"></script>
+</body>
+</html>

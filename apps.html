@@ -1,0 +1,55 @@
+---
+layout: default
+tab: wechat
+title: "Apps – Living in Shenzhen"
+---
+    <div>
+      <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
+        <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-chat"/></svg>
+        Apps You'll Need
+      </h2>
+      <p class="text-gray-500 text-sm">WeChat isn't optional. It's your wallet, delivery service, transit pass, and social hub. Here's how to hit the ground running with that app &ndash; and all the others that will be important.</p>
+    </div>
+
+    <a href="{{ '/money.html' | relative_url }}" class="w-full text-left bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex items-center gap-3 hover:bg-gray-50 transition">
+      <svg class="icon w-5 h-5 text-brand flex-shrink-0" aria-hidden="true"><use href="#ic-card"/></svg>
+      <span>
+        <span class="font-bold text-gray-800 block">Payments &amp; Cross-Border Money Transfers</span>
+        <span class="text-sm text-gray-500">See the <strong>Money</strong> tab for information on wiring funds, WeChat card linking, and Wise/ICBC transfer options.</span>
+      </span>
+    </a>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
+      <h3 class="font-bold text-lg flex items-center gap-2">
+        <img src="assets/icons/wechat.jpg" alt="" class="w-6 h-6 rounded-md object-cover" loading="lazy">
+        WeChat
+      </h3>
+      <p class="text-sm text-gray-700">Install this first. Everything in China runs on it, in it, and through it.</p>
+      <div class="rounded-lg p-4" style="background:#fef2f2; border-left:4px solid #ea1100;">
+        <p class="text-sm text-red-700"><strong>Be aware:</strong> WeChat is not end-to-end encrypted (Source: The Citizen Lab, University of Toronto). Messages should not be treated as private.</p>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-4 flex items-center gap-2">
+        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-app"/></svg>
+        Useful WeChat Mini Programs
+      </h3>
+      <p class="text-sm text-gray-500 mb-4">Think of mini programs as apps but apps inside of WeChat. To find them, swipe down from the top in WeChat. They are useful because mini programs can auto translate. You'll find the translate button under the secondary button (looks like three dots or sometimes a location symbol).</p>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm" id="mini-apps-grid"></div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-1 flex items-center gap-2">
+        <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-phone"/></svg>
+        Essential Apps
+      </h3>
+      <p class="text-sm text-gray-500 mb-4">As with mini programs, note that apps regularly change their icon artwork &ndash; which does everything for eyeballs and nothing for recognition.</p>
+      <div class="grid sm:grid-cols-2 gap-3 text-sm" id="apps-grid"></div>
+      <div class="mt-6 pt-5 border-t border-gray-100 space-y-3">
+        <h4 class="font-semibold flex items-center gap-2"><svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-info"/></svg>Notes on App Store Regions</h4>
+        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Apple App Store:</strong> Some apps (like Sam's Club (China)) require switching your Apple ID's region to China. <a href="https://support.apple.com/en-us/118283" target="_blank" rel="noopener" class="text-brand underline">Apple's instructions.</a> Only switch back to the US region store once the app has fully downloaded &ndash; switching back too early can interrupt it.</div>
+        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Google Play:</strong> Inaccessible inside China without a VPN.</div>
+        <div class="p-3 bg-gray-50 rounded-lg text-sm"><strong>Samsung Galaxy Store:</strong> Auto-switches to the Chinese store when a Chinese SIM is detected, and is only in Chinese characters.</div>
+      </div>
+    </div>

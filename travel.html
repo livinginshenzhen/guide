@@ -1,0 +1,386 @@
+---
+layout: default
+tab: travel
+title: "Travel – Living in Shenzhen"
+---
+    <div>
+      <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
+        <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-plane"/></svg>
+        Travel Tips
+      </h2>
+      <p class="text-gray-500 text-sm">Living in Shekou makes domestic and international travel much easier.</p>
+    </div>
+
+    <!-- Electronic Arrival Card toggle card -->
+    <div id="arrival-toggle-card" class="rounded-2xl overflow-hidden shadow-md">
+      <button onclick="toggleArrivalCard()" class="block w-full text-left" style="background:none;border:none;padding:0;cursor:pointer;">
+        <div class="flex items-center gap-3 px-5 py-3 text-white" style="background:#4b5563;">
+          <svg class="icon w-6 h-6 flex-shrink-0" aria-hidden="true"><use href="#ic-passport"/></svg>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest" style="color:#fb923c;">Step-by-Step Guide</p>
+            <p class="font-bold text-lg leading-tight">Electronic Arrival Card</p>
+            <p class="text-blue-200 text-xs mt-0.5">Submit this in WeChat before you enter &ndash; required for every member of your party</p>
+          </div>
+          <svg id="arrival-chevron" class="icon w-6 h-6 ml-auto flex-shrink-0 text-blue-300" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform .25s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="px-5 py-2 flex items-center gap-2 text-sm font-semibold" style="background:#f0fdf4;color:#0f766e;">
+          <svg class="icon w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          <span id="arrival-btn-label">Show step-by-step guide</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- ═══ ELECTRONIC ARRIVAL CARD EMBED ═══ -->
+    <div id="arrival-embed" style="display:none; border-radius:0 0 16px 16px; overflow:hidden; border:2px solid #e0e5ec; border-top:none;">
+      <div class="bg-white p-6">
+        <p class="text-gray-500 text-sm mb-5">On the day of your arrival and before you enter, find the WeChat mini program and submit this (for every member in your party). It replaces the paper arrival card and speeds up immigration.</p>
+        <div class="space-y-2 mb-5">
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your vessel or flight number.</p></div>
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Have photos of your passport(s) data page(s) already stored in your phone.</p></div>
+          <div class="flex gap-3 p-3 bg-gray-50 rounded-lg"><svg class="icon w-4 h-4 text-brand flex-shrink-0 mt-0.5" aria-hidden="true"><use href="#ic-check"/></svg><p class="text-sm">Know your visa or resident permit's number.</p></div>
+        </div>
+        <div class="space-y-5">
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">1</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">In WeChat, search Mini Programs for <strong>移民局 12367</strong> (Yí Mín Jú; National Immigration Administration).</p>
+              <img src="assets/arrival-card/step1-find-miniprogram.jpg" alt="WeChat Mini Programs search showing the 移民局 12367 mini-program" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">2</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Open the mini-program and tap <strong>Foreigner Service</strong>.</p>
+              <img src="assets/arrival-card/step2-foreigner-service.jpg" alt="12367 mini-program home screen with the Foreigner Service card" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">3</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Tap <strong>Arrival Card</strong>.</p>
+              <img src="assets/arrival-card/step3-arrival-card.jpg" alt="Foreigner Service page with the Arrival Card option" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
+            </div>
+          </div>
+          <div class="flex gap-3">
+            <div class="flex-shrink-0 w-8 h-8 rounded-full bg-brand-lt text-brand-dk flex items-center justify-center font-bold text-sm">4</div>
+            <div class="text-sm pt-1 flex-1">
+              <p class="font-medium">Tap <strong>Entry Declaration</strong> and fill in the form.</p>
+              <img src="assets/arrival-card/step4-entry-declaration.jpg" alt="Arrival Card Filling page with Entry Declaration options" class="mt-2 rounded-lg border border-gray-200" style="max-width:240px;" loading="lazy">
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- HKG -> Shekou toggle card -->
+    <div id="hkg-toggle-card" class="rounded-2xl overflow-hidden shadow-md" style="margin-top:16px;">
+      <button onclick="toggleHkgGuide()" class="block w-full text-left" style="background:none;border:none;padding:0;cursor:pointer;">
+        <div class="flex items-center gap-3 px-5 py-3 text-white" style="background:#4b5563;">
+          <svg class="icon w-6 h-6 flex-shrink-0" aria-hidden="true"><use href="#ic-ferry"/></svg>
+          <div>
+            <p class="text-xs font-bold uppercase tracking-widest" style="color:#fb923c;">Step-by-Step Guide</p>
+            <p class="font-bold text-lg leading-tight">Ferry from Hong Kong Airport &rarr; Shenzhen Shekou</p>
+            <p class="text-blue-200 text-xs mt-0.5">How to use the ferry to get from the HKG airport to Shenzhen &ndash; without needing to clear Hong Kong immigration</p>
+          </div>
+          <svg id="hkg-chevron" class="icon w-6 h-6 ml-auto flex-shrink-0 text-blue-300" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24" style="transition:transform .25s;"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+        </div>
+        <div class="bg-white px-5 py-4 grid grid-cols-2 sm:grid-cols-4 gap-3 text-center text-sm">
+          <div><p class="font-bold text-gray-800">60 min</p><p class="text-xs text-gray-400 uppercase tracking-wide">Ferry Duration</p></div>
+          <div><p class="font-bold text-gray-800">USD$35&ndash;45</p><p class="text-xs text-gray-400 uppercase tracking-wide">Ticket Price</p></div>
+          <div><p class="font-bold text-gray-800">45 min early</p><p class="text-xs text-gray-400 uppercase tracking-wide">Check-in Cutoff</p></div>
+          <div><p class="font-bold" style="color:#2a8703;">ZYK</p><p class="text-xs text-gray-400 uppercase tracking-wide">IATA Code</p></div>
+        </div>
+        <div class="px-5 py-2 flex items-center gap-2 text-sm font-semibold" style="background:#f0fdf4;color:#0f766e;">
+          <svg class="icon w-4 h-4" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5"/></svg>
+          <span id="hkg-btn-label">Show full step-by-step guide</span>
+        </div>
+      </button>
+    </div>
+
+    <!-- ═══ HKG FERRY GUIDE EMBED ═══ -->
+    <div id="hkg-embed" style="display:none; border-radius:0 0 16px 16px; overflow:hidden; border:2px solid #e0e5ec; border-top:none;">
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-inner">
+    <h1 style="color:var(--accent);">Hong Kong Airport <span>&rarr; Shenzhen Shekou</span></h1>
+    <p class="hero-sub">Step-by-step ferry guide for transit passengers arriving at HKG and continuing to Shenzhen via the SkyPier direct ferry – no Hong Kong immigration required.</p>
+    <div class="hero-pills">
+      <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-bag"/></svg> Through-Checked Baggage</span>
+      <span class="hero-pill"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-card"/></svg> Credit Cards Accepted</span>
+    </div>
+  </div>
+</div>
+
+
+<div class="hkg-container">
+
+  <!-- KEY ADVANTAGE -->
+  <div class="alert-box green" style="margin-top:8px;">
+    <div class="alert-body">
+      <strong>No Hong Kong Immigration Required</strong>
+      <p>The HKG SkyPier is located <em>airside</em> – inside the restricted transit zone. Transit passengers bypass Hong Kong immigration entirely, saving significant time. This is the primary reason to use this route.</p>
+    </div>
+  </div>
+
+  <!-- JOURNEY SUMMARY -->
+  <h2 class="section-h2">Full Journey Summary</h2>
+
+  <div class="summary-card">
+    <div class="summary-header"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-map"/></svg> <span><span class="summary-accent">Hong Kong Int'l Airport</span> to Shekou Ferry Terminal, Shenzhen</span></div>
+
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-passport"/></svg></div>
+      <div><strong>Before Departure</strong> <span style="display:block;">Fill out China's electronic entry card and keep the QR code</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-plane"/></svg></div>
+      <div><strong>Arrive at HKG</strong> <span style="display:block;">Deplane and follow signs for Immigration / Mainland/Macao</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--teal);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
+      <div><strong>Take Internal Train</strong> <span style="display:block;">APM shuttle to the immigration / ferry terminal zone</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--accent);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-card"/></svg></div>
+      <div><strong>Ferry Ticket Counter</strong> <span style="display:block;">Buy ticket to Shekou (蛇口) &middot; Hand over baggage tags &middot; Credit cards accepted, no cash needed</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:#7c2d12;"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-train"/></svg></div>
+      <div><strong>Train to Airside Terminal</strong> <span style="display:block;">Show your ticket &middot; 7-Eleven near the ferry gates</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--green);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-ferry"/></svg></div>
+      <div><strong>Board Ferry</strong> <span style="display:block;">~60 min journey to Shekou Ferry Terminal, Shenzhen</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--green);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-bag"/></svg></div>
+      <div><strong>Collect Baggage</strong> <span style="display:block;">Immigration &middot; downstairs via escalator to the baggage belt</span></div>
+    </div>
+    <div class="summary-row">
+      <div class="summary-dot" style="background:var(--green);"><svg class="icon fa-icon" aria-hidden="true"><use href="#ic-check"/></svg></div>
+      <div><strong>Arrive Shekou</strong> <span style="display:block;">Customs &middot; elevator to the 西 West Ride Hailing Area &middot; order a Didi</span></div>
+    </div>
+  </div>
+
+  <!-- STEPS -->
+  <h2 class="section-h2">Step-by-Step Instructions</h2>
+
+  <div class="steps">
+
+    <div class="step teal">
+      <div class="step-num">1</div>
+      <div class="step-body">
+        <h3>Before Departure: Fill Out China's Electronic Entry Card</h3>
+        <p>Before you leave, complete China's <strong>electronic entry card</strong> online and save the QR code it generates. You'll use it during immigration on arrival in Shekou – even though your passport will usually pull up your info automatically, it's good to have as a backup.</p>
+      </div>
+    </div>
+
+    <div class="step teal">
+      <div class="step-num">2</div>
+      <div class="step-body">
+        <h3>Deplane &rarr; Follow Signs to "Immigration"</h3>
+        <p>Upon exiting the aircraft, follow overhead signs towards <strong>Immigration / 入境檢查</strong>. Look for signs also showing <strong>Mainland/Macao (內地/澳門)</strong> – this is the direction you want.</p>
+        <p>You will see blue directional signs overhead. The key indicators are: <em>Immigration</em>, <em>Transfer Desks E1, E2</em>, and <em>Mainland/Macao</em>.</p>
+        <figure class="step-photo">
+          <img src="assets/hkia-signage-immigration.jpg" alt="HKG overhead signage showing Immigration and Mainland/Macao directions" loading="lazy">
+          <figcaption>What you will see overhead after deplaning – follow the Mainland/Macao arrow.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step teal">
+      <div class="step-num">3</div>
+      <div class="step-body">
+        <h3>Board the Internal Airport Train</h3>
+        <p>You must take a short <strong>automated train</strong> to reach the immigration and ferry terminal area. Follow the train icons on the signage.</p>
+        <p>Once off the train, continue following signs for <strong>Mainland/Macao (內地/澳門)</strong>. You'll look for Transfer Desk E2 on the left.</p>
+        <figure class="step-photo">
+          <img src="assets/hkia-signage-mainland-macao-after-train.jpg" alt="HKG sign - Mainland/Macao direction after the train" loading="lazy">
+          <figcaption>After the train – follow the right arrow for Mainland/Macao. Transfer Desks E2 is to the left.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step blue">
+      <div class="step-num">4</div>
+      <div class="step-body">
+        <h3>Locate the Ferry Ticket Counter</h3>
+        <p>Look for the <strong>CKS SkyPier Ferry Ticket Counter</strong>. <strong>Do not clear Hong Kong immigration.</strong> The counter handles ferries to both <strong>Macau</strong> and <strong>Shenzhen (Shekou)</strong>.</p>
+        <p>Go to the counter designated for <strong>Shekou / 蛇口</strong> (Shenzhen). Do not join the Macau queue by mistake.</p>
+        <figure class="step-photo">
+          <img src="assets/hkia-skypier-ferry-ticket-counters.jpg" alt="CKS SkyPier ferry ticket counters at HKG" loading="lazy">
+          <figcaption>The CKS SkyPier ferry counters – multiple desks showing routes and departure times. Find the Shekou / Shenzhen desk.</figcaption>
+        </figure>
+      </div>
+    </div>
+
+    <div class="step blue">
+      <div class="step-num">5</div>
+      <div class="step-body">
+        <h3>Purchase Your Ticket to "Shekou" &amp; Inform the Agent</h3>
+        <p>Ask for the <strong>next available ferry to Shekou (蛇口)</strong>. At the counter, you will hand over your <strong>checked baggage tags</strong> (if you did not have the bags originally checked through to ZYK). The ferry service will collect and load your bags directly onto the ferry. <em>You will NOT collect your bags in Hong Kong.</em> You pick up your checked luggage only after arriving at Shekou.</p>
+        <p><strong>The SkyPier ferry accepts credit cards</strong> – you do not need to exchange cash before boarding.</p>
+      </div>
+    </div>
+
+    <div class="step accent">
+      <div class="step-num">6</div>
+      <div class="step-body">
+        <h3>Take Train to Airside Ferry Terminal</h3>
+        <p>At the appointed time, you'll show your ticket and then take the internal airport train to the airside ferry terminal. Note that there is a 7-Eleven outlet near the ferry gates.</p>
+      </div>
+    </div>
+
+    <div class="step green">
+      <div class="step-num">7</div>
+      <div class="step-body">
+        <h3>Board the Ferry &amp; Cross to Shekou</h3>
+        <p>The ferry journey takes approximately <strong>45–60 minutes</strong>. The ferry is comfortable with indoor seating. Your carry-on luggage can be stowed near the entry doors.</p>
+      </div>
+    </div>
+
+    <div class="step green">
+      <div class="step-num">8</div>
+      <div class="step-body">
+        <h3>Collect Your Baggage</h3>
+        <p>Upon arrival at <strong>Shekou Ferry Terminal (蛇口客运港)</strong>, proceed through immigration. Then, downstairs via an escalator, collect your checked bags from the baggage belt at the terminal.</p>
+      </div>
+    </div>
+
+    <div class="step green">
+      <div class="step-num">9</div>
+      <div class="step-body">
+        <h3>Head to the Ride Hailing Area</h3>
+        <p>After Customs, take the elevator to the <strong>西 West Ride Hailing Area</strong> and order a Didi.</p>
+      </div>
+    </div>
+
+  </div><!-- /steps -->
+
+  <!-- REMINDERS -->
+  <h2 class="section-h2">Important Reminders</h2>
+
+  <div class="reminders">
+
+    <div class="alert-box warn">
+      <div class="alert-body">
+        <strong>Arrive at the Ferry Counter at Least 45 Minutes Before Departure</strong>
+        <p>The baggage handover, ticket processing, and boarding procedure take time. Missing the ferry cutoff is a real risk if you linger. Move briskly from your gate to the SkyPier area.</p>
+      </div>
+    </div>
+
+    <div class="alert-box green">
+      <div class="alert-body">
+        <strong>Through-Checked Baggage Is a Major Convenience</strong>
+        <p>The SkyPier service allows your checked luggage to be transferred directly from your incoming flight to the ferry – you never handle your bags at HKG. Just hand over your baggage tags at the ticket counter and collect at Shekou. Confirm this service is active when you purchase your ticket.</p>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- BACKUP PLAN -->
+  <div class="backup">
+    <div class="backup-header">
+      <svg class="icon fa-icon" aria-hidden="true"><use href="#ic-warn"/></svg>
+      Backup Plan – If You Miss the Ferry or Accidentally Clear Immigration in Hong Kong
+    </div>
+    <div class="backup-body">
+
+      <div class="alert-box red" style="margin-bottom:16px;">
+        <div class="alert-body">
+          <strong>Critical: Once You Clear Hong Kong Immigration, You Cannot Return to the SkyPier Ferry</strong>
+          <p>The ferry terminal is airside. Clearing HK immigration means you have exited the restricted zone – there is no re-entry to take the ferry. You must use an alternative route.</p>
+        </div>
+      </div>
+
+      <p style="font-size:11px;font-weight:800;letter-spacing:1.5px;text-transform:uppercase;color:var(--red);margin-bottom:6px;">Alternative Route via Shenzhen Bay Checkpoint</p>
+      <h4 style="font-size:14px;font-weight:800;color:var(--ink);margin-bottom:12px;">CTG Bus (中旅巴士) – Mainland/Macao Transport Area</h4>
+
+      <div class="photo-row">
+        <figure>
+          <img src="assets/hkia-arrivals-mainland-macao-transport.jpg" alt="HKG Arrivals Hall signs showing Mainland/Macao Transport direction" loading="lazy">
+          <figcaption>Follow the "Mainland/Macao Transport" arrow from the Arrivals Hall.</figcaption>
+        </figure>
+        <figure>
+          <img src="assets/hkia-ctg-bus-counter.jpg" alt="CTG Bus counter showing Shenzhen destinations" loading="lazy">
+          <figcaption>CTG Bus (中旅巴士) – tell them Shenzhen Shekou via Shenzhen Bay checkpoint.</figcaption>
+        </figure>
+      </div>
+
+      <div class="backup-steps">
+        <div class="backup-step">
+          <div class="bs-num">1</div>
+          <div class="bs-text">Clear Hong Kong immigration (if not already done) and collect your checked baggage from the baggage reclaim carousel.</div>
+        </div>
+        <div class="backup-step">
+          <div class="bs-num">2</div>
+          <div class="bs-text">Clear Hong Kong Customs and proceed to the Arrivals Hall.</div>
+        </div>
+        <div class="backup-step">
+          <div class="bs-num">3</div>
+          <div class="bs-text">Follow signs to <strong>"Mainland/Macao Transport" (往內地/澳門交通)</strong> – located in the ground transportation area, signposted from the Arrivals Hall.</div>
+        </div>
+        <div class="backup-step">
+          <div class="bs-num">4</div>
+          <div class="bs-text">Find the <strong>CTG Bus (中旅巴士)</strong> ticket counter. Purchase a ticket specifying your destination: <strong>Shenzhen, Shekou</strong>, crossing via the <strong>Shenzhen Bay (深圳灣) checkpoint</strong>. The agent will direct you to the correct bus bay (Bay 32–34 area for limos/coaches).
+            <figure class="step-photo" style="margin-top:10px;">
+              <img src="assets/hkia-ctg-bus-bays.jpg" alt="Bus and limo pickup bays 31-34 at HKG" loading="lazy">
+              <figcaption>Bays 31–34 – where CTG limos and coaches depart for Shenzhen Bay border crossing.</figcaption>
+            </figure>
+          </div>
+        </div>
+        <div class="backup-step">
+          <div class="bs-num">5</div>
+          <div class="bs-text">The bus/limo will cross the Shenzhen Bay Bridge border crossing. Expect the total journey to take approximately <strong>1.5 – 2.5 hours</strong> depending on border wait times – significantly longer than the ferry.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+</div><!-- /container -->
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 space-y-4">
+      <h3 class="font-bold text-lg flex items-center gap-2"><svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-map"/></svg>Traveling from Shekou</h3>
+      <div class="rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-brand-lt px-4 py-3 flex gap-2 items-center">
+          <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-ferry"/></svg>
+          <h4 class="font-bold text-brand">Ferry from Shekou Port</h4>
+        </div>
+        <div class="p-4 text-sm text-gray-700 space-y-3">
+          <p>Buy tickets via the <strong>GBA Ferries &#31908;&#28207;&#24555;&#33337; (Yu&egrave; G&#462;ng Ku&agrave;i Chu&aacute;n)</strong> WeChat mini program. The ferry goes to Hong Kong (Central), Macao, Dong'an Island, and other destinations on the bay.</p>
+          <div class="good-box rounded-lg p-3">
+            <p class="font-semibold text-green-800">Headed to Hong Kong Int'l Airport?</p>
+            <p class="text-green-700 mt-1">Check your bags at the <strong>Shekou Ferry Terminal</strong>. They travel with the ferry and meet you at your final flight destination &ndash; no re-claiming bags at HK airport!</p>
+          </div>
+        </div>
+      </div>
+      <div class="rounded-xl overflow-hidden border border-gray-200">
+        <div class="bg-brand-lt px-4 py-3 flex gap-2 items-center">
+          <svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-plane"/></svg>
+          <h4 class="font-bold text-brand">Shenzhen Bao'an Airport (SZX)</h4>
+        </div>
+        <div class="p-4 text-sm text-gray-600">Your primary airport for domestic China travel and international flights. Easy access from Shekou.</div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6 flex gap-4 items-start">
+      <div>
+        <h3 class="font-bold text-lg">e-Channel Fast-Track Hong Kong Immigration</h3>
+        <p class="text-sm text-gray-600 mt-2">Frequent HK airport travelers should apply for the <strong>e-Channel pass</strong> &ndash; skip the immigration line and save your passport pages from extra stamps.</p>
+        <div class="mt-3 bg-yellow-50 border border-yellow-200 rounded-lg p-3 text-sm text-yellow-800">
+          <svg class="icon w-4 h-4 inline mr-1 text-yellow-600" aria-hidden="true"><use href="#ic-warn"/></svg>
+          Applicants must be <strong>12 years or older</strong>.
+        </div>
+      </div>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-6">
+      <h3 class="font-bold text-lg mb-4 flex items-center gap-2"><svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-map"/></svg>Getting Around China</h3>
+      <div class="grid sm:grid-cols-3 gap-4 text-center text-sm">
+        <div class="p-4 bg-gray-50 rounded-xl"><div class="w-10 h-10 bg-brand-lt rounded-xl mx-auto mb-2 flex items-center justify-center"><svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-car"/></svg></div><h4 class="font-bold">Didi</h4><p class="text-gray-500 mt-1">Think Uber or Lyft. An English interface appears after signing in. Drivers typically read off the <strong class="text-gray-700">last 4 digits of your phone number</strong> to confirm you're their rider.</p></div>
+        <div class="p-4 bg-gray-50 rounded-xl"><div class="w-10 h-10 bg-brand-lt rounded-xl mx-auto mb-2 flex items-center justify-center"><svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-train"/></svg></div><h4 class="font-bold">Railway 12306</h4><p class="text-gray-500 mt-1">Book high-speed train travel across China.</p></div>
+        <div class="p-4 bg-gray-50 rounded-xl"><div class="w-10 h-10 bg-brand-lt rounded-xl mx-auto mb-2 flex items-center justify-center"><svg class="icon w-5 h-5 text-brand" aria-hidden="true"><use href="#ic-map"/></svg></div><h4 class="font-bold">AMap</h4><p class="text-gray-500 mt-1">Think Google Maps. Apple Maps works, but your location is purposely not accurate.</p></div>
+      </div>
+    </div>
