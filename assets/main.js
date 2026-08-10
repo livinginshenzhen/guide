@@ -20,12 +20,13 @@ if (cl) {
 
 const miniApps = [
   { name: 'Meituan', desc: 'Food & grocery delivery to your door', icon: 'assets/icons/meituan.jpg' },
+  { name: '京东 JD (Shopping; Jīng Dōng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat.", icon: 'assets/icons/jd.jpg' },
   { name: 'GBA Ferries 粤港快船', desc: 'Ferry tickets to Hong Kong or Macau', icon: 'assets/icons/gbaferries.jpg' },
+  { name: 'One 蛇口-招商邮轮 (One Shekou Port, CM Cruise)', desc: 'Ferry ticket booking, schedules, and pricing for the Shekou cruise terminal', icon: 'assets/icons/oneshekoucruise.png' },
   { name: 'SIS Connect', desc: 'For families with kids at Shekou International School', icon: 'assets/icons/sisconnect.jpg' },
   { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School', icon: 'assets/icons/chaotao.jpg' },
   { name: '乘车码 (Chéng Chē Mǎ)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)', icon: 'assets/icons/chengchema.jpg' },
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole', icon: 'assets/icons/silverpalate.jpg' },
-  { name: '京东 JD (Shopping; Jīng Dōng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat.", icon: 'assets/icons/jd.jpg' },
 ];
 const mag = document.getElementById('mini-apps-grid');
 if (mag) {
@@ -33,7 +34,7 @@ if (mag) {
     const d = document.createElement('div');
     d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
     const iconHtml = a.icon
-      ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="lazy">`
+      ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="eager">`
       : `<div class="flex-shrink-0 w-8 h-8 bg-brand-lt rounded-lg flex items-center justify-center">
         <svg class="icon w-4 h-4 text-brand" aria-hidden="true"><use href="#ic-app"/></svg></div>`;
     d.innerHTML = `${iconHtml}
@@ -61,7 +62,7 @@ if (ag) {
     if (a.url) { d.href = a.url; d.target = '_blank'; d.rel = 'noopener'; }
     const badge = a.badge ? `<span style="font-size:10px;font-weight:700;background:#c2410c;color:#1e293b;border-radius:9999px;padding:1px 8px;margin-left:6px;vertical-align:middle;">${a.badge}</span>` : '';
     const iconHtml = a.icon
-      ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="lazy">`
+      ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="eager">`
       : `<div class="flex-shrink-0 w-8 h-8 bg-gray-200 rounded-lg flex items-center justify-center">
         <svg class="icon w-4 h-4 text-gray-500" aria-hidden="true"><use href="#ic-phone"/></svg></div>`;
     d.innerHTML = `${iconHtml}
