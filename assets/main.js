@@ -20,12 +20,12 @@ if (cl) {
 
 const miniApps = [
   { name: 'Meituan', desc: 'Food & grocery delivery to your door', icon: 'assets/icons/meituan.jpg' },
-  { name: 'Distinct Healthcare 卓正医疗', desc: 'Concierge healthcare service and local clinic accepted by company insurance' },
+  { name: 'Distinct Healthcare 卓正医疗', desc: 'Concierge healthcare service and local clinic accepted by company insurance', icon: 'assets/icons/distincthealthcare.png' },
   { name: '京东 JD (Shopping; Jīng Dōng)', desc: "It's the biggest online retail platform. English interface available in JD Mini Program in WeChat.", icon: 'assets/icons/jd.jpg' },
   { name: 'GBA Ferries 粤港快船', desc: 'Ferry tickets to Hong Kong or Macau', icon: 'assets/icons/gbaferries.jpg' },
   { name: 'One 蛇口-招商邮轮 (One Shekou Port, CM Cruise)', desc: 'Ferry ticket booking, schedules, and pricing for the Shekou cruise terminal', icon: 'assets/icons/oneshekoucruise.png' },
   { name: 'SIS Connect', desc: 'For families with kids at Shekou International School', icon: 'assets/icons/sisconnect.jpg' },
-  { name: 'Epermarket', desc: 'Cloud supermarket with foreign goods and prepared foods' },
+  { name: 'Epermarket South', desc: 'Cloud supermarket with foreign goods and prepared foods', icon: 'assets/icons/epermarket.png' },
   { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School', icon: 'assets/icons/chaotao.jpg' },
   { name: '乘车码 (Chéng Chē Mǎ)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)', icon: 'assets/icons/chengchema.jpg' },
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole', icon: 'assets/icons/silverpalate.jpg' },
