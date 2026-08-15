@@ -3,7 +3,7 @@ const checks = [
   'For Minors: Print a series of photos (at least every six months) that show growth/progression for recognition.',
   'For Minors: bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
   'Copy of your Shekou police registration document (contains your Chinese address)',
-  'One (1) new passport photo (51&times;51 mm)',
+  'One (1) <a href="https://travel.state.gov/en/passports/apply/help/photos.html" target="_blank" rel="noopener" class="text-brand underline">new passport photo</a> (51&times;51 mm)',
   'Shipment / mailing label for passport return delivery',
   'Decide before: keep expiring passport to mail later via EMS, or leave it at the consulate?',
 ];
