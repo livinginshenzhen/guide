@@ -1,9 +1,9 @@
 const checks = [
-  'Bring a printed copy (color preferred) of expiring passport\'s data page',
-  'Photocopy of Social Security card',
-  'For minors, bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
+  'Bring original and a printed color copy of: expiring passport\'s data page, birth certificate, and Social Security card (only copy needed)',
+  'For Minors: Print a series of photos (at least every six months) that show growth/progression for recognition.',
+  'For Minors: bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
   'Copy of your Shekou police registration document (contains your Chinese address)',
-  'New Passport Photos 51&times;51 mm',
+  'One (1) new passport photo (51&times;51 mm)',
   'Shipment / mailing label for passport return delivery',
   'Decide before: keep expiring passport to mail later via EMS, or leave it at the consulate?',
 ];
