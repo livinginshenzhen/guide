@@ -7,7 +7,7 @@
 <title>{{ page.title | default: "Living in Shenzhen" }}</title>
 <link rel="preload" as="image" href="{{ '/assets/skyline.jpg' | relative_url }}" fetchpriority="high">
 <link rel="stylesheet" href="https://use.typekit.net/plp6kra.css">
-<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}">
+<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <script>
   tailwind.config = { theme: { extend: { colors: {
     brand: '#0f766e', 'brand-dk': '#115e59', 'brand-lt': '#f0fdf4',
@@ -81,10 +81,10 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12 py-6" style="background-color:#1e293b;">
   <div class="max-w-4xl mx-auto px-4 text-center">
-    <p class="text-blue-300 text-xs">Version 3.995. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+    <p class="text-blue-300 text-xs">Version 3.996. This content was last updated in August 2026. It is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
 
-<script src="{{ '/assets/main.js' | relative_url }}"></script>
+<script src="{{ '/assets/main.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
 </body>
 </html>
