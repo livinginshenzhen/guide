@@ -4,15 +4,16 @@ const checks = [
   'For Minors: bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
   'Copy of your Shekou police registration document (contains your Chinese address)',
   'One (1) <a href="https://travel.state.gov/en/passports/apply/help/photos.html" target="_blank" rel="noopener" class="text-brand underline">new passport photo</a> (51&times;51 mm)',
-  'Decision: Before the renewal appointment, decide to leave the expiring passport with the Consulate or keep the expiring passport with you and return later. Either way, you may want to have an EMS mailing label ready for the return mail.',
+  'Decision: Before the renewal appointment, decide to leave the expiring passport with the Consulate or keep the expiring passport with you and return later. Either way, you may want to have an EPS mailing label ready for the return mail.',
 ];
 const cl = document.getElementById('checklist');
 if (cl) {
   checks.forEach((text, i) => {
     const div = document.createElement('div');
     div.className = 'flex gap-3 items-start p-2 hover:bg-gray-50 rounded-lg';
+    const weightStyle = text.startsWith('For Minors:') ? ' style="font-weight:600;"' : '';
     div.innerHTML = `<input type="checkbox" id="c${i+1}" class="mt-0.5 h-4 w-4 accent-brand flex-shrink-0">
-      <label for="c${i+1}" class="text-sm cursor-pointer">${text}</label>`;
+      <label for="c${i+1}" class="text-sm cursor-pointer"${weightStyle}>${text}</label>`;
     cl.appendChild(div);
   });
 }
