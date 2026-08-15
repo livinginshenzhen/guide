@@ -3,7 +3,7 @@ const checks = [
   'Photocopy of Social Security card',
   'For minors, bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
   'Copy of your Shekou police registration document (contains your Chinese address)',
-  'Passport photos (will be stapled to your application at Desk 1)',
+  'New Passport Photos 51&times;51 mm',
   'Shipment / mailing label for passport return delivery',
   'Decide before: keep expiring passport to mail later via EMS, or leave it at the consulate?',
 ];
