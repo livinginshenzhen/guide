@@ -4,8 +4,7 @@ const checks = [
   'For Minors: bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
   'Copy of your Shekou police registration document (contains your Chinese address)',
   'One (1) <a href="https://travel.state.gov/en/passports/apply/help/photos.html" target="_blank" rel="noopener" class="text-brand underline">new passport photo</a> (51&times;51 mm)',
-  'Shipment / mailing label for passport return delivery',
-  'Decide before: keep expiring passport to mail later via EMS, or leave it at the consulate?',
+  'Decision: Before the renewal appointment, decide to leave the expiring passport with the Consulate or keep the expiring passport with you and return later. Either way, you may want to have an EMS mailing label ready for the return mail.',
 ];
 const cl = document.getElementById('checklist');
 if (cl) {
