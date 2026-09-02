@@ -28,7 +28,7 @@ const miniApps = [
   { name: 'Chaotao Shop', desc: 'Uniform shop for Shekou International School', icon: 'assets/icons/chaotao.jpg' },
   { name: '乘车码 (Chéng Chē Mǎ)', desc: 'Pay subway & bus fares in Shenzhen (works in other cities too)', icon: 'assets/icons/chengchema.jpg' },
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can\'t find at Ole', icon: 'assets/icons/silverpalate.jpg' },
-  { name: '旧衣回收 Mǎyǐ (or "Ant")', desc: 'Use to donate (with pick up) clothes, furniture, appliances, and other items.', icon: 'assets/icons/mayi.png' },
+  { name: '旧衣回收 (Donations; Jiù Yī Huíshōu) (Mǎyǐ or "Ant")', desc: 'Use to donate (with pick up) clothes, furniture, appliances, and other items.', icon: 'assets/icons/mayi.png' },
 ];
 const mag = document.getElementById('mini-apps-grid');
 if (mag) {
