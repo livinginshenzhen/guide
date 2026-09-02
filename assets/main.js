@@ -2,9 +2,9 @@ const checks = [
   'Bring original and a printed color copy of: expiring passport\'s data page, birth certificate, and Social Security card (only copy needed)',
   '<span style="font-weight:600;">For Minors:</span> Print a series of photos (at least every six months) that show growth/progression for recognition.',
   '<span style="font-weight:600;">For Minors:</span> bring a printed copy (color preferred) of each parent\'s passport data page and Social Security card',
-  'Copy of your Shekou police registration document (contains your Chinese address)',
+  'Bring your address printed in Chinese characters so you or an agent can handwrite the address on a mailing label.',
   'One (1) <a href="https://travel.state.gov/en/passports/apply/help/photos.html" target="_blank" rel="noopener" class="text-brand underline">new passport photo</a> (51&times;51 mm)',
-  'Decision: Before the renewal appointment, decide how you\'ll provide the expiring passport (see "What to Expect After Your Renewal Appointment" below). Either way, you may want to have an EPS mailing label ready for the return mail.',
+  '<span style="font-weight:600;">Decision:</span> Before the renewal appointment, decide how you\'ll provide the expiring passport (see "What to Expect After Your Renewal Appointment" below).',
 ];
 const cl = document.getElementById('checklist');
 if (cl) {
