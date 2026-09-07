@@ -878,6 +878,7 @@
 #hkg-embed, #hkg-embed *::before, #hkg-embed *::after { box-sizing: border-box; margin: 0; padding: 0; }
 #hkg-embed { margin-bottom: 1.25rem; }
 #hkg-embed {
+    background: #fff;
     --accent: #0f766e;
     --ink:    #1e293b;
     --accent: #fb923c;
