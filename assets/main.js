@@ -131,10 +131,10 @@ function toggleArrivalCard() {
       tempUnitEl.textContent = '°C';
       humEl.textContent = Math.round(c.relative_humidity_2m);
       humUnitEl.textContent = '%';
-      comfortEl.textContent = comfortLevel(c.dew_point_2m);
+      comfortEl.textContent = '‘' + comfortLevel(c.dew_point_2m) + '’';
       dewEl.innerHTML = Math.round(c.dew_point_2m) + '°<sup style="font-size:0.6em;">C</sup>';
       const time = new Date(c.time);
-      updatedEl.textContent = 'Live conditions for Shekou, Nanshan, Shenzhen, PRC – updated ' + time.toLocaleTimeString('en-US', { hour: 'numeric', minute: '2-digit' }) + '.';
+      updatedEl.textContent = 'Live conditions for Shekou, Nanshan, Shenzhen, P. R. China. Updated ' + time.toLocaleTimeString('en-GB', { hour: '2-digit', minute: '2-digit', hour12: false }) + ' local time.';
     })
     .catch(() => {
       tempEl.textContent = '–';
