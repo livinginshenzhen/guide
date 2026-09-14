@@ -143,3 +143,32 @@ function toggleArrivalCard() {
       updatedEl.textContent = 'Could not load live weather data.';
     });
 })();
+
+(function() {
+  let tip;
+  function ensureTip() {
+    if (!tip) {
+      tip = document.createElement('div');
+      tip.className = 'chart-tip';
+      document.body.appendChild(tip);
+    }
+    return tip;
+  }
+  document.addEventListener('mouseover', function(e) {
+    const el = e.target.closest('[data-tip]');
+    if (!el) return;
+    const t = ensureTip();
+    t.textContent = el.getAttribute('data-tip');
+    t.classList.add('visible');
+  });
+  document.addEventListener('mousemove', function(e) {
+    if (!tip || !tip.classList.contains('visible')) return;
+    tip.style.left = e.clientX + 'px';
+    tip.style.top = (e.clientY - 10) + 'px';
+  });
+  document.addEventListener('mouseout', function(e) {
+    const el = e.target.closest('[data-tip]');
+    if (!el || !tip) return;
+    tip.classList.remove('visible');
+  });
+})();
