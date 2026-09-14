@@ -1,1 +1,102 @@
-<svg viewBox="0 0 920 56" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:sans-serif;"><rect x="0" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="20.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">01</text><rect x="40" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="60.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">02</text><rect x="80" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="100.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">03</text><rect x="120" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="140.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">04</text><rect x="160" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="180.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">05</text><rect x="200" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="220.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">06</text><rect x="240" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="260.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">07</text><rect x="280" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="300.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">08</text><rect x="320" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="340.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">09</text><rect x="360" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="380.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">10</text><rect x="400" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="420.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">11</text><rect x="440" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="460.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">12</text><rect x="480" y="0" width="40" height="56" fill="#99f6e4" stroke="#0f766e" stroke-width="1"/><text x="500.0" y="33.0" text-anchor="middle" font-size="14" fill="#0f766e">13</text><rect x="520" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="540.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">14</text><rect x="560" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="580.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">15</text><rect x="600" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="620.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">16</text><rect x="640" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="660.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">17</text><rect x="680" y="0" width="40" height="56" fill="#0f766e" stroke="#0f766e" stroke-width="1"/><text x="700.0" y="33.0" text-anchor="middle" font-size="14" fill="#5eead4">18</text><rect x="720" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="740.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">19</text><rect x="760" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="780.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">20</text><rect x="800" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="820.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">21</text><rect x="840" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="860.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">22</text><rect x="880" y="0" width="40" height="56" fill="#ffffff" stroke="#d1d5db" stroke-width="1"/><text x="900.0" y="33.0" text-anchor="middle" font-size="14" fill="#9ca3af">23</text></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 682.07 34.25">
+  <!-- Generator: Adobe Illustrator 30.8.1, SVG Export Plug-In . SVG Version: 2.1.4 Build 1)  -->
+  <defs>
+    <style>
+      .st0 {
+        opacity: .25;
+      }
+
+      .st0, .st1 {
+        fill: #0f766e;
+        mix-blend-mode: multiply;
+      }
+
+      .st2 {
+        fill: none;
+        stroke: #000;
+        stroke-miterlimit: 10;
+        stroke-width: .04px;
+      }
+
+      .st3 {
+        isolation: isolate;
+      }
+
+      .st4 {
+        fill: #fff;
+      }
+
+      .st4, .st5 {
+        font-family: QuireSansPro-ExtraLight, 'Quire Sans Pro';
+        font-size: 12px;
+        font-weight: 200;
+      }
+
+      .st6 {
+        opacity: .5;
+      }
+    </style>
+  </defs>
+  <g class="st3">
+    <g id="Layer_1">
+      <g>
+        <rect class="st1" x="385.52" y=".02" width="148.27" height="34.21"/>
+        <rect class="st1" x="237.25" y=".02" width="59.31" height="34.21"/>
+        <rect class="st1" x="296.56" y=".02" width="14.83" height="34.21"/>
+        <rect class="st1" x="370.69" y=".02" width="14.83" height="34.21"/>
+        <rect class="st0" x="341.04" y=".02" width="29.65" height="34.21"/>
+        <text class="st4" transform="translate(239.25 22.22)"><tspan x="0" y="0">09</tspan></text>
+        <text class="st4" transform="translate(268.9 22.22)"><tspan x="0" y="0">10</tspan></text>
+        <text class="st4" transform="translate(298.56 22.22)"><tspan x="0" y="0">11</tspan></text>
+        <text class="st4" transform="translate(387.52 22.22)"><tspan x="0" y="0">14</tspan></text>
+        <text class="st4" transform="translate(417.17 22.22)"><tspan x="0" y="0">15</tspan></text>
+        <text class="st4" transform="translate(446.83 22.22)"><tspan x="0" y="0">16</tspan></text>
+        <text class="st4" transform="translate(476.48 22.22)"><tspan x="0" y="0">17</tspan></text>
+        <text class="st4" transform="translate(506.13 22.22)"><tspan x="0" y="0">18</tspan></text>
+        <g class="st6">
+          <text class="st5" transform="translate(2.02 22.22)"><tspan x="0" y="0">01</tspan></text>
+          <text class="st5" transform="translate(31.68 22.22)"><tspan x="0" y="0">02</tspan></text>
+          <text class="st5" transform="translate(61.33 22.22)"><tspan x="0" y="0">03</tspan></text>
+          <text class="st5" transform="translate(90.98 22.22)"><tspan x="0" y="0">04</tspan></text>
+          <text class="st5" transform="translate(120.64 22.22)"><tspan x="0" y="0">05</tspan></text>
+          <text class="st5" transform="translate(150.29 22.22)"><tspan x="0" y="0">06</tspan></text>
+          <text class="st5" transform="translate(179.94 22.22)"><tspan x="0" y="0">07</tspan></text>
+          <text class="st5" transform="translate(209.6 22.22)"><tspan x="0" y="0">08</tspan></text>
+          <text class="st5" transform="translate(328.21 22.22)"><tspan x="0" y="0">12</tspan></text>
+          <text class="st5" transform="translate(357.87 22.22)"><tspan x="0" y="0">13</tspan></text>
+          <text class="st5" transform="translate(535.79 22.22)"><tspan x="0" y="0">19</tspan></text>
+          <text class="st5" transform="translate(565.44 22.22)"><tspan x="0" y="0">20</tspan></text>
+          <text class="st5" transform="translate(595.09 22.22)"><tspan x="0" y="0">21</tspan></text>
+          <text class="st5" transform="translate(624.75 22.22)"><tspan x="0" y="0">22</tspan></text>
+          <text class="st5" transform="translate(654.4 22.22)"><tspan x="0" y="0">23</tspan></text>
+        </g>
+        <g>
+          <rect class="st2" x=".02" y=".02" width="682.03" height="34.21"/>
+          <line class="st2" x1="652.4" y1=".02" x2="652.4" y2="34.23"/>
+          <line class="st2" x1="622.75" y1=".02" x2="622.75" y2="34.23"/>
+          <line class="st2" x1="593.09" y1=".02" x2="593.09" y2="34.23"/>
+          <line class="st2" x1="563.44" y1=".02" x2="563.44" y2="34.23"/>
+          <line class="st2" x1="533.79" y1=".02" x2="533.79" y2="34.23"/>
+          <line class="st2" x1="504.13" y1=".02" x2="504.13" y2="34.23"/>
+          <line class="st2" x1="474.48" y1=".02" x2="474.48" y2="34.23"/>
+          <line class="st2" x1="444.82" y1=".02" x2="444.82" y2="34.23"/>
+          <line class="st2" x1="415.17" y1=".02" x2="415.17" y2="34.23"/>
+          <line class="st2" x1="385.52" y1=".02" x2="385.52" y2="34.23"/>
+          <line class="st2" x1="355.86" y1=".02" x2="355.86" y2="34.23"/>
+          <line class="st2" x1="326.21" y1=".02" x2="326.21" y2="34.23"/>
+          <line class="st2" x1="296.56" y1=".02" x2="296.56" y2="34.23"/>
+          <line class="st2" x1="266.9" y1=".02" x2="266.9" y2="34.23"/>
+          <line class="st2" x1="237.25" y1=".02" x2="237.25" y2="34.23"/>
+          <line class="st2" x1="207.6" y1=".02" x2="207.6" y2="34.23"/>
+          <line class="st2" x1="177.94" y1=".02" x2="177.94" y2="34.23"/>
+          <line class="st2" x1="148.29" y1=".02" x2="148.29" y2="34.23"/>
+          <line class="st2" x1="118.64" y1=".02" x2="118.64" y2="34.23"/>
+          <line class="st2" x1="88.98" y1=".02" x2="88.98" y2="34.23"/>
+          <line class="st2" x1="59.33" y1=".02" x2="59.33" y2="34.23"/>
+          <line class="st2" x1="29.67" y1=".02" x2="29.67" y2="34.23"/>
+        </g>
+      </g>
+    </g>
+  </g>
+</svg>
