@@ -1231,3 +1231,8 @@
   .nav-mi.on { font-weight:700; background:#f3f4f6; border-left-color:var(--c,#1e293b); }
   .crumb { display:none; }
 }
+
+a.lm-card { display:block; transition: box-shadow .15s, border-color .15s; }
+a.lm-card:hover { border-color:#0f766e; box-shadow:0 4px 12px rgba(0,0,0,.12); }
+
+[id] { scroll-margin-top: 7.5rem; }
