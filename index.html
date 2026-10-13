@@ -7,13 +7,13 @@ updated: "13 October 2026"
 
     <p class="mb-6" style="line-height:1.7; color:#20293a; font-weight:300; font-size:1.4rem;"><span style="font-weight: 600;">Living as an expat</span> means figuring out quite a lot &ndash; and Shenzhen can compound that even a bit more. It&rsquo;s all much easier figured out together, though. If you&rsquo;ll pitch in too, none of us will have to start from scratch.</p>
 
-    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-5 mb-6" id="latest-updates">
+    <div class="rounded-xl shadow-sm border border-gray-200 p-5 mb-6" id="latest-updates" style="background:rgba(255,255,255,.9);">
       <h2 class="font-bold text-lg mb-2">Latest Updates</h2>
       <ul class="text-sm">
         {% for u in site.data.updates limit:5 %}
         <li class="flex gap-2 items-baseline py-1.5 border-t border-gray-100" style="{% if forloop.first %}border-top:0;{% endif %}">
           <span class="text-xs text-gray-500" style="min-width:3.4rem;">{{ u.date | date: "%-d %b" }}</span>
-          <span><span class="text-xs font-bold rounded-full px-2 py-0.5 mr-1" style="{% if u.tag == 'New' %}background:#dcfce7;color:#166534;{% else %}background:#dbeafe;color:#1e40af;{% endif %}">{{ u.tag | upcase }}</span><a href="{{ u.url | relative_url }}" class="text-brand underline">{{ u.text }}</a></span>
+          <span><span class="font-bold" style="display:inline-block;font-size:.7rem;line-height:1;border-radius:9999px;padding:.3rem .65rem;margin-right:.5rem;vertical-align:.08em;{% if u.tag == 'New' %}background:#dcfce7;color:#166534;{% else %}background:#dbeafe;color:#1e40af;{% endif %}">{{ u.tag | upcase }}</span><a href="{{ u.url | relative_url }}" style="color:#4b5563;text-decoration:none;">{{ u.text }}</a></span>
         </li>
         {% endfor %}
       </ul>
