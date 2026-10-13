@@ -33,53 +33,46 @@
   </div>
 </header>
 
-<!-- TAB NAV -->
-<nav class="bg-white shadow-sm sticky top-0 z-20 border-b border-gray-100">
-  <div id="tabNavList" class="max-w-4xl mx-auto px-4 flex overflow-x-auto gap-1">
-    <a href="{{ '/' | relative_url }}" class="tab-btn{% if page.tab == 'overview' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview
-    </a>
-    <a href="{{ '/packing.html' | relative_url }}" class="tab-btn{% if page.tab == 'shipping' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-box"/></svg> Packing
-    </a>
-    <a href="{{ '/mail-forwarding.html' | relative_url }}" class="tab-btn{% if page.tab == 'mail-forwarding' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-envelope"/></svg> Mail Forwarding
-    </a>
-    <a href="{{ '/internet.html' | relative_url }}" class="tab-btn{% if page.tab == 'internet' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-globe"/></svg> Internet
-    </a>
-    <a href="{{ '/money.html' | relative_url }}" class="tab-btn{% if page.tab == 'money' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-card"/></svg> Money
-    </a>
-    <a href="{{ '/mobile-phones.html' | relative_url }}" class="tab-btn{% if page.tab == 'mobile' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-phone"/></svg> Mobile Phones
-    </a>
-    <a href="{{ '/apps.html' | relative_url }}" class="tab-btn{% if page.tab == 'wechat' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-chat"/></svg> Apps
-    </a>
-    <a href="{{ '/apartment.html' | relative_url }}" class="tab-btn{% if page.tab == 'practical' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-map"/></svg> Apartment
-    </a>
-    <a href="{{ '/working.html' | relative_url }}" class="tab-btn{% if page.tab == 'working' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-briefcase"/></svg> Working
-    </a>
-    <a href="{{ '/landmarks.html' | relative_url }}" class="tab-btn{% if page.tab == 'landmarks' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-landmark"/></svg> Landmarks
-    </a>
-    <a href="{{ '/weather.html' | relative_url }}" class="tab-btn{% if page.tab == 'weather' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-weather"/></svg> Weather
-    </a>
-    <a href="{{ '/travel.html' | relative_url }}" class="tab-btn{% if page.tab == 'travel' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-plane"/></svg> Travel
-    </a>
-    <a href="{{ '/passport-renewal.html' | relative_url }}" class="tab-btn{% if page.tab == 'passport' %} active{% endif %} px-3 py-3 text-sm text-gray-500 whitespace-nowrap flex items-center gap-1.5">
-      <svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-passport"/></svg> Living Abroad
-    </a>
+<!-- NAV -->
+{% assign cur_group = nil %}{% assign cur_page = nil %}
+{% for g in site.data.nav %}{% for p in g.pages %}{% if p.tab == page.tab %}{% assign cur_group = g %}{% assign cur_page = p %}{% endif %}{% endfor %}{% endfor %}
+<nav class="site-nav" aria-label="Sections">
+  <div class="nav-wrap max-w-4xl mx-auto">
+    <div class="nav-top">
+      <a href="{{ '/' | relative_url }}" class="nav-g{% if page.tab == 'overview' %} on{% endif %}" style="--c:#1e293b"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview</a>
+      {% for g in site.data.nav %}
+      <a href="{{ g.pages[0].url | relative_url }}" class="nav-g{% if cur_group.id == g.id %} on{% endif %}" style="--c:{{ g.color }}">{{ g.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="nav-mobile">
+      <div class="nav-where">{% if cur_group %}{{ cur_group.title }}<b>{{ cur_page.title }}</b>{% else %}Start here<b>Overview</b>{% endif %}</div>
+      <button type="button" class="nav-btn" id="navBtn" aria-expanded="false" aria-controls="navMenu">&#9776; Menu</button>
+    </div>
+  </div>
+  {% if cur_group %}
+  <div class="nav-sub" style="--c:{{ cur_group.color }}">
+    <div class="nav-wrap max-w-4xl mx-auto">
+      {% for p in cur_group.pages %}
+      <a href="{{ p.url | relative_url }}" class="nav-p{% if p.tab == page.tab %} on{% endif %}"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#{{ p.icon }}"/></svg> {{ p.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="nav-menu" id="navMenu" hidden>
+    <a href="{{ '/' | relative_url }}" class="nav-mi top{% if page.tab == 'overview' %} on{% endif %}">Overview</a>
+    {% for g in site.data.nav %}
+    <div class="nav-mg" style="--c:{{ g.color }}">{{ g.title }}</div>
+    {% for p in g.pages %}
+    <a href="{{ p.url | relative_url }}" class="nav-mi{% if p.tab == page.tab %} on{% endif %}" style="--c:{{ g.color }}">{{ p.title }}</a>
+    {% endfor %}
+    {% endfor %}
   </div>
 </nav>
 
+
 <main class="max-w-4xl mx-auto py-8 space-y-6">
   <div id="tab-{{ page.tab }}" class="tab-pane active{% if page.tab == 'overview' %} space-y-3{% else %} space-y-5{% endif %}">
+    {% if cur_group %}<div class="crumb"><a href="{{ cur_group.pages[0].url | relative_url }}">{{ cur_group.title }}</a> &rsaquo; <b>{{ cur_page.title }}</b></div>{% endif %}
     {{ content }}
   </div>
 </main>
@@ -87,7 +80,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12" style="background-color:#1e293b; padding-top:3rem; padding-bottom:4.5rem;">
   <div class="max-w-4xl mx-auto px-4">
-    <p class="text-blue-300 text-xs">Version 4.50. This section was last updated {{ page.updated }}.</p>
+    <p class="text-blue-300 text-xs">Version 4.51. This section was last updated {{ page.updated }}.</p>
     <p class="text-blue-300 text-xs mt-2">&copy; 2026. All rights reserved. This is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>

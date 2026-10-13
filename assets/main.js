@@ -172,3 +172,15 @@ function toggleArrivalCard() {
     tip.classList.remove('visible');
   });
 })();
+
+(function() {
+  const btn = document.getElementById('navBtn');
+  const menu = document.getElementById('navMenu');
+  if (!btn || !menu) return;
+  btn.addEventListener('click', function() {
+    const open = menu.hasAttribute('hidden');
+    if (open) menu.removeAttribute('hidden'); else menu.setAttribute('hidden', '');
+    btn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    btn.innerHTML = open ? '&#10005; Close' : '&#9776; Menu';
+  });
+})();
