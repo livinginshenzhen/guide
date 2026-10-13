@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
 <title>{{ page.title | default: "Living in Shenzhen" }}</title>
-<link rel="preload" as="image" href="{{ '/assets/skyline.jpg' | relative_url }}" fetchpriority="high">
+{% if page.tab == 'overview' %}<link rel="preload" as="image" href="{{ '/assets/skyline.jpg' | relative_url }}" fetchpriority="high">{% endif %}
 <link rel="stylesheet" href="https://use.typekit.net/plp6kra.css">
 <link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
 <script>
@@ -87,7 +87,7 @@
 <!-- FOOTER -->
 <footer class="bg-brand text-white mt-12" style="background-color:#1e293b; padding-top:3rem; padding-bottom:4.5rem;">
   <div class="max-w-4xl mx-auto px-4">
-    <p class="text-blue-300 text-xs">Version 4.49. This section was last updated {{ page.updated }}.</p>
+    <p class="text-blue-300 text-xs">Version 4.50. This section was last updated {{ page.updated }}.</p>
     <p class="text-blue-300 text-xs mt-2">&copy; 2026. All rights reserved. This is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
   </div>
 </footer>
