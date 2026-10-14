@@ -1232,3 +1232,6 @@ a.lm-card { display:block; transition: box-shadow .15s, border-color .15s; }
 a.lm-card:hover { border-color:#0f766e; box-shadow:0 4px 12px rgba(0,0,0,.12); }
 
 [id] { scroll-margin-top: 7.5rem; }
+
+#forwarding-diagrams { padding: 1rem; }
+@media (min-width: 640px) { #forwarding-diagrams { padding: 1.5rem; } }
