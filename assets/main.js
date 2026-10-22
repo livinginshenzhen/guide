@@ -226,8 +226,8 @@ function toggleArrivalCard() {
       target.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
-  box.addEventListener('click', function(e) { e.preventDefault(); setOpen(panel.hidden, true); });
+  box.addEventListener('click', function(e) { e.preventDefault(); setOpen(panel.hidden, false); });
   const close = document.getElementById('landmark-map-zoom-close');
-  if (close) close.addEventListener('click', function() { setOpen(false, true); });
+  if (close) close.addEventListener('click', function() { setOpen(false, false); });
   if (location.hash === '#landmark-map-zoom') setOpen(true, false);
 })();

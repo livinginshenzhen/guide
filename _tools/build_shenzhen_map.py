@@ -103,7 +103,7 @@ LABELS = {
 centres = {EN[f['properties']['name']]: f['properties']['center'] for f in full['features']}
 
 def base(name):
-    v = VIEWS[name]; eps = 0.7 if name == 'main' else 0.6
+    v = VIEWS[name]; eps = 0.25 if name == 'main' else 0.2
     out = [f'<svg viewBox="0 0 {v["W"]} {v["H"]}" role="img" aria-label="{"Map of Shenzhen showing where each landmark is" if name=="main" else "Zoomed map of Shenzhen from Shekou to Luohu showing the landmarks in the core"}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:inherit">',
            f'<rect width="{v["W"]}" height="{v["H"]}" fill="{WATER}"/>']
     for code, g in neighbours.items():
