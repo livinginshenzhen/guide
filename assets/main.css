@@ -1243,3 +1243,4 @@ a.lm-card.lm-new { border-color:#2563eb; border-width:2px; background:#f5f9ff; b
 
 .map-zoom-link { cursor: pointer; }
 .map-zoom-link:hover rect { fill-opacity: 0.12; }
+.map-pin.in-inset { pointer-events: none; }
