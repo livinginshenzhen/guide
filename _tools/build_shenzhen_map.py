@@ -108,9 +108,14 @@ def base(name):
            f'<rect width="{v["W"]}" height="{v["H"]}" fill="{WATER}"/>']
     for code, g in neighbours.items():
         out.append(f'<path d="{path_for(g["features"][0]["geometry"], v, eps*2.5)}" fill="{OTHER_LAND}" stroke="#c9c5b6" stroke-width="1"/>')
-    for f in full['features']:
-        out.append(f'<path d="{path_for(f["geometry"], v, eps)}" fill="{SZ_LAND}" stroke="#bfc9d4" stroke-width="1" stroke-linejoin="round"/>')
-    out.append(f'<path d="{path_for(outline["features"][0]["geometry"], v, eps)}" fill="none" stroke="#6b7b8f" stroke-width="1.6" stroke-linejoin="round"/>')
+    coast = path_for(outline["features"][0]["geometry"], v, eps)
+    out.append(f'<defs><path id="szc-{name}" d="{coast}"/><clipPath id="sz-{name}"><use href="#szc-{name}"/></clipPath></defs>')
+    out.append(f'<use href="#szc-{name}" fill="{SZ_LAND}"/>')
+    out.append(f'<g clip-path="url(#sz-{name})" fill="none" stroke="#bfc9d4" stroke-width="1" stroke-linejoin="round">')
+    for f in full['features']:  # district borders: coarser than the coastline
+        out.append(f'<path d="{path_for(f["geometry"], v, eps*5)}"/>')
+    out.append('</g>')
+    out.append(f'<use href="#szc-{name}" fill="none" stroke="#6b7b8f" stroke-width="1.6" stroke-linejoin="round"/>')
     for kind, label, lon, lat in LABELS[name]:
         if lon is None:
             cx, cy = centres[label]; lon, lat = gcj_to_wgs(cx, cy)
