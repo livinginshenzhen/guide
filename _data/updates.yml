@@ -1,0 +1,5 @@
+# Newest first. The Overview shows the first 5. tag: New | Updated
+- { date: "20 October 2026", tag: New, text: "New landmarks added", url: "/landmarks.html?highlight=international-performance-center,shenzhen-east-waste-to-energy-plant,shenzhen-mangrove-wetland-museum" }
+- { date: "14 October 2026", tag: Updated, text: "Details added to mail forwarding", url: /mail-forwarding.html }
+- { date: "24 September 2026", tag: Updated, text: "How to vote abroad", url: /passport-renewal.html }
+- { date: "14 September 2026", tag: New, text: "Work calendar and typical work hours added", url: /working.html }

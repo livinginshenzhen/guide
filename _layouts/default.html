@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>{{ page.title | default: "Living in Shenzhen" }}</title>
+{% if page.tab == 'overview' %}<link rel="preload" as="image" href="{{ '/assets/skyline.jpg' | relative_url }}" fetchpriority="high">{% endif %}
+<link rel="stylesheet" href="https://use.typekit.net/plp6kra.css">
+<link rel="stylesheet" href="{{ '/assets/main.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+<script>
+  tailwind.config = { theme: { extend: { colors: {
+    brand: '#0f766e', 'brand-dk': '#115e59', 'brand-lt': '#f0fdf4',
+    accent: '#c2410c', 'accent-lt': '#ffedd5', 'accent-dk': '#7c2d12'
+  }}}};
+</script>
+</head>
+<body class="text-gray-800 min-h-screen{% if page.tab == 'overview' %} bg-overview{% endif %}" style="background-color:#faf7f0;">
+<div id="overviewBgLayer"></div>
+
+<!-- SVG SPRITE -->
+<svg xmlns="http://www.w3.org/2000/svg" style="display:none">
+  {% include icons.html %}
+</svg>
+
+<!-- HERO -->
+<header class="bg-brand text-white" style="background-color:#1e293b;">
+  <div class="max-w-4xl mx-auto px-4 py-8">
+    <div>
+      <h1 class="text-3xl font-bold leading-tight">Living in Shenzhen</h1>
+      <p class="text-blue-200 text-sm mt-1">Real field notes from fellow expats.</p>
+    </div>
+  </div>
+</header>
+
+<!-- NAV -->
+{% assign cur_group = nil %}{% assign cur_page = nil %}
+{% for g in site.data.nav %}{% for p in g.pages %}{% if p.tab == page.tab %}{% assign cur_group = g %}{% assign cur_page = p %}{% endif %}{% endfor %}{% endfor %}
+<nav class="site-nav" aria-label="Sections">
+  <div class="nav-wrap max-w-4xl mx-auto">
+    <div class="nav-top">
+      <a href="{{ '/' | relative_url }}" class="nav-g{% if page.tab == 'overview' %} on{% endif %}" style="--c:#1e293b"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#ic-home"/></svg> Overview</a>
+      {% for g in site.data.nav %}
+      <a href="{{ g.pages[0].url | relative_url }}" class="nav-g{% if cur_group.id == g.id %} on{% endif %}" style="--c:{{ g.color }}">{{ g.title }}</a>
+      {% endfor %}
+    </div>
+    <div class="nav-mobile">
+      <div class="nav-where">{% if cur_group %}{{ cur_group.title }}<b>{{ cur_page.title }}</b>{% else %}Start here<b>Overview</b>{% endif %}</div>
+      <button type="button" class="nav-btn" id="navBtn" aria-expanded="false" aria-controls="navMenu">&#9776; Menu</button>
+    </div>
+  </div>
+  {% if cur_group %}
+  <div class="nav-sub" style="--c:{{ cur_group.color }}">
+    <div class="nav-wrap max-w-4xl mx-auto">
+      {% for p in cur_group.pages %}
+      <a href="{{ p.url | relative_url }}" class="nav-p{% if p.tab == page.tab %} on{% endif %}"><svg class="icon w-4 h-4" aria-hidden="true"><use href="#{{ p.icon }}"/></svg> {{ p.title }}</a>
+      {% endfor %}
+    </div>
+  </div>
+  {% endif %}
+  <div class="nav-menu" id="navMenu" hidden>
+    <a href="{{ '/' | relative_url }}" class="nav-mi top{% if page.tab == 'overview' %} on{% endif %}">Overview</a>
+    {% for g in site.data.nav %}
+    <div class="nav-mg" style="--c:{{ g.color }}">{{ g.title }}</div>
+    {% for p in g.pages %}
+    <a href="{{ p.url | relative_url }}" class="nav-mi{% if p.tab == page.tab %} on{% endif %}" style="--c:{{ g.color }}">{{ p.title }}</a>
+    {% endfor %}
+    {% endfor %}
+  </div>
+</nav>
+
+
+<main class="max-w-4xl mx-auto py-8 space-y-6">
+  <div id="tab-{{ page.tab }}" class="tab-pane active{% if page.tab == 'overview' %} space-y-3{% else %} space-y-5{% endif %}">
+    {{ content }}
+  </div>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-brand text-white mt-12" style="background-color:#1e293b; padding-top:3rem; padding-bottom:4.5rem;">
+  <div class="max-w-4xl mx-auto px-4">
+    <p class="text-blue-300 text-xs">Version 4.81. This section was last updated {{ page.updated }}.</p>
+    <p class="text-blue-300 text-xs mt-2">&copy; 2026. All rights reserved. This is a personal project of the expat community and is not endorsed guidance from any other entity. As always, things change frequently. Verify critical details with official sources before acting on them.</p>
+  </div>
+</footer>
+
+<script data-goatcounter="https://livinginshenzhen.goatcounter.com/count" async src="https://gc.zgo.at/count.js"></script>
+<script src="{{ '/assets/main.js' | relative_url }}?v={{ site.time | date: '%s' }}"></script>
+</body>
+</html>

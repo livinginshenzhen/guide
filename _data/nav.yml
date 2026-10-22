@@ -1,0 +1,24 @@
+- id: before
+  title: Before Moving
+  color: "#0f766e"
+  pages:
+    - { tab: shipping, title: Packing, url: /packing.html, icon: ic-box }
+    - { tab: mail-forwarding, title: Mail Forwarding, url: /mail-forwarding.html, icon: ic-envelope }
+    - { tab: internet, title: Internet, url: /internet.html, icon: ic-globe }
+    - { tab: money, title: Money, url: /money.html, icon: ic-card }
+- id: living
+  title: Living in Shenzhen
+  color: "#2563eb"
+  pages:
+    - { tab: mobile, title: Mobile Phones, url: /mobile-phones.html, icon: ic-phone }
+    - { tab: wechat, title: Apps, url: /apps.html, icon: ic-chat }
+    - { tab: practical, title: Apartment, url: /apartment.html, icon: ic-map }
+    - { tab: working, title: Working, url: /working.html, icon: ic-briefcase }
+    - { tab: landmarks, title: Landmarks, url: /landmarks.html, icon: ic-landmark }
+    - { tab: weather, title: Weather, url: /weather.html, icon: ic-weather }
+- id: beyond
+  title: Beyond Shenzhen
+  color: "#c2410c"
+  pages:
+    - { tab: travel, title: Travel, url: /travel.html, icon: ic-plane }
+    - { tab: passport, title: Living Abroad, url: /passport-renewal.html, icon: ic-passport }

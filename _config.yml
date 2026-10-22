@@ -1,0 +1,11 @@
+title: Living in Shenzhen
+description: Real field notes from fellow expats.
+baseurl: "/guide"
+url: "https://livinginshenzhen.github.io"
+markdown: kramdown
+plugins: []
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - vendor
+  - node_modules

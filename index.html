@@ -1,0 +1,93 @@
+---
+layout: default
+tab: overview
+title: "Living in Shenzhen"
+updated: "20 October 2026"
+---
+
+    <p class="mb-6" style="line-height:1.7; color:#20293a; font-weight:300; font-size:1.4rem;"><span style="font-weight: 600;">Living as an expat</span> means figuring out quite a lot &ndash; and Shenzhen can compound that even a bit more. It&rsquo;s all much easier figured out together, though. If you&rsquo;ll pitch in too, none of us will have to start from scratch.</p>
+
+    <div class="rounded-xl shadow-sm p-5 mb-6" id="latest-updates" style="background:rgba(255,255,255,.7);">
+      <h2 class="font-bold text-lg mb-2">Latest Updates</h2>
+      <ul class="text-sm">
+        {% for u in site.data.updates limit:5 %}
+        <li class="flex gap-2 items-baseline py-1.5 border-t border-gray-100" style="{% if forloop.first %}border-top:0;{% endif %}">
+          <span class="text-xs" style="min-width:3.4rem;color:#374151;">{{ u.date | date: "%-d %b" }}</span>
+          <span><span class="font-bold" style="display:inline-block;font-size:.7rem;line-height:1;border-radius:9999px;padding:.3rem .65rem;margin-right:.5rem;vertical-align:.08em;{% if u.tag == 'New' %}background:#dcfce7;color:#166534;{% else %}background:#dbeafe;color:#1e40af;{% endif %}">{{ u.tag | upcase }}</span><a href="{{ u.url | relative_url }}" style="color:#111827;text-decoration:none;">{{ u.text }}</a></span>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#0f766e;">Before Moving</div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+      <a href="{{ '/packing.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-box"/></svg>
+        <p class="font-bold text-gray-800">Packing</p>
+        <p class="text-sm text-gray-600 mt-1">Air cargo shipping &ndash; what you can and can&rsquo;t send, and how much room you get.</p>
+      </a>
+      <a href="{{ '/mail-forwarding.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-envelope"/></svg>
+        <p class="font-bold text-gray-800">Mail Forwarding</p>
+        <p class="text-sm text-gray-600 mt-1">Mail from your last home address can be shipped to you in country.</p>
+      </a>
+      <a href="{{ '/internet.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-globe"/></svg>
+        <p class="font-bold text-gray-800">Internet</p>
+        <p class="text-sm text-gray-600 mt-1">Plan your internet access before you arrive &ndash; it&rsquo;s difficult to do once you&rsquo;ve landed.</p>
+      </a>
+      <a href="{{ '/money.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#0f766e;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#0f766e;" aria-hidden="true"><use href="#ic-card"/></svg>
+        <p class="font-bold text-gray-800">Money</p>
+        <p class="text-sm text-gray-600 mt-1">Wiring funds, WeChat payments, and cross-border transfers.</p>
+      </a>
+    </div>
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#2563eb;">Living in Shenzhen</div>
+    <div class="grid sm:grid-cols-2 gap-4 mb-6">
+      <a href="{{ '/mobile-phones.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-phone"/></svg>
+        <p class="font-bold text-gray-800">Mobile Phones</p>
+        <p class="text-sm text-gray-600 mt-1">SIM cards, eSIMs, and getting a local number.</p>
+      </a>
+      <a href="{{ '/apps.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-chat"/></svg>
+        <p class="font-bold text-gray-800">Apps</p>
+        <p class="text-sm text-gray-600 mt-1">The important app, WeChat, and the apps you&rsquo;ll use day to day.</p>
+      </a>
+      <a href="{{ '/apartment.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-map"/></svg>
+        <p class="font-bold text-gray-800">Apartment</p>
+        <p class="text-sm text-gray-600 mt-1">Outlets, voltage, address, and appliances.</p>
+      </a>
+      <a href="{{ '/working.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-briefcase"/></svg>
+        <p class="font-bold text-gray-800">Working</p>
+        <p class="text-sm text-gray-600 mt-1">Holiday calendar and typical office hours.</p>
+      </a>
+      <a href="{{ '/landmarks.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-landmark"/></svg>
+        <p class="font-bold text-gray-800">Landmarks</p>
+        <p class="text-sm text-gray-600 mt-1">Notable architecture and sights around the city.</p>
+      </a>
+      <a href="{{ '/weather.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#2563eb;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#2563eb;" aria-hidden="true"><use href="#ic-weather"/></svg>
+        <p class="font-bold text-gray-800">Weather</p>
+        <p class="text-sm text-gray-600 mt-1">Humidity and temperature patterns throughout the year.</p>
+      </a>
+    </div>
+
+    <div class="rounded-lg p-5 text-white font-bold text-sm uppercase tracking-wide" style="background:#c2410c;">Beyond Shenzhen</div>
+    <div class="grid sm:grid-cols-2 gap-4">
+      <a href="{{ '/travel.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#c2410c;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#c2410c;" aria-hidden="true"><use href="#ic-plane"/></svg>
+        <p class="font-bold text-gray-800">Travel</p>
+        <p class="text-sm text-gray-600 mt-1">Airports, the ferry, and getting around.</p>
+      </a>
+      <a href="{{ '/passport-renewal.html' | relative_url }}" class="text-left rounded-xl p-5 border-2 bg-white hover:bg-gray-50 transition" style="border-color:#c2410c;">
+        <svg class="icon w-7 h-7 mb-2" style="color:#c2410c;" aria-hidden="true"><use href="#ic-passport"/></svg>
+        <p class="font-bold text-gray-800">Living Abroad</p>
+        <p class="text-sm text-gray-600 mt-1">Voting and passport renewal while abroad.</p>
+      </a>
+    </div>
+
