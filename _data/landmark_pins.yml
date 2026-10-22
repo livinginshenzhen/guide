@@ -1,7 +1,7 @@
 # Landmark map pins. approx: true = placement is an estimate, shown as a dashed ring until a precise spot is confirmed.
 # lat/lon are WGS-84 (what OpenStreetMap uses). Coordinates copied from Google/Apple Maps in China are GCJ-02 and must be converted (see gcj_to_wgs in _tools/build_shenzhen_map.py) before they go here.
 # id must match a card id on landmarks.html.
-- { id: shenzhen-maritime-museum, name: "Shenzhen Maritime Museum", lat: 22.58, lon: 114.5, approx: true }
+- { id: shenzhen-maritime-museum, name: "Shenzhen Maritime Museum", lat: 22.5535, lon: 114.5600, approx: true }
 - { id: china-merchants-prince-bay-tower, name: "China Merchants Prince Bay Tower", lat: 22.4761, lon: 113.9069, approx: true }
 - { id: shenzhen-opera-house, name: "Shenzhen Opera House", lat: 22.4854, lon: 113.9369, approx: false }
 - { id: tencent-helix, name: "Tencent Helix", lat: 22.51244, lon: 113.85250, approx: true }
