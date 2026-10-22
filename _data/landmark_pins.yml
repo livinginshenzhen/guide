@@ -2,16 +2,16 @@
 # lat/lon are WGS-84 (what OpenStreetMap uses). Coordinates copied from Google/Apple Maps in China are GCJ-02 and must be converted (see gcj_to_wgs in _tools/build_shenzhen_map.py) before they go here.
 # id must match a card id on landmarks.html.
 - { id: shenzhen-maritime-museum, name: "Shenzhen Maritime Museum", lat: 22.5535, lon: 114.5600, approx: true }
-- { id: china-merchants-prince-bay-tower, name: "China Merchants Prince Bay Tower", lat: 22.4761, lon: 113.9069, approx: true }
+- { id: china-merchants-prince-bay-tower, name: "China Merchants Prince Bay Tower", lat: 22.47977, lon: 113.90144, approx: false }
 - { id: shenzhen-opera-house, name: "Shenzhen Opera House", lat: 22.4854, lon: 113.9369, approx: false }
-- { id: tencent-helix, name: "Tencent Helix", lat: 22.51244, lon: 113.85250, approx: true }
+- { id: tencent-helix, name: "Tencent Helix", lat: 22.54305, lon: 113.85716, approx: false }
 - { id: xili-station, name: "Xili Station", lat: 22.5679, lon: 113.9403, approx: false }
-- { id: jd-tower-museum, name: "JD Tower & JD Museum", lat: 22.52, lon: 113.944, approx: true }
+- { id: jd-tower-museum, name: "JD Tower & JD Museum", lat: 22.53028, lon: 113.96815, approx: false }
 - { id: rong-museum-of-art, name: "Róng Museum of Art", lat: 22.51902, lon: 113.93304, approx: false }
 - { id: shenzhen-institute-financial-technology, name: "Shenzhen Institute of Financial Technology Building", lat: 22.53834, lon: 114.05675, approx: false }
-- { id: tower-c, name: "Tower C at Super Headquarters Base", lat: 22.5175, lon: 113.9405, approx: true }
+- { id: tower-c, name: "Tower C at Super Headquarters Base", lat: 22.53039, lon: 113.96254, approx: false }
 - { id: bay-area-smart-plaza-tower-a, name: "Bay Area Smart Plaza Tower A", lat: 22.5575, lon: 114.0775, approx: false }
-- { id: shenzhen-cloud-of-innovation-center, name: "Shenzhen Cloud of Innovation Center", lat: 22.552, lon: 114.12, approx: true }
+- { id: shenzhen-cloud-of-innovation-center, name: "Shenzhen Cloud of Innovation Center", lat: 22.57286, lon: 114.05562, approx: false }
 - { id: shenzhen-mangrove-wetland-museum, name: "Shenzhen Mangrove Wetland Museum", lat: 22.53096, lon: 113.99936, approx: false }
 - { id: huanggang-port-complex, name: "Huanggang Port Complex", lat: 22.5243, lon: 114.069, approx: false }
 - { id: oppo-headquarters, name: "Oppo Headquarters", lat: 22.52907, lon: 113.96378, approx: false }
@@ -20,12 +20,12 @@
 - { id: shenzhen-international-art-museum, name: "Shenzhen International Art Museum", lat: 22.7745, lon: 113.9346, approx: false }
 - { id: shenzhen-museum-of-natural-history, name: "Shenzhen Museum of Natural History", lat: 22.6954, lon: 114.3588, approx: false }
 - { id: yidan-center, name: "Yidan Center", lat: 22.52618, lon: 113.87720, approx: false }
-- { id: china-merchants-bank-global-hq, name: "China Merchants Bank Global HQ", lat: 22.513, lon: 113.943, approx: true }
+- { id: china-merchants-bank-global-hq, name: "China Merchants Bank Global HQ", lat: 22.52806, lon: 113.96036, approx: false }
 - { id: k11-ecoast, name: "K11 ECOAST", lat: 22.4743, lon: 113.9102, approx: false }
 - { id: qianhai-huafa-snow-world, name: "Qianhai Huafa Snow World", lat: 22.7179, lon: 113.7637, approx: false }
 - { id: shenzhen-bay-cultural-plaza, name: "Shenzhen Bay Cultural Plaza", lat: 22.5153, lon: 113.9405, approx: false }
 - { id: shenzhen-science-technology-museum, name: "Shenzhen Science & Technology Museum", lat: 22.7751, lon: 113.9386, approx: false }
-- { id: shenzhen-zhongshan-tunnel-bridge, name: "Shenzhen Zhongshan Tunnel-Bridge (Shenzhen end)", lat: 22.62, lon: 113.8, approx: true }
+- { id: shenzhen-zhongshan-tunnel-bridge, name: "Shenzhen Zhongshan Tunnel-Bridge (Shenzhen end)", lat: 22.57609, lon: 113.76025, approx: false }
 - { id: shenzhen-east-waste-to-energy-plant, name: "Shenzhen East Waste-to-Energy Plant (Energy Ring)", lat: 22.75445, lon: 114.31371, approx: false }
 - { id: dji-sky-city, name: "DJI Sky City", lat: 22.5804, lon: 113.938, approx: false }
 - { id: gangxia-north-metro-station, name: "Gangxia North Metro Station", lat: 22.5408, lon: 114.0627, approx: false }
