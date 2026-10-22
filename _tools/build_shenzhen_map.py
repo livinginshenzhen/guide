@@ -132,14 +132,12 @@ def base(name):
     open(f'_includes/shenzhen-map-{"base" if name=="main" else "inset-base"}.html', 'w', encoding='utf-8').write('\n'.join(out))
 
 def pins(name):
-    v = VIEWS[name]; r, hit, rs = (5, 13, 2) if name == 'main' else (7, 17, 2.5)
+    v = VIEWS[name]; r, hit, sw = (10, 11, 1.8) if name == 'main' else (14, 15, 2)
     cond = ''
     if name == 'inset':
         cond = f'{{% if p.lat >= {v["lat0"]} and p.lat <= {v["lat1"]} and p.lon >= {v["lon0"]} and p.lon <= {v["lon1"]} %}}'
     body = (f'{{% assign cx = p.lon | minus: {v["lon0"]} | times: {v["K"]:.2f} | round: 1 %}}{{% assign cy = {v["lat1"]} | minus: p.lat | times: {v["P"]:.0f} | round: 1 %}}'
-            f'<a href="#{{{{ p.id }}}}" class="map-pin" aria-label="{{{{ p.name | escape }}}}"><circle cx="{{{{ cx }}}}" cy="{{{{ cy }}}}" r="{hit}" fill="transparent" data-tip="{{{{ p.name | escape }}}}{{% if p.approx %}} (approximate location){{% endif %}}"/>'
-            f'{{% if p.approx %}}<circle cx="{{{{ cx }}}}" cy="{{{{ cy }}}}" r="{r}" fill="#fff" stroke="#2563eb" stroke-width="{rs}" stroke-dasharray="3 2" pointer-events="none"/>'
-            f'{{% else %}}<circle cx="{{{{ cx }}}}" cy="{{{{ cy }}}}" r="{r+0.5}" fill="#2563eb" stroke="#fff" stroke-width="1.5" pointer-events="none"/>{{% endif %}}</a>')
+            f'<a href="#{{{{ p.id }}}}" class="map-pin" aria-label="{{{{ p.name | escape }}}}"><circle cx="{{{{ cx }}}}" cy="{{{{ cy }}}}" r="{hit}" fill="transparent" stroke="#2563eb" stroke-width="{sw}" data-tip="{{{{ p.name | escape }}}}"/></a>')
     txt = ('{% comment %} Projects pins from _data/landmark_pins.yml. Constants are written by _tools/build_shenzhen_map.py - do not edit by hand. {% endcomment %}\n'
            '{% for p in site.data.landmark_pins %}' + cond + body + ('{% endif %}' if cond else '') + '\n{% endfor %}')
     open(f'_includes/shenzhen-map-{"pins" if name=="main" else "inset-pins"}.html', 'w', encoding='utf-8').write(txt)

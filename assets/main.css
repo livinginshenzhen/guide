@@ -1239,7 +1239,7 @@ a.lm-card:hover { border-color:#0f766e; box-shadow:0 4px 12px rgba(0,0,0,.12); }
 a.lm-card.lm-new { border-color:#2563eb; border-width:2px; background:#f5f9ff; box-shadow:0 0 0 3px rgba(37,99,235,.25); }
 
 .map-pin { cursor: pointer; }
-.map-pin:hover circle:not([fill="transparent"]) { stroke-width: 2.5; }
+.map-pin:hover circle { stroke-width: 3; }
 
 .map-zoom-link { cursor: pointer; }
 .map-zoom-link:hover rect { fill-opacity: 0.12; }
