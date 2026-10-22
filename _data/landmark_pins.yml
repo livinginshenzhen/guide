@@ -12,14 +12,14 @@
 - { id: tower-c, name: "Tower C at Super Headquarters Base", lat: 22.5175, lon: 113.9405, approx: true }
 - { id: bay-area-smart-plaza-tower-a, name: "Bay Area Smart Plaza Tower A", lat: 22.5575, lon: 114.0775, approx: false }
 - { id: shenzhen-cloud-of-innovation-center, name: "Shenzhen Cloud of Innovation Center", lat: 22.552, lon: 114.12, approx: true }
-- { id: shenzhen-mangrove-wetland-museum, name: "Shenzhen Mangrove Wetland Museum", lat: 22.526, lon: 114.0, approx: true }
+- { id: shenzhen-mangrove-wetland-museum, name: "Shenzhen Mangrove Wetland Museum", lat: 22.53096, lon: 113.99936, approx: false }
 - { id: huanggang-port-complex, name: "Huanggang Port Complex", lat: 22.5243, lon: 114.069, approx: false }
 - { id: oppo-headquarters, name: "Oppo Headquarters", lat: 22.52907, lon: 113.96378, approx: false }
 - { id: international-performance-center, name: "International Performance Center", lat: 22.542, lon: 114.0314, approx: false }
 - { id: qianhai-museum, name: "Qianhai Museum", lat: 22.5231, lon: 113.8798, approx: false }
 - { id: shenzhen-international-art-museum, name: "Shenzhen International Art Museum", lat: 22.7745, lon: 113.9346, approx: false }
 - { id: shenzhen-museum-of-natural-history, name: "Shenzhen Museum of Natural History", lat: 22.6954, lon: 114.3588, approx: false }
-- { id: yidan-center, name: "Yidan Center", lat: 22.5265, lon: 113.883, approx: true }
+- { id: yidan-center, name: "Yidan Center", lat: 22.52618, lon: 113.87720, approx: false }
 - { id: china-merchants-bank-global-hq, name: "China Merchants Bank Global HQ", lat: 22.513, lon: 113.943, approx: true }
 - { id: k11-ecoast, name: "K11 ECOAST", lat: 22.4743, lon: 113.9102, approx: false }
 - { id: qianhai-huafa-snow-world, name: "Qianhai Huafa Snow World", lat: 22.7179, lon: 113.7637, approx: false }
