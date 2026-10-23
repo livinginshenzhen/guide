@@ -3,11 +3,14 @@
   _includes/shenzhen-map-inset-base.html   zoomed core map (Shekou to Luohu)
   _includes/shenzhen-map-pins.html         pins for the main map   (reads _data/landmark_pins.yml)
   _includes/shenzhen-map-inset-pins.html   pins for the inset
-Run:  python3 _tools/build_shenzhen_map.py   (needs network)"""
+Land/sea comes from OpenStreetMap coastline (_tools/osm_coastline.json, see prep_coastline.py); Shenzhen's boundary and districts from DataV.
+Run:  python3 _tools/build_shenzhen_map.py   (needs network and shapely)"""
 import json, math, subprocess
+from shapely.geometry import LineString, Polygon, MultiPolygon, box, Point
+from shapely.ops import polygonize, unary_union
 
 VIEWS = {  # lon0 = left edge, lat1 = top edge, P = pixels per degree of latitude
-    'main':  dict(lon0=113.68, lat1=22.94, P=1050.0, lon1=114.70, lat0=22.34),
+    'main':  dict(lon0=113.68, lat1=22.94, P=1050.0, lon1=114.70, lat0=22.38),
     'inset': dict(lon0=113.85, lat1=22.60, P=3500.0, lon1=114.14, lat0=22.45),
 }
 COS = math.cos(math.radians(22.63))
@@ -84,7 +87,6 @@ def fetch(code):
     return json.loads(subprocess.run(['curl','-s','-m','60',f'https://geo.datav.aliyun.com/areas_v3/bound/{code}.json'],capture_output=True,text=True).stdout)
 
 full = fetch('440300_full'); outline = fetch('440300')
-neighbours = {c: fetch(c) for c in ['810000','441900','441300','440100','440400','442000','820000']}
 EN = {'罗湖区':'Luohu','福田区':'Futian','南山区':'Nanshan','宝安区':"Bao’an",'龙岗区':'Longgang','盐田区':'Yantian','龙华区':'Longhua','坪山区':'Pingshan','光明区':'Guangming'}
 
 def text(v, lon, lat, s, size=12, fill='#7d8ba0', italic=False, weight=600, halo='#f7f5ee', anchor='middle'):
@@ -102,20 +104,67 @@ LABELS = {
 }
 centres = {EN[f['properties']['name']]: f['properties']['center'] for f in full['features']}
 
+COAST = json.load(open('_tools/osm_coastline.json'))
+
+def land_polygons(v, pad=0.03):
+    """Land (as shapely polygons in view pixels) from the OSM coastline: water is on the right of each chain."""
+    lon0, lon1, lat0, lat1 = v['lon0']-pad, v['lon1']+pad, max(v['lat0']-pad, 22.375), v['lat1']+pad  # 22.375: south edge of the traced coast data
+    frame = box(lon0, lat0, lon1, lat1)
+    pieces = []
+    for c in COAST:
+        g = LineString(c).intersection(frame)
+        pieces += [g] if g.geom_type == 'LineString' else [x for x in getattr(g, 'geoms', []) if x.geom_type == 'LineString']
+    faces = list(polygonize(unary_union(pieces + [frame.exterior])))
+    land = []
+    for f in faces:
+        for ln in pieces:  # find a coastline segment on this face's edge and test which side the face is on
+            hit = ln.intersection(f.boundary.buffer(1e-9))
+            if hit.is_empty or hit.length < 1e-7: continue
+            cs = list(ln.coords)
+            for (x0, y0), (x1, y1) in zip(cs, cs[1:]):
+                mx, my = (x0+x1)/2, (y0+y1)/2
+                if f.boundary.distance(Point(mx, my)) < 1e-9:
+                    dx, dy = x1-x0, y1-y0; n = math.hypot(dx, dy) or 1e-12
+                    if f.contains(Point(mx - dy/n*1e-6, my + dx/n*1e-6)): land.append(f)
+                    break
+            else: continue
+            break
+    return unary_union(land)
+
+def to_px(geom, v, tol, min_area):
+    out = []
+    for poly in (geom.geoms if hasattr(geom, 'geoms') else [geom]):
+        q = Polygon([proj(v, x, y) for x, y in poly.exterior.coords], [[proj(v, x, y) for x, y in r.coords] for r in poly.interiors])
+        q = q.simplify(tol, preserve_topology=True)
+        if q.area >= min_area and not q.is_empty: out.append(q)
+    return out
+
+def svg_path(polys):
+    d = ''
+    for q in polys:
+        for ring in [q.exterior] + list(q.interiors):
+            d += 'M' + 'L'.join(f'{x:.1f},{y:.1f}' for x, y in list(ring.coords)[:-1]) + 'Z'
+    return d
+
 def base(name):
     v = VIEWS[name]; eps = 0.25 if name == 'main' else 0.2
+    tol, min_area = (1.2, 14) if name == 'main' else (2.0, 40)
     out = [f'<svg viewBox="0 0 {v["W"]} {v["H"]}" role="img" aria-label="{"Map of Shenzhen showing where each landmark is" if name=="main" else "Zoomed map of Shenzhen from Shekou to Luohu showing the landmarks in the core"}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:inherit">',
            f'<rect width="{v["W"]}" height="{v["H"]}" fill="{WATER}"/>']
-    for code, g in neighbours.items():
-        out.append(f'<path d="{path_for(g["features"][0]["geometry"], v, eps*2.5)}" fill="{OTHER_LAND}" stroke="#c9c5b6" stroke-width="1"/>')
-    coast = path_for(outline["features"][0]["geometry"], v, eps)
-    out.append(f'<defs><path id="szc-{name}" d="{coast}"/><clipPath id="sz-{name}"><use href="#szc-{name}"/></clipPath></defs>')
-    out.append(f'<use href="#szc-{name}" fill="{SZ_LAND}"/>')
-    out.append(f'<g clip-path="url(#sz-{name})" fill="none" stroke="#bfc9d4" stroke-width="1" stroke-linejoin="round">')
+    land = svg_path(to_px(land_polygons(v), v, tol, min_area))
+    sz = path_for(outline["features"][0]["geometry"], v, eps*2)
+    # Shenzhen's boundary, grown slightly so the true coast is never clipped by DataV's generalised one
+    szb = ''
+    for poly in outline['features'][0]['geometry']['coordinates']:
+        g = Polygon([gcj_to_wgs(*pt) for pt in poly[0]]).buffer(0.0015)
+        szb += svg_path(to_px(g, v, 0.5, 0))
+    out.append(f'<defs><path id="land-{name}" d="{land}"/><clipPath id="landc-{name}"><use href="#land-{name}"/></clipPath><clipPath id="szc-{name}"><path d="{szb}"/></clipPath></defs>')
+    out.append(f'<use href="#land-{name}" fill="{OTHER_LAND}" stroke="#c9c5b6" stroke-width="1" fill-rule="evenodd"/>')
+    out.append(f'<g clip-path="url(#szc-{name})"><use href="#land-{name}" fill="{SZ_LAND}" stroke="#6b7b8f" stroke-width="1.6" stroke-linejoin="round" fill-rule="evenodd"/></g>')
+    out.append(f'<g clip-path="url(#landc-{name})" fill="none" stroke-linejoin="round">')
     for f in full['features']:  # district borders: coarser than the coastline
-        out.append(f'<path d="{path_for(f["geometry"], v, eps*5)}"/>')
-    out.append('</g>')
-    out.append(f'<use href="#szc-{name}" fill="none" stroke="#6b7b8f" stroke-width="1.6" stroke-linejoin="round"/>')
+        out.append(f'<path d="{path_for(f["geometry"], v, eps*5)}" stroke="#bfc9d4" stroke-width="1"/>')
+    out.append(f'<path d="{sz}" stroke="#6b7b8f" stroke-width="1.6"/></g>')
     for kind, label, lon, lat in LABELS[name]:
         if lon is None:
             cx, cy = centres[label]; lon, lat = gcj_to_wgs(cx, cy)
