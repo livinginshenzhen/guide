@@ -1144,11 +1144,11 @@
   .object-cover { object-fit: cover; }
   .fa-icon { width: 1em; height: 1em; vertical-align: -0.125em; }
   .vpn-pill { display: inline-block; background:#f0fdf4; color:#0f766e; border-radius:9999px; padding: 2px 12px; font-size:.8rem; font-weight:600; margin:2px; }
-  /* Ample desktop margins, tight on mobile */
-  .max-w-4xl { padding-left: 1rem; padding-right: 1rem; }
-  @media (min-width: 640px) { .max-w-4xl { padding-left: 1.5rem; padding-right: 1.5rem; } }
-  @media (min-width: 768px) { .max-w-4xl { padding-left: 2.5rem; padding-right: 2.5rem; } }
-  @media (min-width: 1024px) { .max-w-4xl { padding-left: 4rem; padding-right: 4rem; } }
+  /* Fluid page column: gutters scale with the viewport (5vw, clamped) and the column grows with it
+     until it reaches --col, so there are no width steps. Header, nav and content share one edge. */
+  :root { --g: clamp(1.5rem, 5vw, 3.5rem); --col: 62rem; }
+  .max-w-4xl { max-width: calc(var(--col) + 2 * var(--g)); padding-left: 1rem; padding-right: 1rem; }
+  @media (min-width: 640px) { .max-w-4xl { padding-left: var(--g); padding-right: var(--g); } }
 
   /* Nav: wrap into rows instead of horizontal scroll, except on narrow phones */
 
@@ -1187,20 +1187,12 @@
   /* main carries its own max-w-4xl padding; cancel it so tab-pane padding below is the only source */
   main.max-w-4xl { padding-left: 0; padding-right: 0; }
 
-  /* Tab content padding: triple on Overview, double on information pages */
+  /* Tab content padding: matches the header gutter from 640px up; the Overview is a narrower column */
   #tab-overview { padding-left: 3rem; padding-right: 3rem; }
   .tab-pane:not(#tab-overview) { padding-left: 2rem; padding-right: 2rem; }
   @media (min-width: 640px) {
-    #tab-overview { padding-left: 4.5rem; padding-right: 4.5rem; }
-    .tab-pane:not(#tab-overview) { padding-left: 3rem; padding-right: 3rem; }
-  }
-  @media (min-width: 768px) {
-    #tab-overview { padding-left: 7.5rem; padding-right: 7.5rem; }
-    .tab-pane:not(#tab-overview) { padding-left: 5rem; padding-right: 5rem; }
-  }
-  @media (min-width: 1024px) {
-    #tab-overview { padding-left: 12rem; padding-right: 12rem; }
-    .tab-pane:not(#tab-overview) { padding-left: 8rem; padding-right: 8rem; }
+    #tab-overview { padding-left: calc(var(--g) + 3rem); padding-right: calc(var(--g) + 3rem); }
+    .tab-pane:not(#tab-overview) { padding-left: var(--g); padding-right: var(--g); }
   }
 
 /* Two-tier navigation (desktop) / menu (phone) */
