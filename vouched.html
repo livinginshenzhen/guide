@@ -1,0 +1,58 @@
+---
+layout: default
+tab: vouched
+title: "Eats & Errands – Living in Shenzhen"
+updated: "3 November 2026"
+---
+    <div>
+      <h2 class="text-2xl font-bold mb-1 flex items-center gap-2">
+        <svg class="icon w-6 h-6 text-brand" aria-hidden="true"><use href="#ic-utensils"/></svg>
+        Places We&rsquo;ll Vouch For
+      </h2>
+      <p class="text-gray-500 text-sm">This isn&rsquo;t a directory. Dianping, Meituan, and Amap are better for that. These are places at least one of us will vouch for and enjoyed &ndash; a cheatsheet. There is always more to discover, and many other places to find things. This is only a list of places we wished we&rsquo;d found earlier &ndash; something to kickstart you.</p>
+      <p class="text-gray-500 text-sm mt-2">Use the copy button <svg class="icon w-4 h-4" style="display:inline;vertical-align:-.2em;" aria-hidden="true"><use href="#ic-copy"/></svg> on a card, then paste it into your map or food app to find the place.</p>
+    </div>
+
+    <div class="bg-white rounded-xl shadow-sm border border-gray-200 p-3" id="vouched-map">
+      {% include vouched-map-base.html %}
+      <p class="text-xs text-gray-400 mt-2 px-1">Approximate areas only &ndash; not for navigation. Select an area to show its places.</p>
+    </div>
+
+    <div id="vouched-filters" class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter places">
+      <button type="button" class="vm-chip" data-cat="all" aria-pressed="true">All</button>
+      <button type="button" class="vm-chip" data-cat="restaurant" aria-pressed="false">Restaurants</button>
+      <button type="button" class="vm-chip" data-cat="dessert" aria-pressed="false">Dessert</button>
+      <button type="button" class="vm-chip" data-cat="services" aria-pressed="false">Services</button>
+      <button type="button" id="vm-area-clear" class="vm-chip vm-chip-area" hidden><span id="vm-area-name"></span> &#10005;</button>
+    </div>
+
+    <div id="vouched-cuisines" class="flex flex-wrap items-center gap-2" role="group" aria-label="Filter by cuisine" hidden></div>
+
+    <div class="vm-grid" id="vouched-list">
+      {% for p in site.data.vouched %}
+      <div class="vm-card rounded-xl border border-gray-200 bg-white shadow-sm p-3" id="{{ p.id }}" data-cat="{{ p.category }}" data-cuisine="{{ p.cuisine | escape }}"{% if p.area_id %} data-area="{{ p.area_id }}"{% endif %}>
+        <p class="vm-cuisine">{{ p.cuisine | replace: '&', '&amp;' }}</p>
+        <div class="vm-g">
+          <div class="vm-head">
+            <p class="vm-name">{{ p.name | replace: '&', '&amp;' }}{% if p.name_zh %} <span lang="zh-Hans">{{ p.name_zh }}</span>{% endif %}</p>
+            <button type="button" class="vm-copy" data-copy="{{ p.name | escape }}{% if p.name_zh %} {{ p.name_zh }}{% endif %}" aria-label="Copy the name of {{ p.name | escape }} for search elsewhere" title="Copy the name for search elsewhere.">
+              <svg class="icon w-4 h-4 vm-ic-copy" aria-hidden="true"><use href="#ic-copy"/></svg>
+              <svg class="icon w-4 h-4 vm-ic-done" aria-hidden="true"><use href="#ic-check"/></svg>
+            </button>
+          </div>
+          {% if p.desc %}<p class="vm-sub">{{ p.desc | replace: '&', '&amp;' }}</p>{% endif %}
+        </div>
+        <div class="vm-g">
+          <p class="vm-sub vm-area-txt">{{ p.area | replace: '&', '&amp;' }}</p>
+          {% if p.order %}<p class="vm-note"><b>Order this:</b> {{ p.order | join: ", " }}</p>{% endif %}
+          {% if p.tip %}<p class="vm-note"><b>Tip:</b> {{ p.tip }}</p>{% endif %}
+        </div>
+      </div>
+      {% endfor %}
+
+      <div class="vm-card vm-soon rounded-xl bg-white p-3" data-cat="services">
+        <p class="vm-cuisine">Services</p>
+        <p class="vm-name">Coming soon</p>
+        <p class="text-xs text-gray-500 mt-0.5">Hair salon, nails, pet boarding, and pet daycare.</p>
+      </div>
+    </div>

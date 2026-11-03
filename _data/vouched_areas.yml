@@ -1,0 +1,8 @@
+# Area markers for the Eats & Errands map. A place's area_id must match an id here. The map is for orientation only, so markers sit on the area, not the door.
+# label: above puts the name over the marker instead of under it.
+# lat/lon are WGS-84 (from OpenStreetMap, or the user for Guishan Road). An area with no lat/lon is listed on the cards but gets no marker.
+- { id: sea-world, name: "Sea World", lat: 22.4838, lon: 113.9123 }
+- { id: shuiwan, name: "Shuiwan", lat: 22.4914, lon: 113.9152, label: above }
+- { id: wanghai-road, name: "Wanghai Road", lat: 22.489, lon: 113.9203 }
+- { id: guishan-road, name: "Guishan Road", lat: 22.48769, lon: 113.90798 }
+- { id: e-cool, name: "E-Cool", lat: 22.4895, lon: 113.9132 }

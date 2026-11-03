@@ -231,3 +231,83 @@ function toggleArrivalCard() {
   if (close) close.addEventListener('click', function() { setOpen(false, false); });
   if (location.hash === '#landmark-map-zoom') setOpen(true, false);
 })();
+
+(function() {
+  const list = document.getElementById('vouched-list');
+  if (!list) return;
+  const cards = Array.prototype.slice.call(list.querySelectorAll('.vm-card'));
+  const chips = Array.prototype.slice.call(document.querySelectorAll('#vouched-filters .vm-chip[data-cat]'));
+  const areas = Array.prototype.slice.call(document.querySelectorAll('.vm-area'));
+  const clear = document.getElementById('vm-area-clear');
+  const cuisineBox = document.getElementById('vouched-cuisines');
+  let cat = 'all', area = null, cuisine = null;
+
+  function tokens(c) { return (c.dataset.cuisine || '').split(/\s*[\/&]\s*/).filter(Boolean); }
+  const freq = {};
+  cards.forEach(function(c) { tokens(c).forEach(function(t) { freq[t] = (freq[t] || 0) + 1; }); });
+  const cuisineChips = Object.keys(freq).sort(function(a, b) { return freq[b] - freq[a] || a.localeCompare(b); }).map(function(t) {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'vm-chip vm-chip-sm'; b.textContent = t; b.dataset.cuisine = t; b.setAttribute('aria-pressed', 'false');
+    b.addEventListener('click', function() { cuisine = cuisine === t ? null : t; apply(); });
+    cuisineBox.appendChild(b);
+    return b;
+  });
+  cuisineBox.hidden = !cuisineChips.length;
+
+  function apply() {
+    const counts = {}, avail = {};
+    cards.forEach(function(c) {
+      const catOk = cat === 'all' || c.dataset.cat === cat;
+      if (catOk) tokens(c).forEach(function(t) { avail[t] = true; });
+    });
+    if (cuisine && !avail[cuisine]) cuisine = null;  // the chosen cuisine has no places under this type
+    cards.forEach(function(c) {
+      const catOk = cat === 'all' || c.dataset.cat === cat;
+      const areaOk = !area || c.dataset.area === area;
+      const cuisineOk = !cuisine || tokens(c).indexOf(cuisine) !== -1;
+      c.classList.toggle('vm-hide', !(catOk && areaOk && cuisineOk));
+      if (catOk && cuisineOk && c.dataset.area) counts[c.dataset.area] = (counts[c.dataset.area] || 0) + 1;
+    });
+    cuisineChips.forEach(function(b) {
+      b.hidden = !avail[b.dataset.cuisine];
+      b.setAttribute('aria-pressed', b.dataset.cuisine === cuisine ? 'true' : 'false');
+    });
+    chips.forEach(function(b) { b.setAttribute('aria-pressed', b.dataset.cat === cat ? 'true' : 'false'); });
+    areas.forEach(function(g) {
+      const n = counts[g.dataset.area] || 0;
+      g.querySelector('.vm-n').textContent = n;
+      g.classList.toggle('dim', n === 0);
+      g.classList.toggle('on', g.dataset.area === area);
+    });
+    clear.hidden = !area;
+    if (area) document.getElementById('vm-area-name').textContent = areas.filter(function(g) { return g.dataset.area === area; })[0].dataset.name;
+  }
+
+  chips.forEach(function(b) { b.addEventListener('click', function() { cat = b.dataset.cat; apply(); }); });
+  clear.addEventListener('click', function() { area = null; apply(); });
+  areas.forEach(function(g) {
+    function pick() { area = area === g.dataset.area ? null : g.dataset.area; apply(); }
+    g.addEventListener('click', pick);
+    g.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
+  });
+
+  list.addEventListener('click', function(e) {
+    const btn = e.target.closest('.vm-copy');
+    if (!btn) return;
+    const text = btn.dataset.copy;
+    function done() {
+      btn.classList.add('done'); btn.title = 'Copied';
+      setTimeout(function() { btn.classList.remove('done'); btn.title = 'Copy the name for search elsewhere.'; }, 1600);
+    }
+    if (navigator.clipboard && navigator.clipboard.writeText) {
+      navigator.clipboard.writeText(text).then(done, fallback);
+    } else fallback();
+    function fallback() {
+      const ta = document.createElement('textarea');
+      ta.value = text; ta.style.position = 'fixed'; ta.style.opacity = '0';
+      document.body.appendChild(ta); ta.select();
+      try { document.execCommand('copy'); done(); } catch (err) {}
+      document.body.removeChild(ta);
+    }
+  });
+})();

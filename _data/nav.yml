@@ -15,6 +15,7 @@
     - { tab: practical, title: Apartment, url: /apartment.html, icon: ic-map }
     - { tab: working, title: Working, url: /working.html, icon: ic-briefcase }
     - { tab: landmarks, title: Landmarks, url: /landmarks.html, icon: ic-landmark }
+    - { tab: vouched, title: "Eats &amp; Errands", url: /vouched.html, icon: ic-utensils }
     - { tab: weather, title: Weather, url: /weather.html, icon: ic-weather }
 - id: beyond
   title: Beyond Shenzhen

@@ -3,15 +3,17 @@
   _includes/shenzhen-map-inset-base.html   zoomed core map (Shekou to Luohu)
   _includes/shenzhen-map-pins.html         pins for the main map   (reads _data/landmark_pins.yml)
   _includes/shenzhen-map-inset-pins.html   pins for the inset
+  _includes/vouched-map-base.html          Nanshan (Shekou) area map for the Eats & Errands page; its markers are hand-written in vouched-map-pins.html
 Land/sea comes from OpenStreetMap coastline (_tools/osm_coastline.json, see prep_coastline.py); Shenzhen's boundary and districts from DataV.
-Run:  python3 _tools/build_shenzhen_map.py   (needs network and shapely)"""
-import json, math, subprocess
+Run:  python3 _tools/build_shenzhen_map.py [main inset nanshan]   (needs network and shapely; names limit which views are rebuilt)"""
+import json, math, subprocess, sys
 from shapely.geometry import LineString, Polygon, MultiPolygon, box, Point
 from shapely.ops import polygonize, unary_union
 
 VIEWS = {  # lon0 = left edge, lat1 = top edge, P = pixels per degree of latitude
     'main':  dict(lon0=113.68, lat1=22.94, P=1050.0, lon1=114.70, lat0=22.38),
     'inset': dict(lon0=113.85, lat1=22.60, P=3500.0, lon1=114.14, lat0=22.45),
+    'nanshan': dict(lon0=113.892, lat1=22.500, P=14770.0, lon1=113.958, lat0=22.468),
 }
 COS = math.cos(math.radians(22.63))
 for v in VIEWS.values():
@@ -101,6 +103,7 @@ LABELS = {
           ('o','HONG KONG',114.14,22.43),('o','DONGGUAN',113.97,22.925),('o','HUIZHOU',114.5,22.865),
           ('w','Pearl River Estuary',113.745,22.45),('w','Shenzhen Bay',113.99,22.488),('w','Daya Bay',114.62,22.52),('x','Dapeng',114.50,22.60)],
  'inset': [('d','Nanshan',113.905,22.575),('d','Futian',114.06,22.585),('d','Luohu',114.12,22.595),('o','HONG KONG',114.075,22.455),('w','Shenzhen Bay',113.995,22.505),('w','Qianhai',113.865,22.51)],
+ 'nanshan': [('w','Shenzhen Bay',113.942,22.4735),('x','Shekou',113.9,22.4965)],
 }
 centres = {EN[f['properties']['name']]: f['properties']['center'] for f in full['features']}
 
@@ -146,10 +149,52 @@ def svg_path(polys):
             d += 'M' + 'L'.join(f'{x:.1f},{y:.1f}' for x, y in list(ring.coords)[:-1]) + 'Z'
     return d
 
+ARIA = {'main': 'Map of Shenzhen showing where each landmark is',
+        'inset': 'Zoomed map of Shenzhen from Shekou to Luohu showing the landmarks in the core',
+        'nanshan': 'Approximate map of the Shekou area of Nanshan showing where the vouched-for places are'}
+OUT = {'main': 'shenzhen-map-base', 'inset': 'shenzhen-map-inset-base', 'nanshan': 'vouched-map-base'}
+PINS = {'main': 'shenzhen-map-pins.html', 'inset': 'shenzhen-map-inset-pins.html', 'nanshan': 'vouched-map-pins.html'}
+
+ROAD_LABELS = {'Wanghai Road': '88%', 'Nanhai Boulevard': '50%', 'Taizi Road': '50%', 'Yanshan Road': '50%', 'Zhongxin Road': '50%', 'Houhai Boulevard': '50%'}  # name: where along the road the name sits
+ROAD_W = {'trunk': 4.2, 'primary': 4.2, 'secondary': 3.2, 'tertiary': 2.2}
+
+def roads(name):
+    """Roads (OSM, from prep_roads.py) as casing + fill lines clipped to land, with a few names set along the road."""
+    v = VIEWS[name]
+    ways = json.load(open('_tools/osm_roads_nanshan.json'))
+    ds = {}
+    for w in ways:
+        if 'Elevated' in w['name']: continue
+        pts = [proj(v, lon, lat) for lon, lat in w['pts']]
+        ds.setdefault(w['class'], []).append('M' + 'L'.join(f'{x:.1f},{y:.1f}' for x, y in pts))
+    out = [f'<g clip-path="url(#landc-{name})" fill="none" stroke-linecap="round" stroke-linejoin="round">']
+    order = ['tertiary', 'secondary', 'primary', 'trunk']
+    for cls in order:  # casing under, fill over, one class at a time so bigger roads cross smaller ones
+        if cls in ds:
+            out.append(f'<path d="{"".join(ds[cls])}" stroke="#e0dccd" stroke-width="{ROAD_W[cls]+1.6}"/>')
+    for cls in order:
+        if cls in ds:
+            out.append(f'<path d="{"".join(ds[cls])}" stroke="#ffffff" stroke-width="{ROAD_W[cls]}"/>')
+    out.append('</g>')
+    for i, (label, at) in enumerate(ROAD_LABELS.items()):  # the longest piece of each named road that is inside the view
+        best, blen = None, 0
+        for w in ways:
+            if w['name'] != label: continue
+            pts = [proj(v, lon, lat) for lon, lat in w['pts']]
+            run = [p for p in pts if 0 <= p[0] <= v['W'] and 0 <= p[1] <= v['H']]
+            L = sum(math.hypot(b[0]-a[0], b[1]-a[1]) for a, b in zip(run, run[1:]))
+            if L > blen: best, blen = run, L
+        if best and blen > 70:
+            if best[0][0] > best[-1][0]: best = best[::-1]  # read left to right
+            d = 'M' + 'L'.join(f'{x:.1f},{y:.1f}' for x, y in best)
+            out.append(f'<path id="rd-{name}-{i}" d="{d}" fill="none"/>'
+                       f'<text font-size="10.5" font-weight="600" letter-spacing=".04em" fill="#8a93a0" stroke="#f7f5ee" stroke-width="3" paint-order="stroke"><textPath href="#rd-{name}-{i}" startOffset="{at}" text-anchor="middle" dy="-4">{label}</textPath></text>')
+    return '\n'.join(out)
+
 def base(name):
     v = VIEWS[name]; eps = 0.25 if name == 'main' else 0.2
-    tol, min_area = (1.2, 14) if name == 'main' else (2.0, 40)
-    out = [f'<svg viewBox="0 0 {v["W"]} {v["H"]}" role="img" aria-label="{"Map of Shenzhen showing where each landmark is" if name=="main" else "Zoomed map of Shenzhen from Shekou to Luohu showing the landmarks in the core"}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:inherit">',
+    tol, min_area = {'main': (1.2, 14), 'inset': (2.0, 40), 'nanshan': (1.5, 60)}[name]
+    out = [f'<svg viewBox="0 0 {v["W"]} {v["H"]}" role="img" aria-label="{ARIA[name]}" xmlns="http://www.w3.org/2000/svg" style="width:100%;height:auto;display:block;font-family:inherit">',
            f'<rect width="{v["W"]}" height="{v["H"]}" fill="{WATER}"/>']
     land = svg_path(to_px(land_polygons(v), v, tol, min_area))
     sz = path_for(outline["features"][0]["geometry"], v, eps*2)
@@ -165,20 +210,22 @@ def base(name):
     for f in full['features']:  # district borders: coarser than the coastline
         out.append(f'<path d="{path_for(f["geometry"], v, eps*5)}" stroke="#bfc9d4" stroke-width="1"/>')
     out.append(f'<path d="{sz}" stroke="#6b7b8f" stroke-width="1.6"/></g>')
+    if name == 'nanshan': out.append(roads(name))
     for kind, label, lon, lat in LABELS[name]:
         if lon is None:
             cx, cy = centres[label]; lon, lat = gcj_to_wgs(cx, cy)
         if kind == 'd': out.append(text(v, lon, lat, label.upper()))
         elif kind == 'x': out.append(text(v, lon, lat, label.upper()))
+        elif kind == 'p': out.append(text(v, lon, lat, label, size=11, fill='#8a93a0', weight=500))
         elif kind == 'o': out.append(text(v, lon, lat, label, size=12, fill='#8f8a78', halo=OTHER_LAND, italic=True, weight=600))
         else: out.append(text(v, lon, lat, label, size=11, fill='#6d8aa6', halo=WATER, italic=True, weight=500))
     if name == 'main':  # outline of the inset area
         i = VIEWS['inset']; x0, y0 = proj(v, i['lon0'], i['lat1']); x1, y1 = proj(v, i['lon1'], i['lat0'])
         out.append(f'<a href="#landmark-map-zoom" class="map-zoom-link" role="button" aria-expanded="false" aria-label="Show or hide the inset map of Shekou to Luohu"><rect x="{x0:.1f}" y="{y0:.1f}" width="{x1-x0:.1f}" height="{y1-y0:.1f}" fill="#2563eb" fill-opacity="0.05" stroke="#2563eb" stroke-width="1.6" stroke-dasharray="5 3" pointer-events="all"/>'
                    f'<text x="{x0+4:.1f}" y="{y0-6:.1f}" font-size="11" font-weight="700" fill="#2563eb" stroke="{WATER}" stroke-width="3" paint-order="stroke">Inset Section &#9662;</text></a>')
-    out.append('{% include ' + ('shenzhen-map-pins.html' if name == 'main' else 'shenzhen-map-inset-pins.html') + ' %}')
+    out.append('{% include ' + PINS[name] + ' %}')
     out.append('</svg>')
-    open(f'_includes/shenzhen-map-{"base" if name=="main" else "inset-base"}.html', 'w', encoding='utf-8').write('\n'.join(out))
+    open(f'_includes/{OUT[name]}.html', 'w', encoding='utf-8').write('\n'.join(out))
 
 def pins(name):
     v = VIEWS[name]; r, hit, sw = (10, 11, 1.8) if name == 'main' else (14, 15, 2)
@@ -193,5 +240,8 @@ def pins(name):
            '{% for p in site.data.landmark_pins %}' + cond + body + ('{% endif %}' if cond else '') + '\n{% endfor %}')
     open(f'_includes/shenzhen-map-{"pins" if name=="main" else "inset-pins"}.html', 'w', encoding='utf-8').write(txt)
 
-for n in VIEWS: base(n); pins(n)
-for n, v in VIEWS.items(): print(n, v['W'], 'x', v['H'])
+todo = sys.argv[1:] or ['main', 'inset']  # nanshan is opt-in so a plain run leaves the Eats & Errands map alone
+for n in todo:
+    base(n)
+    if n != 'nanshan': pins(n)
+for n in todo: print(n, VIEWS[n]['W'], 'x', VIEWS[n]['H'])
