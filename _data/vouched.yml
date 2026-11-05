@@ -2,7 +2,7 @@
 # name_zh only where the Chinese name is what you search by. order = what to order. tip = anything else worth knowing.
 # area is the text shown on the card; area_id puts the place under a marker on the map (see vouched_areas.yml).
 - { id: il-faro, name: "Il Faro Bar Ristorante", name_zh: "灯塔意大利餐吧", category: restaurant, cuisine: Italian, area: "Nanhai E-Cool", area_id: e-cool }
-- { id: bunco-by-abidin, name: "Bunco by Abidin", category: restaurant, cuisine: Middle Eastern, desc: Turkish, area: "Nanhai E-Cool", area_id: e-cool, order: ["Chicken soup", "Kebabs", "Hummus"] }
+- { id: bunco-by-abidin, name: "Bunco by Abidin", category: restaurant, cuisine: Middle Eastern, desc: Turkish, area: "Nanhai E-Cool", area_id: e-cool, order: ["Chicken soup", "Kebabs", "Hummus", "Halloumi cheese"] }
 - { id: brbr, name: "BRBR Syrian Restaurant", name_zh: "叙利亚餐厅", category: restaurant, cuisine: Middle Eastern, desc: Syrian, area: "Sea World", area_id: sea-world, order: ["Hummus", "Shawarma"] }
 - { id: jeju-taste-korean-cuisine, name: "Jeju Taste Korean Cuisine", name_zh: "味谈·海景韩国料理", category: restaurant, cuisine: Korean, area: "Wanghai Road", area_id: wanghai-road, order: ["Bibimbap"] }
 - { id: baia-burger-concept, name: "Baia Burger Concept", category: restaurant, cuisine: Western, desc: "Gourmet burgers, pizza, and cocktails", area: "Sea World", area_id: sea-world, order: ["Cocktails for delivery"] }
@@ -13,13 +13,16 @@
 - { id: 21-day-secret, name: "21 Day Secret", category: restaurant, cuisine: Western / Seafood, desc: "Steak & seafood", area: "Sea World, Guishan Road", area_id: guishan-road, tip: "Use Dianping for deals on combos." }
 - { id: nypd-new-york-pizza, name: "NYPD New York Pizza (Shekou)", name_zh: "纽约披萨（蛇口店）", category: restaurant, cuisine: Pizza, area: "Shuiwan", area_id: shuiwan }
 - { id: commune, name: "Commune (at Museum)", category: restaurant, cuisine: Western, desc: "Western, bar foods", area: "Sea World, Culture & Arts Center", area_id: sea-world, order: ["Lotus root fries"] }
-- { id: tequila-coyotes, name: "Tequila Coyotes", category: restaurant, cuisine: Mexican, area: "Sea World", area_id: sea-world }
+- { id: tequila-coyotes, name: "Tequila Coyotes", category: restaurant, cuisine: Mexican, area: "Sea World", area_id: sea-world, order: ["Ribeye tacos"] }
 - { id: tacos-mexican-restaurant, name: "Tacos Mexican Restaurant", category: restaurant, cuisine: Mexican, area: "Sea World", area_id: sea-world }
 - { id: dough-bros, name: "Dough Bros.", category: restaurant, cuisine: Pizza, area: "Sea World", area_id: sea-world }
 - { id: emilys-cafe, name: "Emily’s Cafe", category: restaurant, cuisine: Cafe & Western, desc: "British breakfast, coffee", area: "Nanhai E-Cool", area_id: e-cool, order: ["Breakfast"] }
-- { id: blend-coffee-shop, name: "Blend Coffee Shop", category: restaurant, cuisine: Cafe & Western, desc: "Coffee, British full breakfast", area: "Sea World", area_id: sea-world, order: ["Little Monster breakfast platter"] }
+- { id: blend-coffee-shop, name: "Blend Coffee Shop", category: restaurant, cuisine: Cafe & Western, desc: "Coffee, British full breakfast", area: "Sea World", area_id: sea-world, order: ["Little Monster breakfast platter", "Honey chicken sandwich"] }
 - { id: saanci-cafe, name: "Saanci Cafe", category: restaurant, cuisine: Cafe & Western, desc: "Cafe with breakfast and sandwiches", area: "Sea World, Culture & Arts Center", area_id: sea-world }
 - { id: gaga, name: "Gaga", category: restaurant, cuisine: Cafe & Western, area: "Sea World, Culture & Arts Center", area_id: sea-world, order: ["Mango chicken sandwich and a smoothie"] }
+- { id: boar-bistro-brunch, name: "Boar Bistro + Brunch", category: restaurant, cuisine: Western, desc: "Western food with a heavy Asian influence", area: "Nanhai E-Cool", area_id: e-cool, order: ["Berries ricotta toast", "Typhoon shelter style fries"] }
 - { id: scoopify, name: "Scoopify", category: dessert, cuisine: Ice cream, area: "Shuiwan", area_id: shuiwan }
 - { id: ye-gelato, name: "Ye Gelato", name_zh: "野人先生", category: dessert, cuisine: Ice cream, area: "Sea World", area_id: sea-world, order: ["Pistachio"] }
 - { id: manxia, name: "Manxia", name_zh: "慢夏", category: dessert, cuisine: Ice cream, area: "Shuiwan", area_id: shuiwan }
+- { id: berlon-nail-eyelash, name: "Berlon Nail & Eyelash", name_zh: "柏伦美甲美睫半永久(汇港店)", category: services, cuisine: Nails, area: "Sea World", area_id: sea-world }
+- { id: tonan-hair-salon, name: "Tonan Hair Salon (Shekou)", name_zh: "同安名发廊", category: services, cuisine: Hair salon, area: "Sea World", area_id: sea-world, tip: "Ask for Michael, who speaks English." }
