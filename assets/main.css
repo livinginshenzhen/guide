@@ -1271,3 +1271,10 @@ a.lm-card.lm-new { border-color:#2563eb; border-width:2px; background:#f5f9ff; b
 .vm-area.dim { opacity:.35; }
 .vm-area:focus { outline:none; }
 .vm-area:focus-visible .vm-ring { stroke-width:3; }
+/* Selecting a card highlights its area marker on the map (separate from the area filter) */
+.vm-card[data-area] { cursor:pointer; }
+.vm-card.vm-sel { border-color:#2563eb; box-shadow:0 0 0 3px rgba(37,99,235,.25); }
+.vm-card.vm-sel .vm-area-txt { color:#1d4ed8; font-weight:700; }
+.vm-area.hl .vm-ring { fill:#f59e0b; stroke:#d97706; fill-opacity:.3; stroke-dasharray:none; stroke-width:3.5; transform-box:fill-box; transform-origin:center; animation:vm-pulse 1.1s ease-out 2; }
+@keyframes vm-pulse { 0% { transform:scale(.8); } 60% { transform:scale(1.25); } 100% { transform:scale(1); } }
+@media (prefers-reduced-motion: reduce) { .vm-area.hl .vm-ring { animation:none; } }

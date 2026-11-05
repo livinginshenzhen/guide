@@ -279,6 +279,7 @@ function toggleArrivalCard() {
       g.classList.toggle('dim', n === 0);
       g.classList.toggle('on', g.dataset.area === area);
     });
+    if (sel && sel.classList.contains('vm-hide')) select(null);
     clear.hidden = !area;
     if (area) document.getElementById('vm-area-name').textContent = areas.filter(function(g) { return g.dataset.area === area; })[0].dataset.name;
   }
@@ -290,6 +291,21 @@ function toggleArrivalCard() {
     g.addEventListener('click', pick);
     g.addEventListener('keydown', function(e) { if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); pick(); } });
   });
+
+  // Selecting a card highlights its area on the map without changing the area filter.
+  let sel = null;
+  function select(card) {
+    sel = card;
+    cards.forEach(function(c) { c.classList.toggle('vm-sel', c === sel); });
+    areas.forEach(function(g) { g.classList.toggle('hl', !!sel && g.dataset.area === sel.dataset.area); });
+  }
+  list.addEventListener('click', function(e) {
+    const card = e.target.closest('.vm-card');
+    if (!card || !card.dataset.area || e.target.closest('.vm-copy, a')) return;
+    select(sel === card ? null : card);
+  });
+  document.addEventListener('keydown', function(e) { if (e.key === 'Escape') select(null); });
+  document.addEventListener('click', function(e) { if (sel && !e.target.closest('.vm-card, .vm-area')) select(null); });
 
   list.addEventListener('click', function(e) {
     const btn = e.target.closest('.vm-copy');
