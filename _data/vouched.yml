@@ -26,3 +26,4 @@
 - { id: manxia, name: "Manxia", name_zh: "慢夏", category: dessert, cuisine: Ice cream, area: "Shuiwan", area_id: shuiwan }
 - { id: berlon-nail-eyelash, name: "Berlon Nail & Eyelash", name_zh: "柏伦美甲美睫半永久(汇港店)", category: services, cuisine: Nails, area: "Sea World", area_id: sea-world }
 - { id: tonan-hair-salon, name: "Tonan Hair Salon (Shekou)", name_zh: "同安名发廊", category: services, cuisine: Hair salon, area: "Sea World", area_id: sea-world, tip: "Ask for Michael, who speaks English." }
+- { id: time-hair-salon, name: "时光美发沙龙（海上世界店）", name_en: "Time Hair Salon", category: services, cuisine: Hair salon, area: "Sea World", area_id: sea-world, tip: "Ask for Ayan, who speaks English and has experience with foreigners." }
