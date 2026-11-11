@@ -27,3 +27,4 @@
 - { id: berlon-nail-eyelash, name: "Berlon Nail & Eyelash", name_zh: "柏伦美甲美睫半永久(汇港店)", category: services, cuisine: Nails, area: "Sea World", area_id: sea-world }
 - { id: tonan-hair-salon, name: "Tonan Hair Salon (Shekou)", name_zh: "同安名发廊", category: services, cuisine: Hair salon, area: "Sea World", area_id: sea-world, tip: "Ask for Michael, who speaks English." }
 - { id: time-hair-salon, name: "时光美发沙龙（海上世界店）", name_en: "Time Hair Salon", category: services, cuisine: Hair salon, area: "Sea World", area_id: sea-world, tip: "Ask for Ayan, who speaks English and has experience with foreigners." }
+- { id: oasis-pet-living-house, name: "Oasis Pet Living House", name_zh: "绿洲宠物(南山医疗器械产业园店)", category: services, cuisine: Pet services, desc: "Vet clinic, drop-in daycare, and grooming", area: "1019 Nanhai Ave., Block A, Unit 110 (Nanhai & Gongye 3rd Road)", area_id: guishan-road, tip: "Daycare runs 10:00–20:00 with 3 walks and a playroom. Not suggested for boarding." }
