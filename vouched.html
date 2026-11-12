@@ -34,8 +34,8 @@ updated: "11 November 2026"
         <p class="vm-cuisine">{{ p.cuisine | replace: '&', '&amp;' }}</p>
         <div class="vm-g">
           <div class="vm-head">
-            <p class="vm-name">{% if p.name_en %}<span lang="zh-Hans" style="font-weight:700;">{{ p.name }}</span> <span>{{ p.name_en }}</span>{% else %}{{ p.name | replace: '&', '&amp;' }}{% if p.name_zh %} <span lang="zh-Hans">{{ p.name_zh }}</span>{% endif %}{% endif %}</p>
-            <button type="button" class="vm-copy" data-copy="{{ p.name | escape }}{% if p.name_zh %} {{ p.name_zh }}{% endif %}{% if p.name_en %} {{ p.name_en }}{% endif %}" aria-label="Copy the name of {{ p.name | escape }} for search elsewhere" title="Copy the name for search elsewhere.">
+            <p class="vm-name">{{ p.name | replace: '&', '&amp;' }}{% if p.name_zh %} <span lang="zh-Hans">{{ p.name_zh }}</span>{% endif %}</p>
+            <button type="button" class="vm-copy" data-copy="{{ p.name | escape }}{% if p.name_zh %} {{ p.name_zh }}{% endif %}" aria-label="Copy the name of {{ p.name | escape }} for search elsewhere" title="Copy the name for search elsewhere.">
               <svg class="icon w-4 h-4 vm-ic-copy" aria-hidden="true"><use href="#ic-copy"/></svg>
               <svg class="icon w-4 h-4 vm-ic-done" aria-hidden="true"><use href="#ic-check"/></svg>
             </button>
