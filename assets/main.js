@@ -30,9 +30,13 @@ const miniApps = [
   { name: 'Silver Palate Groceries', desc: 'Western grocery items you can’t find at Ole', icon: 'assets/icons/silverpalate.jpg' },
   { name: '旧衣回收 (Donations; Jiù Yī Huíshōu) (Mǎyǐ or "Ant")', desc: 'Use to donate (with pick up) clothes, furniture, appliances, and other items.', icon: 'assets/icons/mayi.png' },
 ];
-const mag = document.getElementById('mini-apps-grid');
-if (mag) {
-  miniApps.forEach(a => {
+const alipayMiniApps = [
+  { name: 'Taobao 淘宝', desc: 'Although Taobao is an app in app stores, using it in AliPay is the best way to shop with translation.', icon: 'assets/icons/taobao.jpg' },
+];
+[['mini-apps-grid', miniApps], ['alipay-mini-apps-grid', alipayMiniApps]].forEach(([id, list]) => {
+  const mag = document.getElementById(id);
+  if (!mag) return;
+  list.forEach(a => {
     const d = document.createElement('div');
     d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
     const iconHtml = a.icon
@@ -43,7 +47,7 @@ if (mag) {
       <div><p class="font-medium">${a.name}</p><p class="text-xs text-gray-500 mt-0.5">${a.desc}</p></div>`;
     mag.appendChild(d);
   });
-}
+});
 
 const apps = [
   { name: "Sam’s Club (China)", desc: 'The company will provide a free membership to Sam’s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg', url: 'https://apps.apple.com/us/app/id818237113' },
