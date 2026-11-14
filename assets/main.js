@@ -31,13 +31,14 @@ const miniApps = [
   { name: '旧衣回收 (Donations; Jiù Yī Huíshōu) (Mǎyǐ or "Ant")', desc: 'Use to donate (with pick up) clothes, furniture, appliances, and other items.', icon: 'assets/icons/mayi.png' },
 ];
 const alipayMiniApps = [
-  { name: 'Taobao 淘宝', desc: 'Although Taobao is an app in app stores, using it in AliPay is the best way to shop with translation.', icon: 'assets/icons/taobao.jpg' },
+  { name: 'Taobao 淘宝', desc: 'Although Taobao is an app in app stores, using it in AliPay is the best way to shop with translation.', icon: 'assets/icons/taobao.jpg', id: 'taobao' },
 ];
 [['mini-apps-grid', miniApps], ['alipay-mini-apps-grid', alipayMiniApps]].forEach(([id, list]) => {
   const mag = document.getElementById(id);
   if (!mag) return;
   list.forEach(a => {
     const d = document.createElement('div');
+    if (a.id) d.id = a.id;
     d.className = 'flex gap-3 p-3 bg-gray-50 rounded-lg items-start';
     const iconHtml = a.icon
       ? `<img src="${a.icon}" alt="" class="flex-shrink-0 w-8 h-8 rounded-lg object-cover border border-gray-200" loading="eager">`
@@ -48,6 +49,11 @@ const alipayMiniApps = [
     mag.appendChild(d);
   });
 });
+// Entries are built by JS, so the browser can't scroll to a #hash on its own.
+if (location.hash === '#taobao') {
+  const t = document.getElementById('taobao');
+  if (t) requestAnimationFrame(() => t.scrollIntoView({ behavior: 'smooth', block: 'center' }));
+}
 
 const apps = [
   { name: "Sam’s Club (China)", desc: 'The company will provide a free membership to Sam’s Club. It does not use the US app. See App Store notes below.', icon: 'assets/icons/samsclub.jpg', url: 'https://apps.apple.com/us/app/id818237113' },
