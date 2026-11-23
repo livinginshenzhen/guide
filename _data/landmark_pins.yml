@@ -37,3 +37,5 @@
 - { id: baoan-airport-terminal, name: "Bao’an International Airport Terminal", lat: 22.6404, lon: 113.8031, approx: false }
 - { id: citic-international-tower, name: "CITIC International Tower", lat: 22.5426, lon: 114.0891, approx: false }
 - { id: marisfrolg-pavilion, name: "Marisfrolg Pavilion", lat: 22.7032, lon: 113.9795, approx: false }
+- { id: vanke-yun-city-building, name: "Vanke Yun City Building in Cloud City", lat: 22.57788, lon: 113.93945, approx: false }
+- { id: t33-full-time-center, name: "T33 Full-Time Center", lat: 22.5880, lon: 113.9264, approx: false }
