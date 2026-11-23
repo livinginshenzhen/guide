@@ -35,3 +35,5 @@
 - { id: shenzhen-museum-urban-planning, name: "Shenzhen Museum of Urban Planning & Contemporary Art", lat: 22.5485, lon: 114.0567, approx: false }
 - { id: tencent-binhai-building, name: "Tencent Binhai Building", lat: 22.5259, lon: 113.9304, approx: false }
 - { id: baoan-airport-terminal, name: "Bao’an International Airport Terminal", lat: 22.6404, lon: 113.8031, approx: false }
+- { id: citic-international-tower, name: "CITIC International Tower", lat: 22.5426, lon: 114.0891, approx: false }
+- { id: marisfrolg-pavilion, name: "Marisfrolg Pavilion", lat: 22.7032, lon: 113.9795, approx: false }
